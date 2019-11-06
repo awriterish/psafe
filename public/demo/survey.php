@@ -10,7 +10,7 @@
 	$lds = mysqli_query($connection, "SELECT * FROM `Learning Domains`;");
 	if(mysqli_num_rows($lds)>0){
 		while($ld = $lds->fetch_assoc()){
-			echo "<h2><strong>Leadning domain:</srtong> " . $ld["Name"] . "(" . $ld["Abbreviations"] . ")</h2>";
+			echo "<h2><strong>Learning domain:</srtong> " . $ld["Name"] . "(" . $ld["Abbreviations"] . ")</h2>";
 			$survey = mysqli_query($connection, "SELECT * FROM Question WHERE Domain_ID = " . $ld["Domain_ID"] . ";");
 			if(mysqli_num_rows($survey)>0){
 				while($question = $survey->fetch_assoc()){

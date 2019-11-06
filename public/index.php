@@ -12,7 +12,7 @@
 			<br>
 			<h4>Select a feature to view:</h4>
 			<ul>
-				<li>View data: <a href="demo/?page=view"><button class="btn btn-primary">Go -></button></a></li>
+				<li>View data: <a href="demo/?page=view2"><button class="btn btn-primary">Go -></button></a></li>
 				<li>View outcomes: <a href="demo/?page=survey"><button class="btn btn-primary">Go -></button></a></li>
 			</ul>
 		</div>
