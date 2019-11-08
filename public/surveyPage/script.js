@@ -1,18 +1,16 @@
 //TEMP VARIABLES (REPLACE W/ SQL WHEN POSSIBLE)
 const totalStudents=10;
 const tempOutcomesArray = ['This is test outcome 1!', 'This is another outcome! (it\'s the second one)', '3rd outcome is the charm!', 'Ok, maybe we add another outcome here at the end.'];
-
 //COLOR SCHEME STUFF
-var goodColor="#9ACD32";
-var badColor="#FA8072	";
-
+var goodColor="#98FB98";
+var badColor="#F08080";
 //LOCAL VARIABLES
 var totalOutcomes=0;
-
 
 //ON RUNTIME
 setUpPage(tempOutcomesArray);
 
+//REACTION FUNCTIONS
 $('.number-box').keyup(function () { 
 	refreshAll();
 });
@@ -20,6 +18,7 @@ $('.number-box').on("change", function () {
 	refreshAll();
 });
 
+//MAIN FUNCTIONS
 function setUpPage(outcomeArray) {
 	console.log("setUpPage("+outcomeArray+")");
 	addOutcomesFromArray(outcomeArray);
@@ -45,6 +44,7 @@ function refreshAll() {
 	refreshButton(allSumsMatched());
 }
 
+//HELPER FUNCTIONS
 function addNewOutcome(outcomeText) {
 	console.log("addNewOutcome()");
 	addOutcome(totalOutcomes, outcomeText);
