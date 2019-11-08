@@ -2,7 +2,7 @@
 const totalStudents=10;
 const tempOutcomesArray = ['This is test outcome 1!', 'This is another outcome! (it\'s the second one)', '3rd outcome is the charm!', 'Ok, maybe we add another outcome here at the end.'];
 
-//
+//COLOR SCHEME STUFF
 var goodColor="#9ACD32";
 var badColor="#FA8072	";
 
