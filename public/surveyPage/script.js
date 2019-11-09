@@ -5,6 +5,7 @@ const tempOutcomesArray = ['This is test outcome 1!', 'This is another outcome! 
 var goodColor="#98FB98";
 var badColor="#F08080";
 //LOCAL VARIABLES
+var validToSubmit=false;
 var totalOutcomes=0;
 
 //ON RUNTIME
@@ -41,7 +42,8 @@ function refreshAll() {
 		console.log("i="+i);
 		refresh(i);
 	}
-	refreshButton(allSumsMatched());
+	refreshValidToSubmit();
+	refreshSubmitButton(allSumsMatched());
 }
 
 //HELPER FUNCTIONS
@@ -80,7 +82,7 @@ function setSumColor(num, valid) {
 	}
 	$("#sum"+num).css({"background-color": boxColor});
 }
-function refreshButton(sumsMatched) {
+function refreshSubmitButton(sumsMatched) {
 	console.log("refreshButton("+sumsMatched+")");
 	if(sumsMatched) {
 		document.getElementById("submit-button").removeAttribute("disabled");
@@ -89,6 +91,10 @@ function refreshButton(sumsMatched) {
 		document.getElementById("submit-button").setAttribute("disabled", "disabled");
 		$("#submit-button").css({"background-color": badColor});
 	}
+}
+function refreshValidToSubmit() {
+	console.log("refreshSums()");
+	validToSubmit=allSumsMatched();
 }
 function allSumsMatched() {
 	console.log("allSumsMatched()");
