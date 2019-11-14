@@ -19,7 +19,7 @@ makeClassOutcomes(0,tempOutcomesArray)
 //REACTION FUNCTIONS
 $('.number-box').keyup(function () { 
 	refreshAll();
-});
+});	
 $('.number-box').on("change", function () { 
 	refreshAll();
 });
@@ -29,18 +29,29 @@ function makeDropdownList() {
 	console.log("makeDropdownList()");
 	var newOutcome = $("<div class=\'dropdown-section\'>");
 	newOutcome.html("\
-		<h1>\
-				Which class would you like to fill a survey for?\
-			</h1>\
-			<div class=\"dropdown\">\
-				<button class=\"dropbtn\">Classes</button>\
-				<div class=\"dropdown-content\">\
-					<a href=\"#\">Link 1 asdfasdfasdf</a>\
-					<a href=\"#\">Link 2</a>\
-					<a href=\"#\">Link 3</a>\
-				</div>\
-			</div>");
+			<select id=\"dropdown-menu\">\
+		</select>");
 	$("#dropdown-container").append(newOutcome);
+	var classArray=[];
+	for (i =0; i < tempOutcomesArray.length; i++) {
+		console.log("i="+i);
+		console.log("tempOutcomesArray[i][0]="+tempOutcomesArray[i][0]);
+		classArray.push(tempOutcomesArray[i][0]);
+	}
+	populateDropdownList(classArray);
+}
+
+function populateDropdownList(classArray) {
+	console.log("populateDropdownList("+classArray+")");
+	var dropdownOptions ="";
+	for (i = 0; i < classArray.length; i++) {
+		console.log("i="+i);
+		console.log("classArray[i]="+classArray[i]);
+		dropdownOptions= dropdownOptions + "<option value='"+1+"'>"+classArray[i]+"</option>";
+		console.log("dropdownOptions="+dropdownOptions);
+	}
+	console.log("dropdownOptions="+dropdownOptions);
+	$("#dropdown-menu").html(dropdownOptions);
 }
 
 function makeSurvey() {
