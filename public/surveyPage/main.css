@@ -4,13 +4,19 @@ td {
 
 #dropdown-container {
 	text-align: center;
+	margin: 5px;
+	font-family: Trebuchet MS;
+	font-size: 20px;
 }
 
 #dropdown-menu {
 	width:auto;
 	margin: 20px;
-	font-family: Trebuchet MS;
-	font-size: 20px;
+	
+}
+
+#class-button {
+	
 }
 
 .top-of-table {

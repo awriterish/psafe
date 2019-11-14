@@ -13,9 +13,7 @@ var validToSubmit=false;
 var totalOutcomes=0;
 
 //ON RUNTIME
-makeDropdownList();
-makeSurvey();
-makeClassOutcomes(1,tempOutcomesArray)
+makeDropdownList();	
 
 //REACTION FUNCTIONS
 $('.number-box').keyup(function () { 
@@ -60,7 +58,16 @@ function populateDropdownList(classArray) {
 
 function parseClassSubmit() {
 	console.log("parseClassSubmit()");
-	console.log("document.getElementById('dropdown-menu').name =" + document.getElementById('dropdown-menu').name);
+	var selectedClass = document.getElementById('dropdown-menu').value;
+	console.log("selectedClass=" + selectedClass);
+	makeSurvey();
+	makeClassOutcomes(selectedClass, tempOutcomesArray);
+	document.getElementById("class-button").setAttribute("disabled", "disabled");
+	makeSurveyHeader(tempOutcomesArray[selectedClass][0]);
+}
+
+function makeSurveyHeader(className) {
+	$("#dropdown-container").html("<h2> Survey for "+ className);
 }
 
 function makeSurvey() {
@@ -88,6 +95,7 @@ function makeSurvey() {
 	$("#survey-container").append(newOutcome);
 }
 
+
 function makeClassOutcomes(surveyIndex, outcomeArray) {
 	console.log("makeClassOutcomes("+surveyIndex+")");
 	var questionsArray=[];
@@ -108,7 +116,7 @@ function addOutcomesFromArray(outcomeArray) {
 	console.log("addOutcomesFromArray("+outcomeArray+")");
 	var i;
 	for (i = 0; i < outcomeArray.length; i++) {
-		console.log("i="+i);
+		//console.log("i="+i);
 		addNewOutcome(outcomeArray[i]);
 	}
 	refreshAll();
@@ -123,11 +131,23 @@ function refreshAll() {
 	console.log("refreshAll()");
 	var i;
 	for (i = 0; i < totalOutcomes; i++) {
-		console.log("i="+i);
+		//console.log("i="+i);
 		refresh(i);
 	}
 	refreshValidToSubmit();
 	refreshSubmitButton(allSumsMatched());
+	refreshHandlers();
+}
+
+function refreshHandlers() {
+	console.log("refreshHandlers	()");
+	$('.number-box').off();
+	$('.number-box').keyup(function () { 
+	refreshAll();
+	});	
+	$('.number-box').on("change", function () { 
+		refreshAll();
+	});
 }
 
 //HELPER FUNCTIONS
@@ -185,9 +205,9 @@ function allSumsMatched() {
 	var i;
 	var matched=true;
 	for (i = 0; i < totalOutcomes; i++) {
-		console.log("i="+i);
+		//console.log("i="+i);
 		var ithSumMatched=getSumOf(i)==totalStudents;
-		console.log("ithSumMatched="+ithSumMatched);
+		//console.log("ithSumMatched="+ithSumMatched);
 		matched=matched&&ithSumMatched;
 	}
 	console.log("returning matched="+matched);
