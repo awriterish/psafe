@@ -1,5 +1,5 @@
 //TEMP VARIABLES (REPLACE W/ SQL WHEN POSSIBLE)
-const totalStudents=10;
+const totalStudents=11;
 const tempOutcomesArray = [
 ['CSCI 340', 'This is test outcome 1!', 'This is another outcome! (it\'s the second one)', '3rd outcome is the charm!', 'Ok, maybe we add another outcome here at the end of CSCI 340.'],
 ['TART 140', 'This is an alternate outcome for TART 140', 'This is another alternate! (it\'s the second one)', 'Let\'s stop this one at 3!'],
@@ -30,7 +30,7 @@ function makeDropdownList() {
 	console.log("makeDropdownList()");
 	var newOutcome = $("<div class=\'dropdown-section\'>");
 	newOutcome.html("\
-			<select id=\"dropdown-menu\">\
+		<select id=\"dropdown-menu\">\
 		</select>");
 	$("#dropdown-container").append(newOutcome);
 	var classArray=[];
