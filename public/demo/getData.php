@@ -11,6 +11,10 @@
 				die("Failed to connect to database");
 			}	
 			$questions = mysqli_query($connection, "SELECT * FROM `Question` WHERE Domain_ID = $did;");
+			$domains = mysqli_query($connection, "SELECT Name FROM `Learning Domains` WHERE Domain_ID = $did");
+			while($domain=$domains->fetch_assoc()){
+				echo "<h2>" . $domain['Name'] . "</h2><br>";
+			}
 			if(mysqli_num_rows($questions)>0){
 				while($question=$questions->fetch_assoc()){
 					echo "<h3>" . $question["Text"] . "</h3><br>";
