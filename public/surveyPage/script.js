@@ -1,5 +1,5 @@
 //TEMP VARIABLES (REPLACE W/ SQL WHEN POSSIBLE)
-const totalStudents=11;
+const totalStudents=10;
 const tempOutcomesArray = [
 ['CSCI 340', 'This is test outcome 1!', 'This is another outcome! (it\'s the second one)', '3rd outcome is the charm!', 'Ok, maybe we add another outcome here at the end of CSCI 340.'],
 ['TART 140', 'This is an alternate outcome for TART 140', 'This is another alternate! (it\'s the second one)', 'Let\'s stop this one at 3!'],
@@ -24,14 +24,18 @@ $('.number-box').keyup(function () {
 $('.number-box').on("change", function () { 
 	refreshAll();
 });
+$('.dropdown-container').on("change", function () { 
+	parseClassSubmit();
+});
 
 //MAIN FUNCTIONS
 function makeDropdownList() {
 	console.log("makeDropdownList()");
-	var newOutcome = $("<div class=\'dropdown-section\'>");
+	var newOutcome = $("<div class='dropdown-section'>");
 	newOutcome.html("\
-		<select id=\"dropdown-menu\">\
-		</select>");
+			<select id='dropdown-menu'>\
+		</select>\
+		<button type='button' id='class-button' onclick='parseClassSubmit()'>Click Me!</button>");
 	$("#dropdown-container").append(newOutcome);
 	var classArray=[];
 	for (i =0; i < tempOutcomesArray.length; i++) {
@@ -41,7 +45,6 @@ function makeDropdownList() {
 	}
 	populateDropdownList(classArray);
 }
-
 function populateDropdownList(classArray) {
 	console.log("populateDropdownList("+classArray+")");
 	var dropdownOptions ="";
@@ -53,6 +56,11 @@ function populateDropdownList(classArray) {
 	}
 	console.log("dropdownOptions="+dropdownOptions);
 	$("#dropdown-menu").html(dropdownOptions);
+}
+
+function parseClassSubmit() {
+	console.log("parseClassSubmit()");
+	console.log("document.getElementById('dropdown-menu').name =" + document.getElementById('dropdown-menu').name);
 }
 
 function makeSurvey() {
@@ -75,7 +83,7 @@ function makeSurvey() {
 				</tbody>\
 			</table>\
 			<div class='button-row'>\
-				<button type='button' id='submit-button'>Submit</button>\
+				<button type='button' id='submit-button' onclick='submitSurvey()'>Submit</button>\
 			</div>");
 	$("#survey-container").append(newOutcome);
 }
@@ -91,7 +99,7 @@ function makeClassOutcomes(surveyIndex, outcomeArray) {
 	setUpSurvey(questionsArray);
 }
 function setUpSurvey(outcomeArray) {
-	console.log("setUpPage("+outcomeArray+")");
+	console.log("setUpSurvey("+outcomeArray+")");
 	addOutcomesFromArray(outcomeArray);
 	refreshAll();
 }
@@ -105,6 +113,12 @@ function addOutcomesFromArray(outcomeArray) {
 	}
 	refreshAll();
 }
+
+function submitSurvey() {
+	//TODO: THIS
+	console.log("submitSurvey()");
+}
+
 function refreshAll() {
 	console.log("refreshAll()");
 	var i;
