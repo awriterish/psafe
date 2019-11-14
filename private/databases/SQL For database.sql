@@ -34,7 +34,8 @@ CREATE TABLE `Learning Domains` (
 
 INSERT INTO `Learning Domains` (`Domain_ID`, `Name`, `Abbr`) VALUES
 (1,	'Computer Science',	'CS'),
-(2,	'Engaged Citizen',	'EC');
+(2,	'Engaged Citizen',	'EC'),
+(3,	'Language',	'LA');
 
 CREATE TABLE `Question` (
   `Question_ID` int(11) NOT NULL AUTO_INCREMENT,
@@ -49,7 +50,8 @@ INSERT INTO `Question` (`Question_ID`, `Domain_ID`, `Text`) VALUES
 (1,	1,	'Students are able to create functional applications.'),
 (2,	1,	'Students are able to translate their ideas into code.'),
 (3,	2,	'Students have taken the steps to apply their knowledge from this class to the outside world.'),
-(4,	2,	'Students participate in class.');
+(4,	2,	'Students participate in class.'),
+(5,	1,	'Please do not respond to this question.');
 
 CREATE TABLE `Response` (
   `Response_ID` int(11) NOT NULL AUTO_INCREMENT,
@@ -104,4 +106,4 @@ INSERT INTO `Teacher` (`Teacher_ID`, `Name`) VALUES
 (2,	'Catherine Jellinik'),
 (3,	'Gabe Ferrer');
 
--- 2019-11-08 16:55:57
+-- 2019-11-14 15:41:49
