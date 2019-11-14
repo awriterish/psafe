@@ -1,8 +1,9 @@
 //TEMP VARIABLES (REPLACE W/ SQL WHEN POSSIBLE)
 const totalStudents=10;
 const tempOutcomesArray = [
-['CSCI 340', 'This is test outcome 1!', 'This is another outcome! (it\'s the second one)', '3rd outcome is the charm!', 'Ok, maybe we add another outcome here at the end.'],
-['TART 140', 'This is an alternate outcome', 'This is another alternate! (it\'s the second one)', 'Let\'s stop this one at 3!']];
+['CSCI 340', 'This is test outcome 1!', 'This is another outcome! (it\'s the second one)', '3rd outcome is the charm!', 'Ok, maybe we add another outcome here at the end of CSCI 340.'],
+['TART 140', 'This is an alternate outcome for TART 140', 'This is another alternate! (it\'s the second one)', 'Let\'s stop this one at 3!'],
+['CSCI 380', 'This is another alternate outcome, this time for CSCI 380.', 'This is the last of outcome of the demo!']];
 //COLOR SCHEME STUFF
 var goodColor="#98FB98";
 var badColor="#F08080";
@@ -14,7 +15,7 @@ var totalOutcomes=0;
 //ON RUNTIME
 makeDropdownList();
 makeSurvey();
-makeClassOutcomes(0,tempOutcomesArray)
+makeClassOutcomes(1,tempOutcomesArray)
 
 //REACTION FUNCTIONS
 $('.number-box').keyup(function () { 
@@ -47,7 +48,7 @@ function populateDropdownList(classArray) {
 	for (i = 0; i < classArray.length; i++) {
 		console.log("i="+i);
 		console.log("classArray[i]="+classArray[i]);
-		dropdownOptions= dropdownOptions + "<option value='"+1+"'>"+classArray[i]+"</option>";
+		dropdownOptions= dropdownOptions + "<option value='"+i+"'>"+classArray[i]+"</option>";
 		console.log("dropdownOptions="+dropdownOptions);
 	}
 	console.log("dropdownOptions="+dropdownOptions);
