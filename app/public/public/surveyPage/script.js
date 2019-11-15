@@ -29,11 +29,11 @@ $('.dropdown-container').on("change", function () {
 //MAIN FUNCTIONS
 function makeDropdownList() {
 	console.log("makeDropdownList()");
-	var newOutcome = $("<div class='dropdown-section'>");
+	var newOutcome = $("<div id='class-select'>");
 	newOutcome.html("\
 			<select id='dropdown-menu'>\
-		</select>\
-		<button type='button' id='class-button' onclick='parseClassSubmit()'>TAKE SURVEY</button>");
+			</select>\
+			<button type='button' id='class-button' onclick='parseClassSubmit()'>TAKE SURVEY</button>");
 	$("#dropdown-container").append(newOutcome);
 	var classArray=[];
 	for (i =0; i < tempOutcomesArray.length; i++) {
