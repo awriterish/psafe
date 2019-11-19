@@ -2,7 +2,7 @@ td {
 	max-width: 80px;	
 }
 
-#dropdown-container {
+#dropdown-row {
 	text-align: center;
 	margin: 5px;
 	font-family: Trebuchet MS;
@@ -11,12 +11,17 @@ td {
 
 #dropdown-menu {
 	width:auto;
+	height:auto;
 	margin: 20px;
 	
 }
 
 #class-button {
-	
+	height:auto;
+}
+
+#survey-title {
+	text-align: center;
 }
 
 .top-of-table {

@@ -13,27 +13,27 @@ var validToSubmit=false;
 var totalOutcomes=0;
 
 //ON RUNTIME
-makeDropdownList();
+makeDropdownList();	
 
 //REACTION FUNCTIONS
-$('.number-box').keyup(function () {
+$('.number-box').keyup(function () { 
+	refreshAll();
+});	
+$('.number-box').on("change", function () { 
 	refreshAll();
 });
-$('.number-box').on("change", function () {
-	refreshAll();
-});
-$('.dropdown-container').on("change", function () {
+$('.dropdown-container').on("change", function () { 
 	parseClassSubmit();
 });
 
 //MAIN FUNCTIONS
 function makeDropdownList() {
 	console.log("makeDropdownList()");
-	var newOutcome = $("<div id='class-select'>");
+	var newOutcome = $("<div class='dropdown-section'>");
 	newOutcome.html("\
 			<select id='dropdown-menu'>\
-			</select>\
-			<button type='button' id='class-button' onclick='parseClassSubmit()'>TAKE SURVEY</button>");
+		</select>\
+		<button type='button' id='class-button' onclick='parseClassSubmit()'>Click Me!</button>");
 	$("#dropdown-container").append(newOutcome);
 	var classArray=[];
 	for (i =0; i < tempOutcomesArray.length; i++) {
@@ -142,10 +142,10 @@ function refreshAll() {
 function refreshHandlers() {
 	console.log("refreshHandlers	()");
 	$('.number-box').off();
-	$('.number-box').keyup(function () {
+	$('.number-box').keyup(function () { 
 	refreshAll();
-	});
-	$('.number-box').on("change", function () {
+	});	
+	$('.number-box').on("change", function () { 
 		refreshAll();
 	});
 }
@@ -224,7 +224,7 @@ function getSumOf(num) {
 	var unsat=Number($("#unsat"+num).val());
 //	console.log("unsat"+num+"="+unsat);
 	var na=Number($("#na"+num).val());
-//	console.log("na"+num+"="+na);
+//	console.log("na"+num+"="+na);	
 	var sum=Number(str+sat+ng+unsat+na);
 	return sum;
 }
