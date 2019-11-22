@@ -15,6 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/survey', function () {
-    return "view('survey')";
+Route::get('/test', function () {
+    return view('pageTester');
 });
