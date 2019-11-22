@@ -23,8 +23,8 @@ Route::get('/help', function () {
     return view('help');
 });
 
-Route::get('/test', function () {
-    return view('pageTester');
+Route::get('/testPage', function () {
+    return view('testPage');
 });
 
 Route::get('/survey', function () {
