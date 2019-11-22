@@ -18,3 +18,15 @@ Route::get('/', function () {
 Route::get('/test', function () {
     return view('pageTester');
 });
+
+Route::get('/help', function () {
+    return view('help');
+});
+
+Route::get('/test', function () {
+    return view('pageTester');
+});
+
+Route::get('/survey', function () {
+    return view('survey');
+});
