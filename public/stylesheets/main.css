@@ -1,3 +1,63 @@
-h2{
-  color:red;
+* {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+        font: Trebuchet;
+    }
+
+:root {
+  --mainColor: #f5822a;
+}
+h1 {
+  margin: 0;
+}
+h2 {
+  padding: 0.5rem 1rem;
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.25),
+      rgba(0, 0, 0, 0.25)
+    )
+    var(--mainColor);
+}
+
+#signOut{
+  padding: 1rem;
+  background-color: #db701d;
+  border-radius: 8px;
+  color: white;
+  display: inline-block;
+  font-size: 24px;
+  float:right;
+  cursor: pointer;
+    transition: all 0.5s;
+}
+#signOut span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+#signOut span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+#signOut:hover span {
+  padding-right: 25px;
+}
+#signOut:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.header{
+  background: var(--mainColor);
 }
