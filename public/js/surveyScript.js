@@ -58,22 +58,15 @@ var totalOutcomes;
 var totalStudents;
 
 //ON RUNTIME
+
 setUpBackend();
 makePageForTeacher();
 
-//REACTION FUNCTIONS
-$('.number-box').keyup(function () {
-	refreshAll();
-});
-$('.number-box').on("change", function () {
-	refreshAll();
-});
-
+function helloWorld(id) {}
 
 function makeErrorBox(errorString) {
 	alert(errorString);
 }
-
 //MAIN FUNCTIONS
 function setUpBackend() {
 	console.log("setUpBackend()");
