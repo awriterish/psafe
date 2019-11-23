@@ -59,10 +59,12 @@ var totalStudents;
 
 //ON RUNTIME
 
-setUpBackend();
-makePageForTeacher();
+//setUpBackend();
+//makePageForTeacher();
 
-function helloWorld(id) {}
+function helloWorld(id) {
+	console.log("helloWorld("+id+")");
+}
 
 function makeErrorBox(errorString) {
 	alert(errorString);
