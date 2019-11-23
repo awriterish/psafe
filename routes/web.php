@@ -15,10 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function () {
-    return view('pageTester');
-});
-
 Route::get('/help', function () {
     return view('help');
 });
@@ -27,6 +23,6 @@ Route::get('/testPage', function () {
     return view('testPage');
 });
 
-Route::get('/survey', function () {
-    return view('survey');
+Route::get('/survey/{id}', function ($id) {
+    return view('survey', ["id"=>$id]);
 });
