@@ -79,6 +79,7 @@ function makePageForTeacher() {
 	var taughtClasses=getTaughtBy(selectedTeacher);
 	populateDropdownList(taughtClasses);
 }
+
 function makeDropdownShell() {
 	console.log("makeDropdownShell()");
 	var newOutcome = $("<div id='class-select'>");
@@ -90,7 +91,6 @@ function makeDropdownShell() {
 			</button>");
 	$("#dropdown-row").append(newOutcome);
 }
-
 function populateDropdownList(classArray) {
 	console.log("populateDropdownList("+classArray+")");
 	var dropdownOptions ="";
@@ -103,7 +103,6 @@ function populateDropdownList(classArray) {
 	console.log("dropdownOptions="+dropdownOptions);
 	$("#dropdown-menu").html(dropdownOptions);
 }
-
 function parseClassSubmit() {
 	console.log("parseClassSubmit()");
 	var classID = document.getElementById('dropdown-menu').value;
@@ -122,12 +121,10 @@ function parseClassSubmit() {
 	document.getElementById("class-button").setAttribute("disabled", "disabled");
 	makeSurveyHeader();
 }
-
 function makeSurveyHeader() {
 	var surveyDomain=findAllWithIdAtIndex(selectedClass[5], 0, domains)[0][2]
 	$("#dropdown-container").html("<h2 id='survey-title'> Survey for "+ selectedClass[1]+" ("+surveyDomain+")");
 }
-
 function makeSurvey() {
 	console.log("makeSurvey()");
 	var newOutcome = $("<div id='survey'>");
@@ -152,7 +149,6 @@ function makeSurvey() {
 			</div>");
 	$("#survey-container").append(newOutcome);
 }
-
 function populateSurvey() {
 	console.log("populateSurvey()");
 	totalStudents=selectedClass[2];
