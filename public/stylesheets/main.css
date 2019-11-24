@@ -29,34 +29,12 @@ h2 {
 #signOut{
   padding: 1rem;
   background-color: #db701d;
-  border-radius: 8px;
+  border-radius: 5px;
   color: white;
   display: inline-block;
-  font-size: 24px;
+  font-size: 18px;
   float:right;
   cursor: pointer;
-    transition: all 0.5s;
-}
-#signOut span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-#signOut span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-#signOut:hover span {
-  padding-right: 25px;
-}
-#signOut:hover span:after {
-  opacity: 1;
-  right: 0;
 }
 .header{
   background: var(--mainColor);

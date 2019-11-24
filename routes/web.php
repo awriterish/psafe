@@ -30,3 +30,9 @@ Route::get('/survey/{id}', function ($id) {
 Route::get('/dataLoader', function(){
   return view("dataLoader");
 });
+Route::get('/testLogin', function(){
+  return view("testLogin");
+});
+Route::get('/testing', function(){
+  return view("testing");
+});
