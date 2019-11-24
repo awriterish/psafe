@@ -1,51 +1,50 @@
 //TEMP VARIABLES (REPLACE W/ SQL WHEN POSSIBLE)
-//id, name, abbreviation
-const domains =		[[0,'Expressive Arts','EA'],
-					 [1,'Historical Perspectives','HP'],
-					 [2,'Literary Studies','LS'],
-					 [3,'Natural Science Inquiry','NS'],
-					 [4,'Social and Behavioral Analysis','SB'],
-					 [5,'Values, Beliefs and Ethics','VA']];
-//id, name
-const teachers =	[[0,'Mark Goadrich'],
-					 [1,'Gabriel Ferrer'],
-					 [2,'Brent Yorgey']];
-//id, name,  size, teacher1, teacher2, domain1, domain2
-const classes =		[[2,'CSCI 110 1',12, 1, 2,0,-1],
-					 [6,'CSCI 110 2',15, 0,-1,0,-1],
-					 [3,'CSCI 380',  20, 0, 2,1, 2],
-					 [4,'CSCI 340',   4, 2, ,3, 4],
-					 [5,'ENGF 250',  30, 1,-1,5,-1],
-					 [0,'TART 500',  14, 0, 1,2,1],
-					 [1,'SOCI 300',  19, 0,-1,3,-1]];
-//id, active, text, domain
-const questions =	[[1, true,'Test question for Domain 0',0],
-					 [16,true,'Expressed the arts',0],
-					 [4, false,'Expressed the Arts but wrong',0],
-					 [9, true,'Observed expression of art',0],
-					 [0, true,'Test question for Domain 1',1],
-					 [13,true,'Get a perspective of a historical type',1],
-					 [2, true,'Test question for Domain 2',2],
-					 [16,true,'Studied literature',2],
-					 [10,true,'Studied literature but different',2],
-					 [8, true,'Test question for Domain 3',3],
-					 [3, true,'Performed an inquiry of natural science',3],
-					 [17,true,'Inquired about natural sciences',3],
-					 [6, true,'Test question for Domain 4', 4],
-					 [7, true,'Was social and analyzed behaviour',4],
-					 [14,true,'Behaved socially and analytically',4],
-					 [12,true,'Test question for Domain 5',5],
-					 [5, true,'Valued Beliefs and Ethics',5],
-					 [15,true,'Believed in Values and Ethics',5],
-					 [11,true,'Give a historical perspective',1]
-					 ];
-//id, STR, SAT, NG, UNSAT, NA, submission, question
-var responses =		[
-					];
-//id, teacher, class
-var submissions =	[
-					];
-					
+	//id, name, abbreviation
+	const domains =		[[0,'Expressive Arts','EA'],
+						 [1,'Historical Perspectives','HP'],
+						 [2,'Literary Studies','LS'],
+						 [3,'Natural Science Inquiry','NS'],
+						 [4,'Social and Behavioral Analysis','SB'],
+						 [5,'Values, Beliefs and Ethics','VA']];
+	//id, name
+	const teachers =	[[0,'Mark Goadrich'],
+						 [1,'Gabriel Ferrer'],
+						 [2,'Brent Yorgey']];
+	//id, name,  size, teacher1, teacher2, domain1, domain2
+	const classes =		[[2,'CSCI 110 1',12, 1, 2,0,-1],
+						 [6,'CSCI 110 2',15, 0,-1,0,-1],
+						 [3,'CSCI 380',  20, 0, 2,1, 2],
+						 [4,'CSCI 340',   4, 2, ,3, 4],
+						 [5,'ENGF 250',  30, 1,-1,5,-1],
+						 [0,'TART 500',  14, 0, 1,2,1],
+						 [1,'SOCI 300',  19, 0,-1,3,-1]];
+	//id, active, text, domain
+	const questions =	[[1, true,'Test question for Domain 0',0],
+						 [16,true,'Expressed the arts',0],
+						 [4, false,'Expressed the Arts but wrong',0],
+						 [9, true,'Observed expression of art',0],
+						 [0, true,'Test question for Domain 1',1],
+						 [13,true,'Get a perspective of a historical type',1],
+						 [2, true,'Test question for Domain 2',2],
+						 [16,true,'Studied literature',2],
+						 [10,true,'Studied literature but different',2],
+						 [8, true,'Test question for Domain 3',3],
+						 [3, true,'Performed an inquiry of natural science',3],
+						 [17,true,'Inquired about natural sciences',3],
+						 [6, true,'Test question for Domain 4', 4],
+						 [7, true,'Was social and analyzed behaviour',4],
+						 [14,true,'Behaved socially and analytically',4],
+						 [12,true,'Test question for Domain 5',5],
+						 [5, true,'Valued Beliefs and Ethics',5],
+						 [15,true,'Believed in Values and Ethics',5],
+						 [11,true,'Give a historical perspective',1]
+						 ];
+	//id, STR, SAT, NG, UNSAT, NA, submission, question
+	var responses =		[
+						];
+	//id, teacher, class
+	var submissions =	[
+						];					
 //COLOR SCHEME STUFF
 var goodColor="#98FB98";
 var badColor="#F08080";
