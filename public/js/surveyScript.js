@@ -11,13 +11,13 @@ const teachers =	[[0,'Mark Goadrich'],
 					 [1,'Gabriel Ferrer'],
 					 [2,'Brent Yorgey']];
 //id, name,  size, teacher1, teacher2, domain1, domain2
-const classes =		[[2,'CSCI 110 1',12,1,2,0,-1],
-					 [6,'CSCI 110 2',15,0,-1,0,-1],
-					 [3,'CSCI 380',20,0,2,1,2],
-					 [4,'CSCI 340',4,2,1,3,4],
-					 [5,'ENGF 250',30,1,-1,5,-1],
-					 [0,'TART 500',14,0,1,2,1],
-					 [1,'SOCI 300',19,0,-1,3,-1]];
+const classes =		[[2,'CSCI 110 1',12, 1, 2,0,-1],
+					 [6,'CSCI 110 2',15, 0,-1,0,-1],
+					 [3,'CSCI 380',  20, 0, 2,1, 2],
+					 [4,'CSCI 340',   4, 2, 0,3, 4],
+					 [5,'ENGF 250',  30, 1,-1,5,-1],
+					 [0,'TART 500',  14, 0, 1,2,1],
+					 [1,'SOCI 300',  19, 0,-1,3,-1]];
 //id, active, text, domain
 const questions =	[[1, true,'Test question for Domain 0',0],
 					 [16,true,'Expressed the arts',0],
@@ -50,7 +50,7 @@ var submissions =	[
 var goodColor="#98FB98";
 var badColor="#F08080";
 //LOCAL VARIABLES
-const selectedTeacher=2;
+var selectedTeacher=2;
 
 var selectedClass;
 var validToSubmit;
@@ -58,12 +58,10 @@ var totalOutcomes;
 var totalStudents;
 
 //ON RUNTIME
-
-//setUpBackend();
-//makePageForTeacher();
-
-function helloWorld(id) {
-	console.log("helloWorld("+id+")");
+function setUpForID(id) {
+	selectedTeacher=id;
+	setUpBackend();
+	makePageForTeacher();
 }
 
 function makeErrorBox(errorString) {
