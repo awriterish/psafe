@@ -26,3 +26,7 @@ Route::get('/testPage', function () {
 Route::get('/survey/{id}', function ($id) {
     return view('survey', ["id"=>$id]);
 });
+
+Route::get('/dataLoader', function(){
+  return view("dataLoader");
+});

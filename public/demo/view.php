@@ -40,20 +40,20 @@
 									$submission = mysqli_query($connection, "SELECT * FROM Submission s JOIN Response r JOIN Teacher t JOIN Question q WHERE q.Domain_ID = " . $row["Domain_ID"] . " AND s.Class_ID = " . $resp['Class_ID'] . " AND q.Question_ID = r.Question_ID AND r.Submission_ID = s.Submission_ID AND s.Teacher_ID = t.Teacher_ID;");
 									if(mysqli_num_rows($submission)>0){
 										while($sub = $submission->fetch_assoc()){
-											echo "<tr><td colspan='6'>" . $sub["Question"] . "</td></tr>";
+											echo "<tr><td colspan='6'>" . $sub["Text"] . "</td></tr>";
 											echo "<tr>
 													<td>" . $sub["Name"] . "</td>
 													<td>" . $sub["STR"] . "</td>
 													<td>" . $sub["SAT"] . "</td>
 													<td>" . $sub["NG"] . "</td>
 													<td>" . $sub["UNSAT"] . "</td>
-													<td>" . $sub["N/A"] . "</td>
+													<td>" . $sub["NA"] . "</td>
 											</tr>";
 										}
 									}
 							echo "</table>";
 						echo "</div>";
-						
+
 					}
 				}
 			echo "</div>";
