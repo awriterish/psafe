@@ -13,6 +13,7 @@
 		function testMethod() {
 			console.log("testMethod()");
 		}
+		
 		console.log();
 		$(document).ready(setUpForID({{$id}}));
 	</script>

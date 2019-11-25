@@ -23,9 +23,7 @@ Route::get('/testPage', function () {
     return view('testPage');
 });
 
-Route::get('/survey/{id}', function ($id) {
-    return view('survey', ["id"=>$id]);
-});
+Route::get('/survey/{id}', 'SurveyController@survey');
 
 Route::get('/dataLoader', function(){
   return view("dataLoader");
