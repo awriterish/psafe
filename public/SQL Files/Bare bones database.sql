@@ -29,7 +29,7 @@ CREATE TABLE `Class` (
 
 CREATE TABLE `Learning Domains` (
   `Domain_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` text NOT NULL,
+  `Name` text,
   `Abbr` varchar(2) NOT NULL,
   `Active` bit(1) NOT NULL,
   PRIMARY KEY (`Domain_ID`)
@@ -82,7 +82,7 @@ CREATE TABLE `Teacher` (
   `Name` text NOT NULL,
   `AAD_KEY` text,
   PRIMARY KEY (`Teacher_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 
--- 2019-12-02 22:08:11
+-- 2019-12-02 22:17:45
