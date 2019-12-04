@@ -15,10 +15,10 @@
     }
     $teachers = json_decode($teachers);
     $teacher = $teachers->FirstName . " " . $teachers->LastName;
-    $name = mysqli_query($connection, "select * from `Teacher` WHERE Name='$teacher' LIMIT 1;");
+    $name = mysqli_query($connection, "select * from `Teachers` WHERE Name='$teacher' LIMIT 1;");
     $teacherID = 0;
     if(mysqli_num_rows($name) == 0){
-      if($result = mysqli_query($connection, "INSERT INTO `Teacher` (Name) VALUES ('$teacher');")){
+      if($result = mysqli_query($connection, "INSERT INTO `Teachers` (Name) VALUES ('$teacher');")){
         $teacherID = mysqli_fetch_row($result)[0];
         echo 0;
       }
@@ -40,9 +40,9 @@
         echo ",2";
       }
     }
-    $classQuery = mysqli_query($connection, "select * from `Class` WHERE Class_ID=$classID");
+    $classQuery = mysqli_query($connection, "select * from `Classes` WHERE Class_ID=$classID");
     if(mysqli_num_rows($classQuery)==0){
-      $addClassQuery = "INSERT INTO `Class` (Class_ID, `Course Code`, Name, Teacher_ID,";
+      $addClassQuery = "INSERT INTO `Classes` (Class_ID, `Course Code`, Name, Teacher_ID,";
       for($i = 1; $i<count($domainIDResults)+1; $i++){
         if($i==1){
           $addClassQuery .= "Domain_ID";
