@@ -15,6 +15,7 @@
 			console.log("testMethod()");
 		}
 		
+		
 		$(document).ready(setUpForID({{$id}}));
 	</script>
 @endsection

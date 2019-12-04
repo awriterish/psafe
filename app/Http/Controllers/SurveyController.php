@@ -14,7 +14,7 @@ class SurveyController extends Controller
 		
 		$idMatch1 = DB::table('Class')
 						->select('Class.Name as Class_Name', 'Class.Class_ID',
-								'Learning Domains.Name as Domain_Name', 'Learning Domains.Domain_ID')
+								'Learning Domains.Name as Domain_Name', 'Learning Domains.Domain_ID', 'Class.Num_Students')
 						->join('Learning Domains', 'Class.Domain_ID', '=', 'Learning Domains.Domain_ID')
 						->where('Learning Domains.Active', 1)
 						->where('Teacher_ID', $id)
