@@ -20,6 +20,8 @@
 			console.log("parseSurveyData()");
 		}
 		
+		
+		
 		$(document).ready(addNewSurvey(
 						'{{$ClassesToSurvey[0]['Class_Name']}}',
 						'{{$ClassesToSurvey[0]['Class_ID']}}',
