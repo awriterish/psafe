@@ -11,27 +11,27 @@ class SurveyController extends Controller
     public function survey($id) {
 		$emptyArray = [];
 		
-		$idMatch1 = DB::table('Class')
-						->select('Class.Name as Class_Name', 'Class.Class_ID',
-								'Learning Domains.Abbr as Domain_Name', 'Learning Domains.Domain_ID', 'Class.Num_Students')
-						->join('Learning Domains', 'Class.Domain_ID', '=', 'Learning Domains.Domain_ID')
+		$idMatch1 = DB::table('Classes')
+						->select('Classes.Course Code as Class_Name', 'Classes.Class_ID',
+								'Learning Domains.Abbr as Domain_Name', 'Learning Domains.Domain_ID', 'Classes.Num_Students')
+						->join('Learning Domains', 'Classes.Domain_ID', '=', 'Learning Domains.Domain_ID')
 						->where('Learning Domains.Active', 1)
 						->where('Teacher_ID', $id)
 						->orWhere('Teacher_ID2', $id)
 						->get();
 		
-		$idMatch2 = DB::table('Class')
-						->select('Class.Name as Class_Name', 'Class.Class_ID',
-								'Learning Domains.Abbr as Domain_Name', 'Learning Domains.Domain_ID', 'Class.Num_Students')
-						->join('Learning Domains', 'Class.Domain_ID2', '=', 'Learning Domains.Domain_ID')
+		$idMatch2 = DB::table('Classes')
+						->select('Classes.Course Code as Class_Name', 'Classes.Class_ID',
+								'Learning Domains.Abbr as Domain_Name', 'Learning Domains.Domain_ID', 'Classes.Num_Students')
+						->join('Learning Domains', 'Classes.Domain_ID2', '=', 'Learning Domains.Domain_ID')
 						->where('Learning Domains.Active', 1)
 						->where('Teacher_ID', $id)
 						->orWhere('Teacher_ID2', $id)
 						->get();
-		$idMatch3 = DB::table('Class')
-						->select('Class.Name as Class_Name', 'Class.Class_ID',
-								'Learning Domains.Abbr as Domain_Name', 'Learning Domains.Domain_ID', 'Class.Num_Students')
-						->join('Learning Domains', 'Class.Domain_ID3', '=', 'Learning Domains.Domain_ID')
+		$idMatch3 = DB::table('Classes')
+						->select('Classes.Course Code as Class_Name', 'Classes.Class_ID',
+								'Learning Domains.Abbr as Domain_Name', 'Learning Domains.Domain_ID', 'Classes.Num_Students')
+						->join('Learning Domains', 'Classes.Domain_ID3', '=', 'Learning Domains.Domain_ID')
 						->where('Learning Domains.Active', 1)
 						->where('Teacher_ID', $id)
 						->orWhere('Teacher_ID2', $id)
