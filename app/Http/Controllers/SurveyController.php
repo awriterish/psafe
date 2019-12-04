@@ -9,8 +9,7 @@ class SurveyController extends Controller
 {
 	
     public function survey($id) {
-		$rowNum=0;
-		$outJSON = json_encode(json_decode ("{}"));
+		$emptyArray = [];
 		
 		$idMatch1 = DB::table('Class')
 						->select('Class.Name as Class_Name', 'Class.Class_ID',
@@ -20,7 +19,7 @@ class SurveyController extends Controller
 						->where('Teacher_ID', $id)
 						->orWhere('Teacher_ID2', $id)
 						->get();
-
+		
 		$idMatch2 = DB::table('Class')
 						->select('Class.Name as Class_Name', 'Class.Class_ID',
 								'Learning Domains.Abbr as Domain_Name', 'Learning Domains.Domain_ID', 'Class.Num_Students')
@@ -29,7 +28,6 @@ class SurveyController extends Controller
 						->where('Teacher_ID', $id)
 						->orWhere('Teacher_ID2', $id)
 						->get();
-		
 		$idMatch3 = DB::table('Class')
 						->select('Class.Name as Class_Name', 'Class.Class_ID',
 								'Learning Domains.Abbr as Domain_Name', 'Learning Domains.Domain_ID', 'Class.Num_Students')
@@ -45,7 +43,11 @@ class SurveyController extends Controller
 		
 		$Merge1and2 = json_encode(array_merge(json_decode($match1Encoded, true),json_decode($match2Encoded, true)));
 		$ClassesToSurvey = array_merge(json_decode($Merge1and2, true),json_decode($match3Encoded, true));
-				
+		
+		forEach($ClassesToSurvey as $result) {
+			
+		}
+		
 		//dd($ClassesToSurvey);
 		
 		$data=array('id'=>$id,
