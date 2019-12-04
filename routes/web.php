@@ -34,3 +34,6 @@ Route::get('/testLogin', function(){
 Route::get('/testing', function(){
   return view("testing");
 });
+Route::get('/teacherLayout', function(){
+  return view("teacherLayout");
+});
