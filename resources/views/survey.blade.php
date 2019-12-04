@@ -20,7 +20,9 @@
 			console.log("parseSurveyData()");
 		}
 		
-		
+		@foreach ($ClassesToSurvey as $class)
+			addNewSurvey('{{$class['Class_Name']}}','{{$class['Class_ID']}}','{{$class['Domain_Name']}}','{{$class['Domain_ID']}}','{{$class['Num_Students']}}');
+		@endforeach
 		
 		$(document).ready(addNewSurvey(
 						'{{$ClassesToSurvey[0]['Class_Name']}}',
