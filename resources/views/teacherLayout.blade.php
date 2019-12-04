@@ -113,7 +113,7 @@ then ID that says which survey is active, call
           <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
 
           <h2>@yield('contentTitle','CONTENTTITLE GOES HERE :)')</h2>
-          @yield('content',"CONTENT GOES HERE :)")
+          @yield('content','CONTENT GOES HERE :)')
         </main>
       </div>
     </div>
