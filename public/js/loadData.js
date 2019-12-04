@@ -3,7 +3,7 @@ var added = 0;
 var unmodified = 0;
 
 function sendData(classes, i){
-  var URL = "/Course Data/loadClass.php?Class_ID=" + classes[i]["CourseId"] + "&Name=" + classes[i]["Title"] + "&Teachers=" + JSON.stringify(classes[i]["Instructors"][0]) + "&Domains=" + JSON.stringify(classes[i]["CollegiateCodes"]) + "&CourseCode=" + classes[i]["CourseCode"];
+  var URL = "/Course Data/loadClass.php?Class_ID=" + classes[i]["CourseId"] + "&Name=" + classes[i]["Title"] + "&Teachers=" + JSON.stringify(classes[i]["Instructors"][0]) + "&Domains=" + JSON.stringify(classes[i]["CollegiateCodes"]) + "&CourseCode=" + classes[i]["CourseCode"] + "&students=" + classes[i]["CurrentEnrollment"];
   $.ajax({
     url:URL,
     success: function(data){

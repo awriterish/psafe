@@ -1,5 +1,5 @@
 <?php
-  if(!empty($_GET['Class_ID'])&&!empty($_GET['Name'])&&!empty($_GET['Teachers'])&&!empty($_GET['Domains'])&&!empty($_GET["CourseCode"])){
+  if(!empty($_GET['Class_ID'])&&!empty($_GET['Name'])&&!empty($_GET['Teachers'])&&!empty($_GET['Domains'])&&!empty($_GET["CourseCode"])&&!empty($_GET["students"])){
     $classID = $_GET['Class_ID'];
     $className = $_GET['Name'];
     $teachers = $_GET['Teachers'];
@@ -9,6 +9,7 @@
     $username = "homestead";
     $password = "secret";
     $dbname = "PSAFE";
+    $students = $_GET['students'];
     $connection = new MySQLi($servername, $username, $password, $dbname);
     if(!$connection){
       die("Failed to connect to database");
@@ -50,11 +51,11 @@
           $addClassQuery .= ", Domain_ID$i";
         }
       }
-      $addClassQuery .= ") VALUES ($classID, '$courseCode', '$className', $teacherID ";
+      $addClassQuery .= ",Num_Students) VALUES ($classID, '$courseCode', '$className', $teacherID ";
       for($i = 0; $i<count($domainIDResults); $i++){
         $addClassQuery .= ", " . $domainIDResults[$i];
       }
-      $addClassQuery .= ")";
+      $addClassQuery .= ",$students)";
       if($connection->query($addClassQuery)==true){
           echo ",2";
       }
