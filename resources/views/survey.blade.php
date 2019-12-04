@@ -23,16 +23,6 @@
 		@foreach ($ClassesToSurvey as $class)
 			addNewSurvey('{{$class['Class_Name']}}','{{$class['Class_ID']}}','{{$class['Domain_Name']}}','{{$class['Domain_ID']}}','{{$class['Num_Students']}}');
 		@endforeach
-		
-		$(document).ready(addNewSurvey(
-						'{{$ClassesToSurvey[0]['Class_Name']}}',
-						'{{$ClassesToSurvey[0]['Class_ID']}}',
-						'{{$ClassesToSurvey[0]['Domain_Name']}}',
-						'{{$ClassesToSurvey[0]['Domain_ID']}}',
-						'{{$ClassesToSurvey[0]['Num_Students']}}'));
-		
-		console.log('{{$ClassesToSurvey[0]['Class_Name']}}');
-		
-		//$(document).ready(setUpForID({{$id}}));
+		$(document).ready(finishSurveyFormatting());
 	</script>
 @endsection
