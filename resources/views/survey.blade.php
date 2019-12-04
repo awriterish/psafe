@@ -10,12 +10,25 @@
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js "></script>
 	<script src= '/js/surveyScript.js'></script>
+	<script src= '/js/surveyUI.js'></script>
 	<script>
 		function testMethod() {
 			console.log("testMethod()");
 		}
 		
+		function parseSurveyData() {
+			console.log("parseSurveyData()");
+		}
 		
-		$(document).ready(setUpForID({{$id}}));
+		$(document).ready(addNewSurvey(
+						'{{$ClassesToSurvey[0]['Class_Name']}}',
+						'{{$ClassesToSurvey[0]['Class_ID']}}',
+						'{{$ClassesToSurvey[0]['Domain_Name']}}',
+						'{{$ClassesToSurvey[0]['Domain_ID']}}',
+						'{{$ClassesToSurvey[0]['Num_Students']}}'));
+		
+		console.log('{{$ClassesToSurvey[0]['Class_Name']}}');
+		
+		//$(document).ready(setUpForID({{$id}}));
 	</script>
 @endsection
