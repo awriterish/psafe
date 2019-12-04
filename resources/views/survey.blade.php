@@ -1,10 +1,6 @@
 @extends('layout')
 
-@section('content')	<?php
-	foreach ($classesArray as $class) {
-		echo ('class name is '.$class['ClassName'].'Domain ID is'.$class['ClassDomainID'].'.');
-	}
-	?>
+@section('content')
 	
 	<div class="container" id="dropdown-container">
 		<div class="row" id="dropdown-row">
