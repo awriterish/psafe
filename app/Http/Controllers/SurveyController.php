@@ -55,9 +55,20 @@ class SurveyController extends Controller
 			}
 		}
 		
-		forEach($questionIDs as $ID) {
-			
+		$questionOptions = [];
+		
+		forEach($questionIDs as $checkID) {
+			$questionsForID = DB::table('Questions')
+						->select('Questions.Domain_ID', 'Questions.Question_ID', 'Questions.Text')
+						->where('Questions.Active', 1)
+						->where('Domain_ID', $checkID)
+						->get();
+			forEach($questionsForID as $foundMatch) {
+				array_push($questionOptions, $foundMatch);
+			}
+				
 		}
+		dd($questionOptions);
 		
 		//dd($ClassesToSurvey);
 		
