@@ -10,6 +10,7 @@
 
 
 @section('content')
+<form>
 <p>
   <h6>Rubrics:</h6> Type in each box the number of students in the class whose
   performance relative to the listed Learner Outcome is described by
@@ -79,26 +80,27 @@
 <h6>Descriptive Evidence of Performance:</h6>
  Please check all data used to complete this form. Feel free to add to the list. Multiple measures must be used.
 </p>
-  <div class="form-check form-check">
-    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-    <label class="form-check-label" for="inlineCheckbox1">Grades</label>
+<div class="custom-control custom-checkbox mb-3">
+  <input type="checkbox" class="custom-control-input" id="usedGrades">
+  <label class="custom-control-label" for="usedGrades">Grades</label>
+</div>
+  <div class="custom-control custom-checkbox mb-3">
+    <input type="checkbox" class="custom-control-input" id="usedPapers">
+    <label class="custom-control-label" for="usedPapers">Papers</label>
   </div>
-  <div class="form-check form-check">
-    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-    <label class="form-check-label" for="inlineCheckbox2">Papers</label>
+  <div class="custom-control custom-checkbox mb-3">
+    <input type="checkbox" class="custom-control-input" id="usedPresentations">
+    <label class="custom-control-label" for="usedPresentations">Presentations</label>
   </div>
-  <div class="form-check form-check">
-    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-    <label class="form-check-label" for="inlineCheckbox3">Presentations</label>
-  </div>
-  <div class="form-check form-check">
-    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-    <label class="form-check-label" for="inlineCheckbox3">Exams</label>
+  <div class="custom-control custom-checkbox mb-3">
+    <input type="checkbox" class="custom-control-input" id="usedExams">
+    <label class="custom-control-label" for="usedExams">Exams</label>
   </div>
   <div class="form-control-sm row ">
     <label for="formGroupExampleInput">Other(please list:)</label>
     <input type="text" class="form-control form-control-sm col-md-2" id="formGroupExampleInput" placeholder="Example input">
   </div>
+</form>
   <div class="float-right">
     <a href="/testPage">
       <button class="btn btn-sm btn-outline-secondary" >Submit</button>
