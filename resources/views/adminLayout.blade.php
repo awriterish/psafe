@@ -20,8 +20,11 @@
 
   <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
-      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+  <!--  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>  -->
+    <a href="/" class="">
+      <img src="https://www.hendrix.edu/uploadedImages/News/Graphic_Identity/Images/HDX_COLLEGE_HZ_W%20158%20shield%20w-control-01.png" width='150'>
+    </a>
+<!--      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">  -->
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
           <a class="nav-link" href="#">Sign out</a>
@@ -35,9 +38,9 @@
           <div class="sidebar-sticky">
             <ul id= "navbar" class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/editQuestions">
                   <span data-feather="file"></span>
-                  THING THAT ADMIN CAN DO 1
+                  Edit Questions
                 </a>
               </li>
               <li class="nav-item">
@@ -81,7 +84,7 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Dashboard</h1>
+            <h1 class="h2">@yield('contentTitle','CONTENTTITLE GOES HERE c:')</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
                 <button class="btn btn-sm btn-outline-secondary">Share</button>
@@ -93,10 +96,6 @@
               </button>
             </div>
           </div>
-
-          <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
-
-          <h2>@yield('contentTitle','CONTENTTITLE GOES HERE c:')</h2>
           @yield('content','CONTENT GOES HERE c:')
         </main>
       </div>
