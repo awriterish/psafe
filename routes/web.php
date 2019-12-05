@@ -46,3 +46,6 @@ Route::get('/editQuestions', function(){
 Route::get('/survey', function(){
   return view("fancySurvey");
 });
+Route::get('/actualSurvey', function(){
+  return view("actualSurvey");
+});
