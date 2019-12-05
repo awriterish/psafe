@@ -36,10 +36,16 @@
       <div class="row">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Options</span>
+              <a class="d-flex align-items-center text-muted" href="#">
+                <span data-feather="settings"></span>
+              </a>
+            </h6>
             <ul id= "navbar" class="nav flex-column">
               <li class="nav-item">
                 <a class="nav-link" href="/editQuestions">
-                  <span data-feather="file"></span>
+                  <span data-feather="pen-tool"></span>
                   Edit Questions
                 </a>
               </li>
@@ -73,11 +79,17 @@
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
               <span>Saved reports</span>
               <a class="d-flex align-items-center text-muted" href="#">
-                <span data-feather="plus-circle"></span>
+                <span data-feather="search"></span>
               </a>
             </h6>
             <ul class="nav flex-column mb-2">
-              @yield('completedReports','COMPLETED REPORTS GO HERE c:')
+              @yield('completedReports')
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  2018(Example)
+                </a>
+              </li>
             </ul>
           </div>
         </nav>

@@ -43,3 +43,6 @@ Route::get('/editQuestions', function(){
 Route::get('/editQuestions', function(){
   return view("editQuestions");
 });
+Route::get('/survey', function(){
+  return view("fancySurvey");
+});

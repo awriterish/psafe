@@ -13,13 +13,13 @@ or
 Next is the section title
 This is the large text at the top
 -->
-@section('content')
-
+@section('contentTitle')
+example content title
 @endsection
 
 <!--
 Here's where all the important stuff goes
 -->
 @section('content')
-
+example content
 @endsection
