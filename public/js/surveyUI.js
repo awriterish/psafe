@@ -2,7 +2,7 @@
 //ISAAC'S METHODS
 /*
 Returns the titles of all surveys in the following format:
-[ClassName1/DomainAbbr1, ClassName2/DomainAbbr2, ClassName3/DomainAbbr3,...]	
+["ClassName1/DomainAbbr1", "ClassName2/DomainAbbr2", "ClassName3/DomainAbbr3",...]	
 */
 function getSurveyTitles() {
 	return ["test1/LD1", "test2/LD2", "test3/LD3"];
