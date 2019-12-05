@@ -1,4 +1,3 @@
-
 //ISAAC'S METHODS
 /*
 Returns the titles of all surveys in the following format:
@@ -12,24 +11,28 @@ function getSurveyTitles() {
 Returns all the questions of a survey at {index} in the following format:
 [Question 1, Question 2, Question 3,...]	
 */
+
 function getSurveyQuestions(index) {
 	return [index+"question1", index+"question2", index+"question3"];
 }
 
-/*
-Uploads the 
+/* Uploads the submission in the following format:
 [[class index],
 [STR, SAT, NG, UNSAT, NA],
 ...,
-[Grades?, Papers?, Presentations?, Exams?, Other?(String)]
+[Grades, Papers?, Presentations?, Exams?, Other?(String)]
 */
 function parseSubmission(submission) {
 	console.log("parseSubmission("+submission+")");
 }
 
+//Returns the number of students in class at {classIndex}
+function getStudentsIn(classIndex) {
+	
+}
 
 
-//Class Name, Class ID, Domain Abbr, Domain ID, Students
+//Class Name, Class ID, Domain Abbr, Domain ID, Student num
 var surveys = [];
 
 //Domain ID, Question ID, Question Text
