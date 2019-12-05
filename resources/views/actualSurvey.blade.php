@@ -45,27 +45,27 @@
     <tbody>
       <tr>
         <td>1.Begin to understand human and social behavior through the use of appropriate disciplinary techniques.</td>
-        <td><input type="number" id="STRreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input type="number" id="SATreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input type="number" id="NGreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input type="number" id="UNSATreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input type="number" id="NAreplyNumber" min="0" data-bind="value:replyNumber" /></td>
+        <td><input type="number" id="q1STRreplyNumber" min="0" data-bind="value:replyNumber" /></td>
+        <td><input type="number" id="q1SATreplyNumber" min="0" data-bind="value:replyNumber" /></td>
+        <td><input type="number" id="q1NGreplyNumber" min="0" data-bind="value:replyNumber" /></td>
+        <td><input type="number" id="q1UNSATreplyNumber" min="0" data-bind="value:replyNumber" /></td>
+        <td><input type="number" id="q1NAreplyNumber" min="0" data-bind="value:replyNumber" /></td>
       </tr>
       <tr>
         <td>2.Use their understanding of human behavior and relationships to discuss policy and/or other interventions.</td>
-        <td><input type="number" id="STRreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input type="number" id="STRreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input type="number" id="STRreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input type="number" id="STRreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input type="number" id="STRreplyNumber" min="0" data-bind="value:replyNumber" /></td>
+        <td><input type="number" id="q2STRreplyNumber" min="0" data-bind="value:replyNumber" /></td>
+        <td><input type="number" id="q2SATreplyNumber" min="0" data-bind="value:replyNumber" /></td>
+        <td><input type="number" id="q2NGreplyNumber" min="0" data-bind="value:replyNumber" /></td>
+        <td><input type="number" id="q2UNSATreplyNumber" min="0" data-bind="value:replyNumber" /></td>
+        <td><input type="number" id="q2NAreplyNumber" min="0" data-bind="value:replyNumber" /></td>
       </tr>
       <tr>
         <td>3.Grasp how human experience is shaped by the social and institutional landscape.</td>
-        <td><input type="number" id="STRreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input type="number" id="STRreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input type="number" id="STRreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input type="number" id="STRreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input type="number" id="STRreplyNumber" min="0" data-bind="value:replyNumber" /></td>
+        <td><input type="number" id="q3STRreplyNumber" min="0" data-bind="value:replyNumber" /></td>
+        <td><input type="number" id="q3SATreplyNumber" min="0" data-bind="value:replyNumber" /></td>
+        <td><input type="number" id="q3NGreplyNumber" min="0" data-bind="value:replyNumber" /></td>
+        <td><input type="number" id="q3UNSATreplyNumber" min="0" data-bind="value:replyNumber" /></td>
+        <td><input type="number" id="q3NAreplyNumber" min="0" data-bind="value:replyNumber" /></td>
       </tr>
     </tbody>
   </table>
