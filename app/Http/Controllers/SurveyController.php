@@ -55,8 +55,8 @@ class SurveyController extends Controller
 			}
 		}
 		
-		$questionOptions = [];
-		
+		//
+		$questions = [];
 		forEach($questionIDs as $checkID) {
 			$questionsForID = DB::table('Questions')
 						->select('Questions.Domain_ID', 'Questions.Question_ID', 'Questions.Text')
@@ -64,17 +64,17 @@ class SurveyController extends Controller
 						->where('Domain_ID', $checkID)
 						->get();
 			forEach($questionsForID as $foundMatch) {
-				array_push($questionOptions, $foundMatch);
+				array_push($questions, $foundMatch);
 			}
 				
 		}
-		dd($questionOptions);
+		dd($questions);
 		
 		//dd($ClassesToSurvey);
 		
 		$data=array('id'=>$id,
 					'ClassesToSurvey'=>$ClassesToSurvey,
-					'questionIDs'=>$questionIDs);
+					'questions'=>$questions);
 		return view('survey')->with($data);
 	}
 }
