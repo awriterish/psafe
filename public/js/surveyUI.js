@@ -1,13 +1,5 @@
 
-//Class Name, Class ID, Domain Abbr, Domain ID, Students
-var surveys = [];
-
-//Domain ID, Question ID, Question Text
-var questions = [];
-
-var teacherID = -1;
-
-//HELPER METHODS
+//ISAAC'S METHODS
 /*
 Returns the titles of all surveys in the following format:
 [ClassName1/DomainAbbr1, ClassName2/DomainAbbr2, ClassName3/DomainAbbr3,...]	
@@ -25,6 +17,7 @@ function getSurveyQuestions(index) {
 }
 
 /*
+Uploads the 
 [[class index],
 [STR, SAT, NG, UNSAT, NA],
 ...,
@@ -33,6 +26,16 @@ function getSurveyQuestions(index) {
 function parseSubmission(submission) {
 	console.log("parseSubmission("+submission+")");
 }
+
+
+
+//Class Name, Class ID, Domain Abbr, Domain ID, Students
+var surveys = [];
+
+//Domain ID, Question ID, Question Text
+var questions = [];
+
+var teacherID = -1;
 
 
 function addNewSurvey(className, classID, domainName, domainID, students) {
