@@ -1,7 +1,7 @@
 @extends('teacherLayout')
 
 @section('contentTitle')
-(GET CLASS NAME) Learning Domain Assessment
+<p id="title"></p>
 @endsection
 
 @section('navbar')
@@ -10,6 +10,7 @@
 
 
 @section('content')
+
 <form>
 <p>
   <h6>Rubrics:</h6> Type in each box the number of students in the class whose
@@ -106,4 +107,32 @@
       <button class="btn btn-sm btn-outline-secondary" >Submit</button>
     </a>
   </div>
+
+
+@include('parserSetup')
+  <script>
+  function renderTeacherNav() {
+    var renderNav ="";
+    var surveyTitles = getSurveyTitles();
+    console.log(surveyTitles);
+    for(var i=0; i<surveyTitles.length;i++) {
+      var className=surveyTitles[i];
+      var teacherThing= '<li class="nav-item">\
+                           <a class="nav-link" href="/survey">\
+                             <span data-feather="clipboard"></span>\
+                            '+className+' <span class="sr-only"></span>\
+                           </a>\
+                        </li>';
+
+      renderNav+=teacherThing;
+    }
+    console.log('renderNav='+renderNav);
+    $('#teacherNav').html(renderNav);
+  }
+
+  function renderSurvey(index){
+
+  }
+    $(document).ready(renderTeacherNav());
+  </script>
 @endsection

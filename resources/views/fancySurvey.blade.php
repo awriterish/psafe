@@ -13,7 +13,7 @@
 these will be displayed as text to show the survey taker that they're on the right survey
 sections with (GET) will be retrieved from the json
 -->
-<h5>
+<h5 id="thing">
 <ul>Course Subtitle:(GET)</ul>
 <ul>Semester/Date:(GET)</ul>
 <ul>Number of Students in Class:(GET)</ul>
