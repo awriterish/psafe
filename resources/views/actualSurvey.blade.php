@@ -12,13 +12,9 @@
 @section('content')
 
 <form id='surveyForm'>
-
-
 </form>
-  <div class="float-right">
-    <a href="/testPage">
-      <button class="btn btn-sm btn-outline-secondary" >Submit</button>
-    </a>
+  <div id="submitDiv" class="float-right">
+    
   </div>
 
 
@@ -60,6 +56,7 @@
 
 	function renderSurvey(index){
 		renderSurveyFrame();
+		renderSubmitButton();
 		console.log('renderSurvey('+index+')');
 		
 		var survey ="";
@@ -216,6 +213,13 @@
     <input type="text" class="form-control form-control-sm col-md-2" id="formGroupExampleInput" placeholder="Example input">\
   </div>';
 		$('#surveyForm').html(surveyForm+surveyForm2);
+	}
+	
+	function renderSubmitButton() {
+		var submitButton=	'<a href="/testPage">\
+							<button class="btn btn-sm btn-outline-secondary" >Submit</button>\
+							</a>';
+		$('#submitDiv').html(submitButton);
 	}
   </script>
 @endsection
