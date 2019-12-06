@@ -49,3 +49,9 @@ Route::get('/survey', function(){
 Route::get('/actualSurvey', function(){
   return view("actualSurvey");
 });
+Route::get('/viewReport', function(){
+  return view("viewReport");
+});
+Route::get('/editDomains', function(){
+  return view("editDomains");
+});

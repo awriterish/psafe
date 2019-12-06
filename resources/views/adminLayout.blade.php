@@ -19,9 +19,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file"></span>
-                  THING THAT ADMIN CAN DO 2
+                <a class="nav-link" href="/editDomains">
+                  <span data-feather="pen-tool"></span>
+                  Edit Domains
                 </a>
               </li>
               <li class="nav-item">
@@ -54,9 +54,9 @@
             <ul class="nav flex-column mb-2">
               @yield('completedReports')
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/viewReport">
                   <span data-feather="file-text"></span>
-                  2018(Example)
+                  View All Reports
                 </a>
               </li>
             </ul>
