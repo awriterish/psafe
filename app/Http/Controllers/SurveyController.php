@@ -64,14 +64,11 @@ class SurveyController extends Controller
 						->where('Questions.Active', 1)
 						->where('Domain_ID', $checkID)
 						->get();
-			forEach($questionsForID as $foundMatch) {
-				array_push($questions, $foundMatch);
-			}
-				
+			$questionsEncoded = json_encode($questionsForID);
+			$questions = array_merge(json_decode(json_encode($questions), true),json_decode($questionsEncoded, true));
 		}
 		
-		dd($ClassesToSurvey);
-		
+		//dd($ClassesToSurvey);
 		//dd($questions);
 		
 		$data=array('id'=>$id,

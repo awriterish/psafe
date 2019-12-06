@@ -19,11 +19,13 @@ function addNewQuestion(domainID, questionID, questionText) {
 	questions.push(newQuestion);
 }
 
+//Teacher ID (int)
 var teacherID = -1;
 function setTeacherID(id) {
 	console.log("setTeacherID("+id+")");
 	teacherID=id;
 }
+
 
 //ISAAC'S METHODS
 /*
@@ -54,5 +56,5 @@ function parseSubmission(submission) {
 
 //Returns the number of students in class at {classIndex}
 function getStudentsIn(classIndex) {
-	
+	return 1;
 }
