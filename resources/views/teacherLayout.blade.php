@@ -38,25 +38,8 @@ then ID that says which survey is active, call
                 <span data-feather="help-circle"></span>
               </a>
             </h6>
-            <ul class="nav flex-column mb-2">
-              <li class="nav-item">
-                <a class="nav-link" href="/survey">
-                  <span data-feather="clipboard"></span>
-                  CSCI 340 (NS-L) 8AM <span class="sr-only"></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/survey">
-                  <span data-feather="clipboard"></span>
-                  CSCI 340 (NS-L) 9AM <span class="sr-only"></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/survey">
-                  <span data-feather="clipboard"></span>
-                  CSCI 151 (HP) 11AM <span class="sr-only"></span>
-                </a>
-              </li>
+            <ul class="nav flex-column mb-2" id="teacherNav">
+              <!-- SURVEY NAMES GO HERE !! :D -->
             </ul>
           </div>
         </nav>
@@ -78,5 +61,11 @@ then ID that says which survey is active, call
           @yield('content','CONTENT GOES HERE c:')
         </main>
       </div>
+
+      <style>
+      #teacherNav{ cursor: pointer;}
+      </style>
     </div>
+
+
 @endsection

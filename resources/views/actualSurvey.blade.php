@@ -118,7 +118,7 @@
     for(var i=0; i<surveyTitles.length;i++) {
       var className=surveyTitles[i];
       var teacherThing= '<li class="nav-item">\
-                           <a class="nav-link" href="/survey">\
+                           <a class="nav-link" onClick="renderSurvey('+i+')">\
                              <span data-feather="clipboard"></span>\
                             '+className+' <span class="sr-only"></span>\
                            </a>\
@@ -131,7 +131,8 @@
   }
 
   function renderSurvey(index){
-
+    console.log('renderSurvey('+index+')');
+    
   }
     $(document).ready(renderTeacherNav());
   </script>
