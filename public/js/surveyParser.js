@@ -1,8 +1,8 @@
 //Class Name, Class ID, Domain Abbr, Domain ID, Student num
-var surveys = [];
+var surveys = new Array();
 
 //Domain ID, Question ID, Question Text
-var questions = [];
+var questions = new Array();
 
 var teacherID = -1;
 
@@ -35,7 +35,6 @@ function getSurveyTitles() {
 Returns all the questions of a survey at {index} in the following format:
 [Question 1, Question 2, Question 3,...]	
 */
-
 function getSurveyQuestions(index) {
 	return [index+"question1", index+"question2", index+"question3"];
 }
