@@ -1,3 +1,27 @@
+//Class Name, Class ID, Domain Abbr, Domain ID, Student num
+var surveys = [];
+
+//Domain ID, Question ID, Question Text
+var questions = [];
+
+var teacherID = -1;
+
+function addNewSurvey(className, classID, domainName, domainID, students) {
+	console.log('addNewSurvey('+className+', '+classID+', '+domainName+', '+domainID+', '+students+')');
+	var newSurvey = [className, parseInt(classID), domainName, parseInt(domainID), parseInt(students)];
+	surveys.push(newSurvey);
+}
+
+function finishSurveyFormatting() {
+	surveys.sort();
+	console.log(surveys);
+}
+
+function setTeacherID(id) {
+	console.log("setTeacherID("+id+")");
+	teacherID=id;
+}
+
 //ISAAC'S METHODS
 /*
 Returns the titles of all surveys in the following format:
@@ -29,29 +53,4 @@ function parseSubmission(submission) {
 //Returns the number of students in class at {classIndex}
 function getStudentsIn(classIndex) {
 	
-}
-
-
-//Class Name, Class ID, Domain Abbr, Domain ID, Student num
-var surveys = [];
-
-//Domain ID, Question ID, Question Text
-var questions = [];
-
-var teacherID = -1;
-
-
-function addNewSurvey(className, classID, domainName, domainID, students) {
-	console.log('addNewSurvey('+className+', '+classID+', '+domainName+', '+domainID+', '+students+')');
-	var newSurvey = [className, parseInt(classID), domainName, parseInt(domainID), parseInt(students)];
-	surveys.push(newSurvey);
-}
-
-function finishSurveyFormatting() {
-	surveys.sort();
-	console.log(surveys);
-}
-
-function printSurveyInput(surveyJSON) {
-	console.log('pringSurveyInput('+surveyJSON+'');
 }

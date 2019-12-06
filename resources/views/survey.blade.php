@@ -10,11 +10,13 @@
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js "></script>
 	<script src= '/js/surveyScript.js'></script>
+	<script src= '/js/surveyParser.js'></script>
 	<script>
 		function testMethod() {
 			console.log("testMethod()");
 		}
 		
+		setTeacherID({{$id}});
 		
 		$(document).ready(setUpForID({{$id}}));
 	</script>

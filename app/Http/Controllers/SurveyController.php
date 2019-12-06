@@ -68,7 +68,6 @@ class SurveyController extends Controller
 			}
 				
 		}
-		dd($questions);
 		
 		//dd($ClassesToSurvey);
 		
