@@ -7,7 +7,6 @@ function addNewSurvey(className, classID, domainName, domainID, students) {
 }
 function finishSurveyFormatting() {
 	console.log('finishSurveyFormatting()');
-	surveys.sort();
 	console.log('surveys='+surveys);
 }
 
