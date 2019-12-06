@@ -51,7 +51,9 @@ function getSurveyQuestions(index) {
 	console.log('domainToRender'+domainToRender);
 	var surveyQuestions=[];
 	for(i=0;i<questions;i++) {
-		 
+		if(questions[i][0]==domainToRender) {
+			surveyQuestions.push(questions[i][2]);
+		}
 	}
 	return [index+"question1", index+"question2", index+"question3"];
 }
