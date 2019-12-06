@@ -57,7 +57,7 @@ function getSurveyQuestions(index) {
 	console.log('domainToRender='+domainToRender);
 	var surveyQuestions=[];
 	for(i=0;i<questions.length;i++) {
-		console.log('questions[i][0]='+questions[i][0]);
+		console.log('questions['+i+'][0]='+questions[i][0]);
 		if(questions[i][0]==domainToRender) {
 			surveyQuestions.push(questions[i][2]);
 		}
@@ -77,5 +77,5 @@ function parseSubmission(submission) {
 
 //Returns the number of students in class at {classIndex}
 function getStudentsIn(classIndex) {
-	return 1;
+	return surveys[classIndex][4];
 }
