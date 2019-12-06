@@ -36,8 +36,24 @@ function loadData(){
   unmodified = 0;
   $("#loader").attr("disabled", true);
   console.log("Loading data");
+  /*$.ajax({
+    url: "exampleData.json",
+    type: 'GET',
+    dataType: 'application/json',
+    crossDomain: "true",
+    headers : {
+        "Access-Control-Allow-Origin" : "*"
+    },
+    error: function (xhr, status) {
+        alert(status);
+    },
+    success: function (result) {
+        console.log(result);
+        //TODO: Display the result
+    }
+});*/
   $.ajax({
-		url:"/Course Data/exampleData.json",
+		url:"Course Data/newData.json",
 		dataType:"json",
 		success: function(data){
 			console.log(data);
