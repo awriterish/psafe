@@ -46,34 +46,11 @@
         <th>Sum</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td>1.Begin to understand human and social behavior through the use of appropriate disciplinary techniques.</td>
-        <td><input class="form-control" type="number" id="q1STRreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input class="form-control" type="number" id="q1SATreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input class="form-control" type="number" id="q1NGreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input class="form-control" type="number" id="q1UNSATreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input class="form-control" type="number" id="q1NAreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-              <td><input class="form-control" type="text" placeholder="0/24" readonly></td>
-      </tr>
-      <tr>
-        <td>2.Use their understanding of human behavior and relationships to discuss policy and/or other interventions.</td>
-        <td><input class="form-control" type="number" id="q2STRreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input class="form-control" type="number" id="q2SATreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input class="form-control" type="number" id="q2NGreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input class="form-control" type="number" id="q2UNSATreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input class="form-control" type="number" id="q2NAreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input class="form-control" type="text" placeholder="0/24" readonly></td>
-      </tr>
-      <tr>
-        <td>3.Grasp how human experience is shaped by the social and institutional landscape.</td>
-        <td><input class="form-control" type="number" id="q3STRreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input class="form-control" type="number" id="q3SATreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input class="form-control" type="number" id="q3NGreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input class="form-control" type="number" id="q3UNSATreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input class="form-control" type="number" id="q3NAreplyNumber" min="0" data-bind="value:replyNumber" /></td>
-        <td><input class="form-control" type="text" placeholder="0/24" readonly></td>
-      </tr>
+    <tbody id="survey">
+
+
+
+
     </tbody>
   </table>
 </div>
@@ -111,6 +88,7 @@
 
 @include('parserSetup')
   <script>
+
   function renderTeacherNav() {
     var renderNav ="";
     var surveyTitles = getSurveyTitles();
@@ -132,7 +110,25 @@
 
   function renderSurvey(index){
     console.log('renderSurvey('+index+')');
-    
+    var survey ="";
+    var surveyQuestions = getSurveyQuestions(index);
+    console.log(surveyQuestions);
+    for(var i=1; i<=surveyQuestions.length;i++) {
+      var question=surveyQuestions[i-1];
+      var surveyThing= '      <tr>\
+              <td id ="domainQ1">'+i+"."+question+'</td>\
+              <td><input class="form-control" type="number" id="q'+i+'STRreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
+              <td><input class="form-control" type="number" id="q'+i+'SATreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
+              <td><input class="form-control" type="number" id="q'+i+'NGreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
+              <td><input class="form-control" type="number" id="q'+i+'UNSATreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
+              <td><input class="form-control" type="number" id="q'+i+'NAreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
+              <td><input class="form-control" type="text" placeholder="0/24" readonly></td>\
+              </tr>';
+
+      survey+=surveyThing;
+    }
+    console.log('survey='+survey);
+    $('#survey').html(survey);
   }
     $(document).ready(renderTeacherNav());
   </script>
