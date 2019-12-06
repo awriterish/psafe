@@ -35,7 +35,7 @@ Returns the titles of all surveys in the following format:
 function getSurveyTitles() {
 	var titlesOut=[];
 	for (i = 0; i < surveys.length; i++) {
-		var formattedTitle = surveys[i][0]+"/"+surveys[i][3];
+		var formattedTitle = surveys[i][0]+"/"+surveys[i][2];
 		console.log('formattedTitle='+formattedTitle);
 		titlesOut.push(formattedTitle);
 	}
