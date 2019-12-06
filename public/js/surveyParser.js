@@ -1,22 +1,25 @@
 //Class Name, Class ID, Domain Abbr, Domain ID, Student num
 var surveys = new Array();
-
-//Domain ID, Question ID, Question Text
-var questions = new Array();
-
-var teacherID = -1;
-
 function addNewSurvey(className, classID, domainName, domainID, students) {
 	console.log('addNewSurvey('+className+', '+classID+', '+domainName+', '+domainID+', '+students+')');
 	var newSurvey = [className, parseInt(classID), domainName, parseInt(domainID), parseInt(students)];
 	surveys.push(newSurvey);
 }
-
 function finishSurveyFormatting() {
+	console.log('finishSurveyFormatting()');
 	surveys.sort();
 	console.log(surveys);
 }
 
+//Domain ID, Question ID, Question Text
+var questions = new Array();
+function addNewQuestion(domainID, questionID, questionText) {
+	console.log('addNewSurvey('+domainID+', '+questionID+', '+questionText+')');
+	var newQuestion = [parseInt(domainID), parseInt(questionID), questionText];
+	questions.push(newQuestion);
+}
+
+var teacherID = -1;
 function setTeacherID(id) {
 	console.log("setTeacherID("+id+")");
 	teacherID=id;

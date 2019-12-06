@@ -9,6 +9,7 @@ class SurveyController extends Controller
 {
 	
     public function survey($id) {
+		$ClassesToSurvey =[];
 		
 		//Class Queries
 		$idMatch1 = DB::table('Classes')
@@ -69,7 +70,9 @@ class SurveyController extends Controller
 				
 		}
 		
-		//dd($ClassesToSurvey);
+		dd($ClassesToSurvey);
+		
+		//dd($questions);
 		
 		$data=array('id'=>$id,
 					'ClassesToSurvey'=>$ClassesToSurvey,
