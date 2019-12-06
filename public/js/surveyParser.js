@@ -33,7 +33,13 @@ Returns the titles of all surveys in the following format:
 ["ClassName1/DomainAbbr1", "ClassName2/DomainAbbr2", "ClassName3/DomainAbbr3",...]	
 */
 function getSurveyTitles() {
-	return ["test1/LD1", "test2/LD2", "test3/LD3", "test4/LD4"];
+	var titlesOut=[];
+	for (i = 0; i < surveys.length; i++) {
+		var formattedTitle = surveys[i][1]+"/"+surveys[i][1];
+		console.log('formattedTitle='+formattedTitle);
+		titlesOut.push(formattedTitle);
+	}
+	return titlesOut;
 }
 
 /*
