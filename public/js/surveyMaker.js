@@ -1,0 +1,1 @@
+var totalOutcomes=0;

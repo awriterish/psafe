@@ -86,50 +86,68 @@
   </div>
 
 
-@include('parserSetup')
-  <script>
+	@include('parserSetup')
+		
+	<script>
+	function renderTeacherNav() {
+		var renderNav ="";
+		var surveyTitles = getSurveyTitles();
+		console.log(surveyTitles);
+		for(var i=0; i<surveyTitles.length;i++) {
+			var className=surveyTitles[i];
+			var teacherThing= '<li class="nav-item">\
+								<a class="nav-link" onClick="renderSurvey('+i+')">\
+								<span data-feather="clipboard"></span>\
+								'+className+' <span class="sr-only"></span>\
+								</a>\
+								</li>';
 
-  function renderTeacherNav() {
-    var renderNav ="";
-    var surveyTitles = getSurveyTitles();
-    console.log(surveyTitles);
-    for(var i=0; i<surveyTitles.length;i++) {
-      var className=surveyTitles[i];
-      var teacherThing= '<li class="nav-item">\
-                           <a class="nav-link" onClick="renderSurvey('+i+')">\
-                             <span data-feather="clipboard"></span>\
-                            '+className+' <span class="sr-only"></span>\
-                           </a>\
-                        </li>';
+			renderNav+=teacherThing;
+		}
+		console.log('renderNav='+renderNav);
+		$('#teacherNav').html(renderNav);
+	}
 
-      renderNav+=teacherThing;
-    }
-    console.log('renderNav='+renderNav);
-    $('#teacherNav').html(renderNav);
-  }
+	function renderSurvey(index){
+		console.log('renderSurvey('+index+')');
+		var survey ="";
+		var surveyQuestions = getSurveyQuestions(index);
+		console.log(surveyQuestions);
+		for(var i=1; i<=surveyQuestions.length;i++) {
+			var question=surveyQuestions[i-1];
+			var surveyThing= '<tr>\
+							<td id ="domainQ1">'+i+". "+question+'</td>\
+							<td><input class="form-control" type="number" id="q'+i+'STRreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
+							<td><input class="form-control" type="number" id="q'+i+'SATreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
+							<td><input class="form-control" type="number" id="q'+i+'NGreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
+							<td><input class="form-control" type="number" id="q'+i+'UNSATreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
+							<td><input class="form-control" type="number" id="q'+i+'NAreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
+							<td><input class="form-control" type="text" placeholder="0/24" readonly></td>\
+							</tr>';
 
-  function renderSurvey(index){
-    console.log('renderSurvey('+index+')');
-    var survey ="";
-    var surveyQuestions = getSurveyQuestions(index);
-    console.log(surveyQuestions);
-    for(var i=1; i<=surveyQuestions.length;i++) {
-      var question=surveyQuestions[i-1];
-      var surveyThing= '      <tr>\
-              <td id ="domainQ1">'+i+"."+question+'</td>\
-              <td><input class="form-control" type="number" id="q'+i+'STRreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
-              <td><input class="form-control" type="number" id="q'+i+'SATreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
-              <td><input class="form-control" type="number" id="q'+i+'NGreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
-              <td><input class="form-control" type="number" id="q'+i+'UNSATreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
-              <td><input class="form-control" type="number" id="q'+i+'NAreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
-              <td><input class="form-control" type="text" placeholder="0/24" readonly></td>\
-              </tr>';
+			survey	+=surveyThing;
+		}
+		console.log('survey='+survey);
+		$('#survey').html(survey);
+	}
+	
+	function getSumOf(num) {
+	//	console.log("getSumOf("+num+")");
+		var str=Number($("#q"+i+"STRreplyNumber").val());
+	//	console.log("str"+num+"="+str);
+		var sat=Number($("#q"+i+"SATreplyNumber").val());
+	//	console.log("sat"+num+"="+sat);
+		var ng=Number($("#q"+i+"NGreplyNumber").val());
+	//	console.log("ng"+num+"="+ng);
+		var unsat=Number($("#q"+i+"UNSATreplyNumber").val());
+	//	console.log("unsat"+num+"="+unsat);
+		var na=Number($("#q"+i+"NAreplyNumber").val());
+	//	console.log("na"+num+"="+na);
+	var sum=Number(str+sat+ng+unsat+na);
+	return sum;
+}
 
-      survey+=surveyThing;
-    }
-    console.log('survey='+survey);
-    $('#survey').html(survey);
-  }
+	
     $(document).ready(renderTeacherNav());
   </script>
 @endsection
