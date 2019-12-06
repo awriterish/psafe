@@ -47,6 +47,12 @@ Returns all the questions of a survey at {index} in the following format:
 [Question 1, Question 2, Question 3,...]	
 */
 function getSurveyQuestions(index) {
+	var domainToRender=surveys[i][3];
+	console.log('domainToRender'+domainToRender);
+	var surveyQuestions=[];
+	for(i=0;i<questions;i++) {
+		 
+	}
 	return [index+"question1", index+"question2", index+"question3"];
 }
 
