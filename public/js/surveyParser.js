@@ -48,8 +48,10 @@ Returns all the questions of a survey at {index} in the following format:
 */
 function getSurveyQuestions(index) {
 	console.log('getSurveyQuestions('+index+')');
+	
 	var surveyToRender=surveys[i];
-	console.log('surveysToRender='+surveysToRender);
+	console.log('surveyToRender='+surveyToRender);
+	
 	var domainToRender=surveys[i][3];
 	console.log('domainToRender'+domainToRender);
 	var surveyQuestions=[];
