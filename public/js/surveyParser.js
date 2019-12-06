@@ -7,7 +7,6 @@ function addNewSurvey(className, classID, domainName, domainID, students) {
 }
 function finishSurveyFormatting() {
 	console.log('finishSurveyFormatting()');
-	surveys.sort();
 	console.log('surveys='+surveys);
 }
 
@@ -47,20 +46,23 @@ Returns all the questions of a survey at {index} in the following format:
 [Question 1, Question 2, Question 3,...]	
 */
 function getSurveyQuestions(index) {
+	
+	console.log('survey size='+surveys.length);
+	
 	console.log('getSurveyQuestions('+index+')');
 	
-	var surveyToRender=surveys[i];
+	var surveyToRender=surveys[index];
 	console.log('surveyToRender='+surveyToRender);
-	
-	var domainToRender=surveys[i][3];
-	console.log('domainToRender'+domainToRender);
+	var domainToRender=surveys[index][3];
+	console.log('domainToRender='+domainToRender);
 	var surveyQuestions=[];
-	for(i=0;i<questions;i++) {
+	for(i=0;i<questions.length;i++) {
+		console.log('questions[i][0]='+questions[i][0]);
 		if(questions[i][0]==domainToRender) {
 			surveyQuestions.push(questions[i][2]);
 		}
 	}
-	return [index+"question1", index+"question2", index+"question3"];
+	return surveyQuestions;
 }
 
 /* Uploads the submission in the following format:
