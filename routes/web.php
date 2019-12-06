@@ -55,3 +55,6 @@ Route::get('/viewReport', function(){
 Route::get('/editDomains', function(){
   return view("editDomains");
 });
+Route::get('/teacherHelp', function(){
+  return view("teacherHelp");
+});

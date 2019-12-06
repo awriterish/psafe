@@ -28,39 +28,33 @@ then ID that says which survey is active, call
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
             <ul id= "navbar" class="nav flex-column">
-              @yield('navbar','NAVBAR GOES HERE')
+<!--              @yield('navbar','NAVBAR GOES HERE')  -->
 
             </ul>
 
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Saved reports</span>
-              <a class="d-flex align-items-center text-muted" href="#">
-                <span data-feather="plus-circle"></span>
+              <span>Current Surveys</span>
+              <a class="d-flex align-items-center text-muted" href="/teacherHelp">
+                <span data-feather="help-circle"></span>
               </a>
             </h6>
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Current month
+                <a class="nav-link" href="/survey">
+                  <span data-feather="clipboard"></span>
+                  CSCI 340 (NS-L) 8AM <span class="sr-only"></span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Last quarter
+                <a class="nav-link" href="/survey">
+                  <span data-feather="clipboard"></span>
+                  CSCI 340 (NS-L) 9AM <span class="sr-only"></span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Social engagement
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Year-end sale
+                <a class="nav-link" href="/survey">
+                  <span data-feather="clipboard"></span>
+                  CSCI 151 (HP) 11AM <span class="sr-only"></span>
                 </a>
               </li>
             </ul>
