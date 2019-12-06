@@ -9,7 +9,7 @@
 	@endforeach
 		
 	@foreach ($questions as $question)
-		addNewQuestion('{{$question['D	omain_ID']}}', '{{$question['Question_ID']}}', '{{$question['Text']}}');
+		addNewQuestion('{{$question['Domain_ID']}}', '{{$question['Question_ID']}}', '{{$question['Text']}}');
 	@endforeach
 			
 	setTeacherID('{{$id}}');
