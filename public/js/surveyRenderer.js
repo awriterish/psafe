@@ -69,14 +69,14 @@ function renderSurvey(index){
 	renderSurveyFrame();
 	renderSubmitButton();
 	console.log('renderSurvey('+index+')');
-	
+
 	var survey ="";
 	var surveyQuestions = getSurveyQuestions(index);
-	
+
 	totalOutcomes=surveyQuestions.length;
 	console.log("totalOutcomes="+totalOutcomes);
 	totalStudents=getStudentsIn(index);
-	console.log("totalStudents="+totalStudents);		
+	console.log("totalStudents="+totalStudents);
 	for(var i=1; i<=surveyQuestions.length;i++) {
 		var question=surveyQuestions[i-1];
 		var surveyThing= '<tr>\
@@ -102,7 +102,7 @@ function renderSurvey(index){
 
 function renderSubmitButton() {
 	var submitButton=	'<a href="/testPage">\
-						<button class="btn btn-sm btn-outline-secondary" >Submit</button>\
+						<button class="btn btn-lg btn-outline-secondary mt-auto" style="margin-bottom: 10px;" >Submit</button>\
 						</a>';
 	$('#submitDiv').html(submitButton);
 }
