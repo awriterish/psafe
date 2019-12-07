@@ -9,7 +9,7 @@
 
     <title>@yield('title', 'Hendrix - Learning Domain Report')</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
+    <!--<link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">-->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
