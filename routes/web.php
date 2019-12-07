@@ -28,33 +28,45 @@ Route::get('/survey/{id}', 'SurveyController@survey');
 Route::get('/dataLoader', function(){
   return view("dataLoader");
 });
+
 Route::get('/testLogin', function(){
   return view("testLogin");
 });
+
 Route::get('/testing', function(){
   return view("testing");
 });
+
 Route::get('/teacherLayout', function(){
   return view("teacherLayout");
 });
+
 Route::get('/editQuestions', function(){
   return view("editQuestions");
 });
+
 Route::get('/editQuestions', function(){
   return view("editQuestions");
 });
+
 Route::get('/survey', function(){
   return view("fancySurvey");
 });
+
 Route::get('/actualSurvey', function(){
   return view("actualSurvey");
 });
+
 Route::get('/viewReport', function(){
   return view("viewReport");
 });
+
 Route::get('/editDomains', function(){
   return view("editDomains");
 });
+
 Route::get('/teacherHelp', function(){
   return view("teacherHelp");
 });
+
+Route::get('/graph', "FetchData@graph");
