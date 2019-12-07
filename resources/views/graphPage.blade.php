@@ -32,7 +32,7 @@
       </div>
     </div>
 </div>
-<div class="container" id="graph">
+<div class="container" id="graph" style="width:100%">
 
 </div>
 <script src="/js/loadGraph.js"></script>

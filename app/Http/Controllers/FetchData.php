@@ -34,7 +34,7 @@ WHERE Q.Domain_ID = 1
 AND R.Question_ID = Q.Question_ID
 GROUP BY R.Question_ID"));
       return view("barGraph", [
-        "data" => $outcomes
+        "outcomes" => $outcomes
       ]);
     }
 }
