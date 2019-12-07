@@ -19,7 +19,7 @@
 
 
 	@include('parserSetup')
-	<script src= '/js/surveyRenderer.js'></script>
+	<script src= '/js/surveyHandler.js'></script>
 	<script>
 	var totalOutcomes=-1;
 	var totalStudents=-1;
@@ -107,80 +107,6 @@
 	
     $(document).ready(readyPage());
 	
-	function makeHandlers() {
-		console.log("refreshHandlers()");
-		$('.surveyOut').off();
-		$('.surveyIn').keyup(function () {
-		refreshAll();
-		});
-		$('.surveyIn').on("change", function () {
-			refreshAll();
-		});
-	}
-	
-	function renderSurveyFrame() {
-		console.log("renderSurveyFrame()");
-		var surveyForm='<p id="rubric">\
-  <h6>Rubrics:</h6> Type in each box the number of students in the class whose\
-  performance relative to the listed Learner Outcome is described by\
-   the label at the top of the column.\
-  <ul>\
-    Strong (STR) = outstanding performance in course; exceeds expectations of course performance\
-  </ul>\
-  <ul>\
-    Satisfactory (SAT) = performance that meets the expected level for the course\
-  </ul>\
-  <ul>\
-  Needs Growth (NG) = some need for improvement, although overall performance meets expected level for the course\
-  </ul>\
-  <ul>\
-  Unsatisfactory (UNSAT) = overall performance not acceptable for the course\
-  </ul>\
-  <ul>\
-    Not applicable (NA)= this learning goal is not applicable to the course\
-  </ul>\
-</p>\
-<div class="table-responsive">\
-  <table class="table table-striped table-sm">\
-    <thead>\
-      <tr>\
-        <th>Learner Outcomes</th>\
-        <th>STR</th>\
-        <th>SAT</th>\
-        <th>NG</th>\
-        <th>UNSAT</th>\
-        <th>NA</th>\
-        <th>Sum</th>\
-      </tr>\
-    </thead>\
-    <tbody id="survey">\
-		<!--SURVEY GOES HERE --></tbody></table></div><p>';
-		
-		var surveyForm2='<h6>Descriptive Evidence of Performance:</h6>\
- Please check all data used to complete this form. Feel free to add to the list. Multiple measures must be used.\
-</p>\
-<div class="custom-control custom-checkbox mb-3">\
-  <input type="checkbox" class="custom-control-input" id="usedGrades">\
-  <label class="custom-control-label" for="usedGrades">Grades</label>\
-</div>\
-  <div class="custom-control custom-checkbox mb-3">\
-    <input type="checkbox" class="custom-control-input" id="usedPapers">\
-    <label class="custom-control-label" for="usedPapers">Papers</label>\
-  </div>\
-  <div class="custom-control custom-checkbox mb-3">\
-    <input type="checkbox" class="custom-control-input" id="usedPresentations">\
-    <label class="custom-control-label" for="usedPresentations">Presentations</label>\
-  </div>\
-  <div class="custom-control custom-checkbox mb-3">\
-    <input type="checkbox" class="custom-control-input" id="usedExams">\
-    <label class="custom-control-label" for="usedExams">Exams</label>\
-  </div>\
-  <div class="form-control-sm row ">\
-    <label for="formGroupExampleInput">Other(please list:)</label>\
-    <input type="text" class="form-control form-control-sm col-md-2" id="formGroupExampleInput" placeholder="Example input">\
-  </div>';
-		$('#surveyForm').html(surveyForm+surveyForm2);
-	}
 	
 	function renderSubmitButton() {
 		var submitButton=	'<a href="/testPage">\

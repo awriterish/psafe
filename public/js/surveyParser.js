@@ -77,5 +77,6 @@ function parseSubmission(submission) {
 
 //Returns the number of students in class at {classIndex}
 function getStudentsIn(classIndex) {
+	console.log("getStudentsIn("+classIndex+")");
 	return surveys[classIndex][4];
 }
