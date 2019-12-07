@@ -80,7 +80,7 @@ function renderSurvey(index){
 	for(var i=1; i<=surveyQuestions.length;i++) {
 		var question=surveyQuestions[i-1];
 		var surveyThing= '<tr>\
-						<td id ="domainQ1">'+i+". "+question+'</td>\
+						<td id ="domainQ'+i+'">'+i+". "+question+'</td>\
 						<td><input class="form-control surveyIn" type="number" id="q'+i+'STRreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
 						<td><input class="form-control surveyIn" type="number" id="q'+i+'SATreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
 						<td><input class="form-control surveyIn" type="number" id="q'+i+'NGreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
