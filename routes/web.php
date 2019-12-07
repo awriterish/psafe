@@ -69,4 +69,6 @@ Route::get('/teacherHelp', function(){
   return view("teacherHelp");
 });
 
-Route::get('/graph', "FetchData@graph");
+Route::get('/graph', "FetchData@domains");
+
+Route::get('/graph/{id}', "FetchData@graph");

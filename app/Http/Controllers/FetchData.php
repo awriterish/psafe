@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class FetchData extends Controller
 {
-    public function graph(){
+    public function domains(){
       $activeDomains = DB::table("Learning Domains")
         ->select("Domain_ID", "Name", "Abbr", "Active")
         ->where("Active",1)
@@ -25,5 +25,9 @@ class FetchData extends Controller
         "active" => $activeDomains,
         "inactive" => $inactiveDomains
       ]);
+    }
+
+    public function graph($id){
+
     }
 }
