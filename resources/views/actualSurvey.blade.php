@@ -19,7 +19,7 @@
 
 
 	@include('parserSetup')
-	<script src= '/js/surveyHandler.js'></script>
+	<script src= '/js/surveyRenderer.js'></script>
 	<script>
 	var totalOutcomes=-1;
 	var totalStudents=-1;
@@ -54,7 +54,16 @@
 		
 	}
 
-	
+	function makeHandlers() {
+		console.log("refreshHandlers()");
+		$('.surveyOut').off();
+		$('.surveyIn').keyup(function () {
+		refreshAll();
+		});
+		$('.surveyIn').on("change", function () {
+			refreshAll();
+		});
+	}
 	
 	function setTitle(title) {
 		console.log("setTitle("+title+")");		
@@ -108,11 +117,6 @@
     $(document).ready(readyPage());
 	
 	
-	function renderSubmitButton() {
-		var submitButton=	'<a href="/testPage">\
-							<button class="btn btn-sm btn-outline-secondary" >Submit</button>\
-							</a>';
-		$('#submitDiv').html(submitButton);
-	}
+	
   </script>
 @endsection

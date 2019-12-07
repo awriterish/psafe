@@ -1,49 +1,3 @@
-function renderSurvey(index){
-	renderSurveyFrame();
-	renderSubmitButton();
-	console.log('renderSurvey('+index+')');
-	
-	var survey ="";
-	var surveyQuestions = getSurveyQuestions(index);
-	
-	totalOutcomes=surveyQuestions.length;
-	console.log("totalOutcomes="+totalOutcomes);
-	totalStudents=getStudentsIn(index);
-	console.log("totalStudents="+totalStudents);		
-	for(var i=1; i<=surveyQuestions.length;i++) {
-		var question=surveyQuestions[i-1];
-		var surveyThing= '<tr>\
-						<td id ="domainQ1">'+i+". "+question+'</td>\
-						<td><input class="form-control surveyIn" type="number" id="q'+i+'STRreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
-						<td><input class="form-control surveyIn" type="number" id="q'+i+'SATreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
-						<td><input class="form-control surveyIn" type="number" id="q'+i+'NGreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
-						<td><input class="form-control surveyIn" type="number" id="q'+i+'UNSATreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
-						<td><input class="form-control surveyIn" type="number" id="q'+i+'NAreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
-						<td><input class="form-control surveyOut" type="text"   id="q'+i+'SUM" placeholder="0/'+totalStudents+'" readonly></td>\
-						</tr>';
-
-		survey	+=surveyThing;
-	}
-	//console.log('survey='+survey);
-	$('#survey').html(survey);
-	makeResponses();
-	var surveyTitles = getSurveyTitles();
-	var className=surveyTitles[index];
-	formattedTitle="Survey for " +className	;
-	refreshAll();
-}
-
-function makeResponses() {
-	console.log("refreshHandlers()");
-	$('.surveyOut').off();
-	$('.surveyIn').keyup(function () {
-	refreshAll();
-	});
-	$('.surveyIn').on("change", function () {
-		refreshAll();
-	});
-}
-
 function renderSurveyFrame() {
 	console.log("renderSurveyFrame()");
 	var surveyForm='<p id="rubric">\
@@ -83,8 +37,8 @@ function renderSurveyFrame() {
 							<tbody id="survey">\
 							</tbody>\
 						</table>\
-					</div>';
-	var surveyForm2='<p>\
+					</div>\
+					<p>\
 						<h6>Descriptive Evidence of Performance:</h6>\
 						Please check all data used to complete this form. Feel free to add to the list. Multiple measures must be used.\
 					</p>\
@@ -108,5 +62,47 @@ function renderSurveyFrame() {
 						<label for="formGroupExampleInput">Other(please list:)</label>\
 						<input type="text" class="form-control form-control-sm col-md-2" id="formGroupExampleInput" placeholder="Example input">\
 					</div>';
-	$('#surveyForm').html(surveyForm+surveyForm2);
+	$('#surveyForm').html(surveyForm);
+}
+
+function renderSurvey(index){
+	renderSurveyFrame();
+	renderSubmitButton();
+	console.log('renderSurvey('+index+')');
+	
+	var survey ="";
+	var surveyQuestions = getSurveyQuestions(index);
+	
+	totalOutcomes=surveyQuestions.length;
+	console.log("totalOutcomes="+totalOutcomes);
+	totalStudents=getStudentsIn(index);
+	console.log("totalStudents="+totalStudents);		
+	for(var i=1; i<=surveyQuestions.length;i++) {
+		var question=surveyQuestions[i-1];
+		var surveyThing= '<tr>\
+						<td id ="domainQ1">'+i+". "+question+'</td>\
+						<td><input class="form-control surveyIn" type="number" id="q'+i+'STRreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
+						<td><input class="form-control surveyIn" type="number" id="q'+i+'SATreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
+						<td><input class="form-control surveyIn" type="number" id="q'+i+'NGreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
+						<td><input class="form-control surveyIn" type="number" id="q'+i+'UNSATreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
+						<td><input class="form-control surveyIn" type="number" id="q'+i+'NAreplyNumber" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
+						<td><input class="form-control surveyOut" type="text"   id="q'+i+'SUM" placeholder="0/'+totalStudents+'" readonly></td>\
+						</tr>';
+
+		survey	+=surveyThing;
+	}
+	//console.log('survey='+survey);
+	$('#survey').html(survey);
+	makeHandlers();
+	var surveyTitles = getSurveyTitles();
+	var className=surveyTitles[index];
+	formattedTitle="Survey for " +className	;
+	refreshAll();
+}
+
+function renderSubmitButton() {
+	var submitButton=	'<a href="/testPage">\
+						<button class="btn btn-sm btn-outline-secondary" >Submit</button>\
+						</a>';
+	$('#submitDiv').html(submitButton);
 }
