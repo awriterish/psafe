@@ -15,7 +15,7 @@
           <div class="dropdown-menu">
               <div class="dropdown-header">Active Domains</div>
               @foreach($active as $currentDomain)
-                <a class="dropdown-item" href="#" onclick="loadDomain({{$currentDomain->Domain_ID}})">{{$currentDomain->Name}}</a>
+                <a class="dropdown-item" href="#" onclick="loadDomain({{$currentDomain->Domain_ID}})">{{$currentDomain->Name}}/{{$currentDomain->Abbr}}</a>
               @endforeach
           </div>
       </div>
@@ -26,7 +26,7 @@
           <div class="dropdown-menu">
               <div class="dropdown-header">Inctive Domains</div>
               @foreach($inactive as $currentDomain)
-                <a class="dropdown-item" href="#" onclick="loadDomain({{$currentDomain->Domain_ID}})">{{$currentDomain->Name}}</a>
+                <a class="dropdown-item" href="#" onclick="loadDomain({{$currentDomain->Domain_ID}})">{{$currentDomain->Name}}/{{$currentDomain->Abbr}}</a>
               @endforeach
           </div>
       </div>
