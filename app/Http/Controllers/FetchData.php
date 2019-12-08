@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class FetchData extends Controller
 {
@@ -42,6 +43,35 @@ GROUP BY R.Question_ID"));
       $added = 0;
       $modified = 0;
       $duplicates = 0;
-      return "Loaded $added new classes, modified $modified, and found $duplicates duplicate classes.";
+      $catalog = Storage::disk("storage")->get("Course Data/newData.json");
+      $catalog = json_decode($catalog);
+      $courseData = $catalog->value;
+      for($i = 0; $i<count($courseData); $i++){
+        $course = $courseData[$i];
+
+        //Adds instructors to a variable
+        $instructors = $course->Instructors;
+        $teacherIDs = array();
+        foreach($instructors as $teacher){
+          $fullName = $teacher->FirstName . " " . $teacher->LastName;
+          $exists = DB::table("Teachers")->
+                          select("Teacher_ID")->
+                          where("Name",$fullName)->
+                          get();
+          if($exists->isEmpty()){
+            $add = DB::table("Teachers")->
+                    insertOrIgnore(array("Name"=>$fullName));
+            $exists = DB::table("Teachers")->
+                            select("Teacher_ID")->
+                            where("Name",$fullName)->
+                            get();
+            $added++;
+          } else {
+            $duplicates++;
+          }
+          array_push($teacherIDs, $exists[0]->Teacher_ID);
+        }
+      }
+      return "Loaded $added new items, modified $modified, and found $duplicates duplicates.";
     }
 }
