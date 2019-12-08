@@ -30,7 +30,7 @@ class FetchData extends Controller
     public function graph($id){
       $outcomes = DB::select(DB::raw("SELECT Q.Text, R.Question_ID, SUM(R.STR) as STR, SUM(R.SAT) as SAT, SUM(R.NG) as NG, SUM(R.UNSAT) as UNSAT, SUM(R.NA) as NA
 FROM Questions Q JOIN Responses R
-WHERE Q.Domain_ID = 1
+WHERE Q.Domain_ID = $id
 AND R.Question_ID = Q.Question_ID
 GROUP BY R.Question_ID"));
       return view("barGraph", [

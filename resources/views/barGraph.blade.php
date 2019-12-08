@@ -4,6 +4,7 @@
     border-bottom: 1px solid grey;
     width: 100%;
     padding: 0;
+    display: absolute;
   }
 
   .graphRow{
@@ -31,6 +32,10 @@
     width: 25%;
     padding-left: 3px;
     margin-right: -4px;
+  }
+
+  .verticalLine{
+
   }
 
   .str{
@@ -61,7 +66,7 @@
     background-color:#feff97;
   }
 
-  .unsat{
+  .unsat:hover{
     background-color:#ffff77;
   }
 
@@ -105,7 +110,7 @@
 <span class="quarter">0%</span>
 <span class="quarter">25%</span>
 <span class="quarter">50%</span>
-<span class="quarter">75%<span style=""></span>100%</span>
+<span class="quarter">75%<span style="text-align: right; float: right;">100%</span></span>
 <form class="" action="index.html" method="post">
 
 </form>
