@@ -37,4 +37,11 @@ GROUP BY R.Question_ID"));
         "outcomes" => $outcomes
       ]);
     }
+
+    public function load(){
+      $added = 0;
+      $modified = 0;
+      $duplicates = 0;
+      return "Loaded $added new classes, modified $modified, and found $duplicates duplicate classes.";
+    }
 }
