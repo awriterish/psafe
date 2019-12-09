@@ -18,7 +18,7 @@ Edit Domains
       <td>{{$domain->Abbr}}</td>
       <td>
         <label class="switch">
-          <input type="checkbox" name="{{$domain->Abbr}}" {{$domain->Active==1?"checked":""}}>
+          <input type="checkbox" name="{{$domain->Domain_ID}}" {{$domain->Active==1?"checked":""}}>
           <span class="slider round"></span>
         </label>
         </td>

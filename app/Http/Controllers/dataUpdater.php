@@ -14,14 +14,14 @@ class dataUpdater extends Controller
         ->select("*")
         ->get();
       foreach($domains as $domain){
-        $abbr = $domain->Abbr;
+        $abbr = $domain->Domain_ID;
         if(!empty($input[$abbr])){
           DB::table("Learning Domains")
-            ->where("Abbr",$abbr)
+            ->where("Domain_ID",$abbr)
             ->update(["Active"=>1]);
         } else {
           DB::table("Learning Domains")
-            ->where("Abbr",$abbr)
+            ->where("Domain_ID",$abbr)
             ->update(["Active"=>0]);
         }
       }
