@@ -31,7 +31,7 @@
 
 	function readyPage() {
 		console.log("readyPage()");
-		formattedTitle = "Please Select a Class";
+		formattedTitle = "Hello " + '{{$teacherName}}' +", please Select a Class";
 		renderTeacherNav();
 		refreshAll();
 	}

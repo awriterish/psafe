@@ -68,12 +68,20 @@ class SurveyController extends Controller
 			$questions = array_merge(json_decode(json_encode($questions), true),json_decode($questionsEncoded, true));
 		}
 
+		$teacherName = DB::table('Teachers')
+						->select('Teachers.Name')
+						->where('Teacher_ID', $id)
+						->get()[0]->Name;
+		
+		
+		
 		//dd($ClassesToSurvey);
 		//dd($questions);
 
 		$data=array('id'=>$id,
 					'ClassesToSurvey'=>$ClassesToSurvey,
-					'questions'=>$questions);
+					'questions'=>$questions,
+					'teacherName'=>$teacherName);
 		return view('actualSurvey')->with($data);
 	}
 }
