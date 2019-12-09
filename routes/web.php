@@ -58,7 +58,7 @@ Route::get('/viewReport', function(){
 });
 
 Route::get('/editDomains',"FetchData@activeDomains"
-});
+);
 
 Route::get('/teacherHelp', function(){
   return view("teacherHelp");

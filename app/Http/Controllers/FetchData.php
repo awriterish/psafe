@@ -166,7 +166,7 @@ GROUP BY R.Question_ID"));
         ->select("*")
         ->get();
       return view("editDomains",[
-        "domains"=>$domains;
-      ])
+        "domains"=>$domains
+      ]);
     }
 }

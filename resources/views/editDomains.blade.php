@@ -5,12 +5,25 @@ Edit Domains
 @endsection
 
 @section('content')
-<table class="table table-striped">
-  <tr>
-    <th>Domain Name</th>
-    <th>Domain Abbreviation</th>
-    <th>Active</th>
-  </tr>
-  
-</table>
+<form action="updateDomains/" method="post">
+  <table class="table table-striped table-hover">
+    <tr>
+      <th>Domain Name</th>
+      <th>Domain Abbreviation</th>
+      <th>Active</th>
+    </tr>
+    @foreach($domains as $domain)
+    <tr>
+      <td>{{$domain->Name}}</td>
+      <td>{{$domain->Abbr}}</td>
+      <td>
+        <label class="switch">
+          <input type="checkbox" name="{{$domain->Abbr}}" {{$domain->Active==1?"checked":""}}>
+          <span class="slider round"></span>
+        </label>
+        </td>
+    </tr>
+    @endforeach
+  </table>
+</form>
 @endsection
