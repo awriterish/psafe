@@ -112,7 +112,7 @@ function renderSurvey(index){
 function renderSubmitButton() {
 	var submitButton=	'<div id="submitDiv" class="float-right">\
 							<a>\
-							<button class="btn btn-lg btn-outline-secondary mt-auto" style="margin-bottom: 10px;" method="post" action="/submitResponse">Submit</button>\
+							<button class="btn btn-lg btn-outline-secondary mt-auto" style="margin-bottom: 10px;" method="post" action="/survey">Submit</button>\
 							</a>\
 						</div>';
 	$('#surveyForm').append(submitButton);

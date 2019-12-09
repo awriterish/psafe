@@ -16,7 +16,7 @@
 	</p>
 		Have questions? <a href="/teacherHelp">Click here.</a>
 </div>
-<form id='surveyForm' method="post" action="/submitResponse">
+<form id='surveyForm' method="post" action="/survey">
 	{{csrf_field()}}
 </form>
 
