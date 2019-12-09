@@ -5,7 +5,7 @@ Edit Domains
 @endsection
 
 @section('content')
-<form action="updateDomains/" method="post">
+<form action="updateDomains/" method="get">
   <table class="table table-striped table-hover">
     <tr>
       <th>Domain Name</th>

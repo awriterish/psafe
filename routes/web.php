@@ -69,3 +69,5 @@ Route::get('/graph', "FetchData@domains");
 Route::get('/graph/{id}', "FetchData@graph");
 
 Route::get('/loadData',"FetchData@load");
+
+Route::get('/updateDomains',"dataUpdater@updateDomains");

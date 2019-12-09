@@ -164,6 +164,7 @@ GROUP BY R.Question_ID"));
     public function activeDomains(){
       $domains = DB::table("Learning Domains")
         ->select("*")
+        ->orderBy("Name")
         ->get();
       return view("editDomains",[
         "domains"=>$domains
