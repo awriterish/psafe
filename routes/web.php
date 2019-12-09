@@ -25,6 +25,8 @@ Route::get('/testPage', function () {
 
 Route::get('/survey/{id}', 'SurveyController@survey');
 
+Route::post('survey/{id}', 'SurveyController@submit');
+
 Route::get('/dataLoader', function(){
   return view("dataLoader");
 });
