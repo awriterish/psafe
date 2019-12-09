@@ -96,11 +96,11 @@ function renderSurvey(index){
 		var question=surveyQuestions[i-1];
 		var surveyThing= '<tr>\
 						<td id ="domainQ'+i+'">'+i+". "+question+'</td>\
-						<td><input class="form-control surveyIn" type="number" name="q'+i+'STR" id="q'+i+'STR" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
-						<td><input class="form-control surveyIn" type="number" name="q'+i+'SAT" id="q'+i+'SAT" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
-						<td><input class="form-control surveyIn" type="number" name="q'+i+'NG" id="q'+i+'NG" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
-						<td><input class="form-control surveyIn" type="number" name="q'+i+'UNSAT" id="q'+i+'UNSAT" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
-						<td><input class="form-control surveyIn" type="number" name="q'+i+'NA" id="q'+i+'NA" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
+						<td><input class="form-control surveyIn" type="number" name="q'+i+'STR" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
+						<td><input class="form-control surveyIn" type="number" name="q'+i+'SAT" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
+						<td><input class="form-control surveyIn" type="number" name="q'+i+'NG" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
+						<td><input class="form-control surveyIn" type="number" name="q'+i+'UNSAT" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
+						<td><input class="form-control surveyIn" type="number" name="q'+i+'NA" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
 						<td><input class="form-control surveyOut" type="text" name="q'+i+'SUM" id="q'+i+'SUM" placeholder="0/'+totalStudents+'" readonly></td>\
 						</tr>';
 
