@@ -4,6 +4,11 @@
 <p id='surveyTitle'></p>
 @endsection
 
+@section('teacherName')
+<p id='teacherName'></p>
+
+@endsection
+
 @section('navbar')
 
 @endsection
@@ -74,6 +79,11 @@
 		$('#surveyTitle').html(title);
 	}
 
+  function displayTeacherName() {
+    console.log("displayTeacherName()"+'{{$teacherName}}');
+    $('#teacherName').html('{{$teacherName}}');
+  }
+
 	function allSumsMatched() {
 		console.log("allSumsMatched()");
 		var i;
@@ -91,6 +101,7 @@
 	function refreshAll() {
 		console.log("refreshAll()");
 		setTitle(formattedTitle);
+    displayTeacherName();
 		for(i=0;i<totalOutcomes;i++)
 			refreshRow(i);
 	}

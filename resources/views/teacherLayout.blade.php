@@ -1,9 +1,5 @@
 @extends('generalLayout')
 
-@section('teacherName')
-TEACHERNAME GOES HERE c:
-@endsection
-
 @section('navbarPermission')
     <div class="container-fluid">
       <div class="row">
