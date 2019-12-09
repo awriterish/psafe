@@ -52,6 +52,7 @@ GROUP BY R.Question_ID"));
         //Adds instructors to a variable
         $instructors = $course->Instructors;
         $teacherIDs = array();
+        //Makes sure all the instructors are in the database and keeps track of their IDs
         foreach($instructors as $teacher){
           $fullName = $teacher->FirstName . " " . $teacher->LastName;
           $exists = DB::table("Teachers")->
@@ -71,7 +72,32 @@ GROUP BY R.Question_ID"));
           }
           array_push($teacherIDs, $exists[0]->Teacher_ID);
         }
+
+        //Makes sure all domains are in the database and keeps track of their IDs
+        $domains = $course->CollegiateCodes;
+        $domainIDs = array();
+        foreach($domains as $domain){
+          $exists = DB::table("Learning Domains")
+            ->select("Domain_ID")
+            ->where("Abbr", $domain)
+            ->get();
+          if($exists->isEmpty()){
+            $add = DB::table("Learning Domains")
+              ->insertOrIgnore(array("Abbr"=>$domain, "Active"=>1));
+            $exists = DB::table("Learning Domains")
+              ->select("Domain_ID")
+              ->where("Abbr", $domain)
+              ->get();
+            $added++;
+          } else {
+            $duplicates++;
+          }
+          array_push($domainIDs,$exists[0]->Domain_ID);
+        }
       }
+
+
+
       return "Loaded $added new items, modified $modified, and found $duplicates duplicates.";
     }
 }
