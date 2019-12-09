@@ -103,15 +103,15 @@
 
 	function getSumOf(num) {
 	//	console.log("getSumOf("+num+")");
-		var str=Number($("#q"+i+"STRreplyNumber").val());
+		var str=Number($("#q"+i+"STR").val());
 	//	console.log("str"+num+"="+str);
-		var sat=Number($("#q"+i+"SATreplyNumber").val());
+		var sat=Number($("#q"+i+"SAT").val());
 	//	console.log("sat"+num+"="+sat);
-		var ng=Number($("#q"+i+"NGreplyNumber").val());
+		var ng=Number($("#q"+i+"NG").val());
 	//	console.log("ng"+num+"="+ng);
-		var unsat=Number($("#q"+i+"UNSATreplyNumber").val());
+		var unsat=Number($("#q"+i+"UNSAT").val());
 	//	console.log("unsat"+num+"="+unsat);
-		var na=Number($("#q"+i+"NAreplyNumber").val());
+		var na=Number($("#q"+i+"NA").val());
 	//	console.log("na"+num+"="+na);
 		var sum=Number(str+sat+ng+unsat+na);
 		return sum;

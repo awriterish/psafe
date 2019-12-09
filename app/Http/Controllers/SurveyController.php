@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class SurveyController extends Controller
 {
-	public function submit($id) {
-		dd("hello world!");
+	public function submit () {
+		return request()->all();
 	}
 	
     public function survey($id) {
