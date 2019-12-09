@@ -1,5 +1,9 @@
 @extends('generalLayout')
 
+@section('teacherName')
+admin
+@endsection
+
 @section('navbarPermission')
     <div class="container-fluid">
       <div class="row">

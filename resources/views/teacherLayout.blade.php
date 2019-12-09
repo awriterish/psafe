@@ -1,5 +1,9 @@
 @extends('generalLayout')
 
+@section('teacherName')
+TEACHERNAME GOES HERE c:
+@endsection
+
 @section('navbarPermission')
     <div class="container-fluid">
       <div class="row">
@@ -47,6 +51,7 @@
 
     <script>
       $(document).ready(function(){
+        //TODO This should return them to the "select a survey" page, right now it is hardcoded to a specific teacher as an example
         $("#icon").attr("href", "/survey/85");
       });
     </script>
