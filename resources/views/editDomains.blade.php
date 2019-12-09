@@ -25,5 +25,7 @@ Edit Domains
     </tr>
     @endforeach
   </table>
+  <input type="submit" class="btn btn-primary" value="Update domains">
 </form>
+<br>
 @endsection
