@@ -16,15 +16,13 @@
 	</p>
 		Have questions? <a href="/teacherHelp">Click here.</a>
 </div>
-<form id='surveyForm'>
+<form id='surveyForm' method="post" action="/submitResponse">
 	{{csrf_field()}}
 </form>
-<div id="submitDiv" class="float-right">
-</div>
 
 
 	@include('parserSetup')
-	<script src= js/surveyRenderer.js'></script>
+	<script src= '/js/surveyRenderer.js'></script>
 	<script>
 	var totalOutcomes=-1;
 	var totalStudents=-1;
