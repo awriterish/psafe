@@ -10,20 +10,21 @@
 
 
 @section('content')
-
+<div id="surveyHelp">
+	<p>
+		Welcome, please select a class survey on the left.
+	</p>
+		Have questions? <a href="/teacherHelp">Click here.</a>
+</div>
 <form id='surveyForm'>
-  <p>
-    Welcome, please select a class survey on the left.
-  </p>
-  Have questions? <a href="/teacherHelp">Click here.</a>
+	{{csrf_field()}}
 </form>
-  <div id="submitDiv" class="float-right">
-
-  </div>
+<div id="submitDiv" class="float-right">
+</div>
 
 
 	@include('parserSetup')
-	<script src= '/js/surveyRenderer.js'></script>
+	<script src= js/surveyRenderer.js'></script>
 	<script>
 	var totalOutcomes=-1;
 	var totalStudents=-1;
@@ -31,6 +32,7 @@
 
 	function readyPage() {
 		console.log("readyPage()");
+		setSurveyBase($('#surveyForm').html());
 		formattedTitle = "Hello " + '{{$teacherName}}' +", please Select a Class";
 		renderTeacherNav();
 		refreshAll();

@@ -1,3 +1,11 @@
+var surveyBase = 'TEST, IF YOU SEE THIS SOMETHING WENT WRONG';
+
+function setSurveyBase(newBase) {
+	console.log('setSurveyBase('+newBase+')');
+	surveyBase=newBase;
+	
+}
+
 function renderSurveyFrame() {
 	console.log("renderSurveyFrame()");
 	var surveyForm='<p id="rubric">\
@@ -62,7 +70,8 @@ function renderSurveyFrame() {
 						<label for="formGroupExampleInput">Other(please list:)</label>\
 						<input type="text" class="form-control form-control-sm col-md-2" id="formGroupExampleInput" placeholder="Example input">\
 					</div>';
-	$('#surveyForm').html(surveyForm);
+	$('#surveyHelp').remove();
+	$('#surveyForm').html(surveyBase+surveyForm);
 }
 
 function renderSurvey(index){
