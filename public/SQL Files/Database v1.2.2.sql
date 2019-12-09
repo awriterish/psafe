@@ -1,5 +1,6 @@
 -- Adminer 4.7.4 MySQL dump
-
+CREATE DATABASE `PSAFE`;
+USE PSAFE;
 SET NAMES utf8;
 SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
