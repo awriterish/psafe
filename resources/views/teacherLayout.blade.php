@@ -1,27 +1,5 @@
 @extends('generalLayout')
-<!--js for loop that makes
 
-(INACTIVE SURVEYS)
-loop(survey names)
-  <li class="nav-item">
-    <a class="nav-link" href="#">
-      <span data-feather="file"></span>
-      INACTIVE SURVEY NAME
-    </a>
-  </li>
-end loop
-
-then ID that says which survey is active, call
-
-(ACTIVE SURVEY)
-<li class="nav-item">
-  <a class="nav-link active" href="#">
-    <span data-feather="home"></span>
-    ACTIVE SURVEY NAME  <span class="sr-only">(current)</span>
-  </a>
-</li>
-
--->
 @section('navbarPermission')
     <div class="container-fluid">
       <div class="row">
@@ -67,5 +45,9 @@ then ID that says which survey is active, call
       </style>
     </div>
 
-
+    <script>
+      $(document).ready(function(){
+        $("#icon").attr("href", "/survey/85");
+      });
+    </script>
 @endsection

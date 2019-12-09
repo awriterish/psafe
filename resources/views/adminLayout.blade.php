@@ -81,4 +81,10 @@
         </main>
       </div>
     </div>
+
+    <script>
+      $(document).ready(function(){
+        $("#icon").attr("href", "/");
+      });
+    </script>
 @endsection

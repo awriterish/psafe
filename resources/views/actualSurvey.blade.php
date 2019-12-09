@@ -12,9 +12,13 @@
 @section('content')
 
 <form id='surveyForm'>
+  <p>
+    Welcome, please select a class survey on the left.
+  </p>
+  Have questions? <a href="/teacherHelp">Click here.</a>
 </form>
   <div id="submitDiv" class="float-right">
-    
+
   </div>
 
 
@@ -24,15 +28,15 @@
 	var totalOutcomes=-1;
 	var totalStudents=-1;
 	var formattedTitle = "";
-	
+
 	function readyPage() {
 		console.log("readyPage()");
-		formattedTitle = "Please Pick a Class";
+		formattedTitle = "Please Select a Class";
 		renderTeacherNav();
 		refreshAll();
 	}
-	
-	
+
+
 	function renderTeacherNav() {
 		console.log("renderTeacherNav()");
 		var renderNav ="";
@@ -51,7 +55,7 @@
 		}
 		console.log('renderNav='+renderNav);
 		$('#teacherNav').html(renderNav);
-		
+
 	}
 
 	function makeHandlers() {
@@ -64,12 +68,12 @@
 			refreshAll();
 		});
 	}
-	
+
 	function setTitle(title) {
-		console.log("setTitle("+title+")");		
+		console.log("setTitle("+title+")");
 		$('#surveyTitle').html(title);
 	}
-	
+
 	function allSumsMatched() {
 		console.log("allSumsMatched()");
 		var i;
@@ -83,20 +87,20 @@
 		console.log("returning matched="+matched);
 		return matched;
 	}
-	
+
 	function refreshAll() {
 		console.log("refreshAll()");
 		setTitle(formattedTitle);
 		for(i=0;i<totalOutcomes;i++)
 			refreshRow(i);
 	}
-	
+
 	function refreshRow(num) {
 		console.log("refreshRow("+num+")");
 		var sum=getSumOf(num);
 		$("#q"+num+"SUM").val(sum+"/"+totalStudents);
 	}
-	
+
 	function getSumOf(num) {
 	//	console.log("getSumOf("+num+")");
 		var str=Number($("#q"+i+"STRreplyNumber").val());
@@ -113,10 +117,10 @@
 		return sum;
 	}
 
-	
+
     $(document).ready(readyPage());
-	
-	
-	
+
+
+
   </script>
 @endsection
