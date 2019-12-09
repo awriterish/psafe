@@ -94,6 +94,66 @@ GROUP BY R.Question_ID"));
           }
           array_push($domainIDs,$exists[0]->Domain_ID);
         }
+
+        //Tests to see if class exists
+        $classID = $course->CourseId;
+        $courseCode = $course->CourseCode;
+        $name = $course->Title;
+        $teacherID = !empty($teacherIDs[0])?$teacherIDs[0]:null;
+        $teacherID2 = !empty($teacherIDs[1])?$teacherIDs[1]:null;
+        $domainID = !empty($domainIDs[0])?$domainIDs[0]:null;
+        $domainID2 = !empty($domainIDs[1])?$domainIDs[1]:null;
+        $domainID3 = !empty($domainIDs[2])?$domainIDs[2]:null;
+        $students = $course->CurrentEnrollment;
+        $exists = DB::table("Classes")
+          ->select("*")
+          ->where("Class_ID",$classID)
+          ->where("Course Code",$courseCode)
+          ->where("Name",$name)
+          ->where("Teacher_ID",$teacherID)
+          ->where("Teacher_ID2",$teacherID2)
+          ->where("Domain_ID",$domainID)
+          ->where("Domain_ID2",$domainID2)
+          ->where("Domain_ID3",$domainID3)
+          ->where("Num_Students",$students)
+          ->get();
+        $unupdated = DB::table("Classes")
+          ->select("Class_ID")
+          ->where("Class_ID",$classID)
+          ->get();
+        if($exists->isEmpty()){
+            if($unupdated->isEmpty()){
+              $insert = DB::table("Classes")
+                ->insert(array(
+                  "Class_ID"=>$classID,
+                  "Course Code"=>$courseCode,
+                  "Name"=>$name,
+                  "Teacher_ID"=>$teacherID,
+                  "Teacher_ID2"=>$teacherID2,
+                  "Domain_ID"=>$domainID,
+                  "Domain_ID2"=>$domainID2,
+                  "Domain_ID3"=>$domainID3,
+                  "Num_Students"=>$students
+                ));
+              $added++;
+            } else {
+              $insert = DB::table("Classes")
+                ->where("Class_ID",$classID)
+                ->update(array(
+                  "Course Code"=>$courseCode,
+                  "Name"=>$name,
+                  "Teacher_ID"=>$teacherID,
+                  "Teacher_ID2"=>$teacherID2,
+                  "Domain_ID"=>$domainID,
+                  "Domain_ID2"=>$domainID2,
+                  "Domain_ID3"=>$domainID3,
+                  "Num_Students"=>$students
+                ));
+              $modified++;
+            }
+        } else {
+          $duplicates++;
+        }
       }
 
 
