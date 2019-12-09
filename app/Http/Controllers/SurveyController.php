@@ -7,7 +7,10 @@ use Illuminate\Support\Facades\DB;
 
 class SurveyController extends Controller
 {
-
+	public function submit($id) {
+		dd("hello world!");
+	}
+	
     public function survey($id) {
 		$ClassesToSurvey =[];
 
