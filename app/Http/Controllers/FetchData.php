@@ -160,4 +160,13 @@ GROUP BY R.Question_ID"));
 
       return "Loaded $added new items, modified $modified, and found $duplicates duplicates.";
     }
+
+    public function activeDomains(){
+      $domains = DB::table("Learning Domains")
+        ->select("*")
+        ->get();
+      return view("editDomains",[
+        "domains"=>$domains;
+      ])
+    }
 }

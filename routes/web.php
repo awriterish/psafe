@@ -45,10 +45,6 @@ Route::get('/editQuestions', function(){
   return view("editQuestions");
 });
 
-Route::get('/editQuestions', function(){
-  return view("editQuestions");
-});
-
 Route::get('/survey', function(){
   return view("fancySurvey");
 });
@@ -61,8 +57,7 @@ Route::get('/viewReport', function(){
   return view("viewReport");
 });
 
-Route::get('/editDomains', function(){
-  return view("editDomains");
+Route::get('/editDomains',"FetchData@activeDomains"
 });
 
 Route::get('/teacherHelp', function(){
