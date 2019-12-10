@@ -9,10 +9,9 @@ class SurveyController extends Controller
 {
 	public function submit () {
 		$mytime = Carbon\Carbon::now();
-		return $mytime;
-		//DB::table('Responses')->insert(
-		//	['Teacher_ID' => 10, 'Class_ID' => 1, 'Question_ID' => 8, 'STR' => 7, 'SAT' => 6, 'NG' => 5, 'UNSAT' => 4, 'NA' => 3]
-		//);
+		DB::table('Submissions')->insert(
+			['Teache_ID' => 1, 'Class_ID' => 1, 'Timestamp' => $mytime, 'IP' => 7, 'Grades' => 1, 'Papers' => 1, 'Presentations' => 1, 'Exams' => 1, 'Other' => 'asdfasd']
+		);
 		return request()->all();
 	}
 	
