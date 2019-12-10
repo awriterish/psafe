@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\DB;
 class SurveyController extends Controller
 {
 	public function submit () {
+		//DB::table('Responses')->insert(
+		//	['Response_ID' => 10, 'Submission_ID' => 9, 'Question_ID' => 8, 'STR' => 7, 'SAT' => 6, 'NG' => 5, 'UNSAT' => 4, 'NA' => 3]
+		//);
 		return request()->all();
 	}
 	

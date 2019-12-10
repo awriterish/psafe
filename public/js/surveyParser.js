@@ -24,7 +24,9 @@ function setTeacherID(id) {
 	console.log("setTeacherID("+id+")");
 	teacherID=id;
 }
-
+function getTeacherID() {
+	return teacherID;
+}
 
 //ISAAC'S METHODS
 /*

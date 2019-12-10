@@ -8,7 +8,8 @@ function setSurveyBase(newBase) {
 
 function renderSurveyFrame() {
 	console.log("renderSurveyFrame()");
-	var surveyForm='<p id="rubric">\
+	var surveyForm='<input type="hidden" name="teacherID" value='+getTeacherID() +'\
+					<p id="rubric">\
 						<div id="surveyExplain">\
 							<h6>Rubrics:</h6>\
 							Type in each box the number of students in the class whose\
