@@ -8,8 +8,10 @@ use Illuminate\Support\Facades\DB;
 class SurveyController extends Controller
 {
 	public function submit () {
+		$mytime = Carbon\Carbon::now();
+		return $mytime;
 		//DB::table('Responses')->insert(
-		//	['Response_ID' => 10, 'Submission_ID' => 9, 'Question_ID' => 8, 'STR' => 7, 'SAT' => 6, 'NG' => 5, 'UNSAT' => 4, 'NA' => 3]
+		//	['Teacher_ID' => 10, 'Class_ID' => 1, 'Question_ID' => 8, 'STR' => 7, 'SAT' => 6, 'NG' => 5, 'UNSAT' => 4, 'NA' => 3]
 		//);
 		return request()->all();
 	}
