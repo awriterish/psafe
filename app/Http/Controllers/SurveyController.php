@@ -23,12 +23,19 @@ class SurveyController extends Controller
 		
 		$ip= \Request::ip();
 		
-		DB::table('Submissions')->insert(
-			['Teacher_ID' => request('teacherID')."", 'Class_ID' => request('classID')."", 'Timestamp'=> date("Y-m-d H:i:s"), 
-			'IP' => DB::raw("inet_aton('$ip')"), 'Grades' => $grades, 'Papers' => $papers, 'Presentations' => $presentations, 'Exams' => $exams, 'Other' => request('usedOther').""]
-		);
-
+		$submission= new Submissions;
 		
+		$submission->Teacher_ID = request('teacherID');
+		$submission->Class_ID = request('classID');
+		$submission->Timestamp = date("Y-m-d H:i:s");
+		$submission->IP = DB::raw("inet_aton('$ip')");
+		$submission->Grades = $grades;
+		$submission->Papers = $papers;
+		$submission->Presentations = $presentations;
+		$submission->Exams = $exams;
+		$submission->Other = request('usedOther')."";
+		
+		$submission->save();
 
 		//Parsing Question Results
 		for($i=0; $i<=request('surveyLength'); $i++){
