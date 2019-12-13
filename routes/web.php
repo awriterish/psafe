@@ -43,9 +43,7 @@ Route::get('/teacherLayout', function(){
   return view("teacherLayout");
 });
 
-Route::get('/editQuestions', function(){
-  return view("editQuestions");
-});
+Route::get('/editQuestions', "FetchData@editQuestions");
 
 Route::get('/survey', function(){
   return view("fancySurvey");

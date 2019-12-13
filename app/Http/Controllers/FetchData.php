@@ -170,4 +170,23 @@ GROUP BY R.Question_ID"));
         "domains"=>$domains
       ]);
     }
+
+    public function editQuestions(){
+      $activeDomains = DB::table("Learning Domains")
+        ->select("Domain_ID", "Name", "Abbr", "Active")
+        ->where("Active",1)
+        ->orderBy("Name")
+        ->get();
+
+      $inactiveDomains = DB::table("Learning Domains")
+        ->select("Domain_ID", "Name", "Abbr", "Active")
+        ->where("Active",0)
+        ->orderBy("Name")
+        ->get();
+
+      return view("editQuestions",[
+        "activeDomains"=>$activeDomains,
+        "inactiveDomains"=>$inactiveDomains
+      ]);
+    }
 }
