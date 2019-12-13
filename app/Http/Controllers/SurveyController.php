@@ -8,12 +8,31 @@ use Illuminate\Support\Facades\DB;
 class SurveyController extends Controller
 {
 	public function submit () {
-		$mytime = Carbon\Carbon::now();
+		//Parsing Question Results
+		
+
+		//Parsing Desc. Evidence Section
+		if(request('usedGrades')=='on') $grades= 1;
+		else $grades=0;
+		
+		if(request('usedPapers')=='on') $papers= 1;
+		else $papers=0;
+		
+		if(request('usedPresentations')=='on') $presentations= 1;
+		else $presentations=0;
+		
+		if(request('usedExams')=='on') $exams= 1;
+		else $exams=0;
+		
+		$ip= \Request::ip();
+		
 		DB::table('Submissions')->insert(
-			['Teache_ID' => 1, 'Class_ID' => 1, 'Timestamp' => $mytime, 'IP' => 7, 'Grades' => 1, 'Papers' => 1, 'Presentations' => 1, 'Exams' => 1, 'Other' => 'asdfasd']
+			['Teacher_ID' => request('teacherID')."", 'Class_ID' => request('classID')."", 'Timestamp'=> date("Y-m-d H:i:s"), 
+			'IP' => $ip, 'Grades' => $grades, 'Papers' => $papers, 'Presentations' => $presentations, 'Exams' => $exams, 'Other' => request('usedOther').""]
 		);
 		return request()->all();
 	}
+	
 	
     public function survey($id) {
 		$ClassesToSurvey =[];

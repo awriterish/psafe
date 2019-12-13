@@ -28,6 +28,16 @@ function getTeacherID() {
 	return teacherID;
 }
 
+function getClassAtIndex(index) {
+	console.log("getClassAtIndex("+index+")")
+	return surveys[index][1];
+}
+
+function getQuestion(index) {
+	console.log("getQuestion("+index+")");
+	return questions[index][1];
+}
+
 //ISAAC'S METHODS
 /*
 Returns the titles of all surveys in the following format:

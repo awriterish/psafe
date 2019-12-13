@@ -6,9 +6,11 @@ function setSurveyBase(newBase) {
 	
 }
 
-function renderSurveyFrame() {
+function renderSurveyFrame(index) {
 	console.log("renderSurveyFrame()");
-	var surveyForm='<input type="hidden" name="teacherID" value='+getTeacherID() +'\
+	var surveyForm='<input type="hidden" name="teacherID" value='+getTeacherID() +'>\
+					<input type="hidden" name="classID" value='+getClassAtIndex(index)+'>\
+					<input type="hidden" name="surveyLength" value='+getSurveyQuestions(index).length+'>\
 					<p id="rubric">\
 						<div id="surveyExplain">\
 							<h6>Rubrics:</h6>\
@@ -71,10 +73,10 @@ function renderSurveyFrame() {
 							<label class="custom-control-label" for="usedExams">Exams</label>\
 						</div>\
 						<div class="form-control-sm row ">\
-							<label for="formGroupExampleInput">\
+							<label for="usedOther">\
 								Other(please list:)\
 							</label>\
-							<input type="text" class="form-control form-control-sm col-md-2" name= id="formGroupExampleInput" placeholder="Example input">\
+							<input type="text" class="form-control form-control-sm col-md-2" name="usedOther" id="usedOther" placeholder="Example input">\
 						</div>\
 					</div>';
 	$('#surveyHelp').remove();
@@ -82,7 +84,7 @@ function renderSurveyFrame() {
 }
 
 function renderSurvey(index){
-	renderSurveyFrame();
+	renderSurveyFrame(index);
 	renderSubmitButton();
 	console.log('renderSurvey('+index+')');
 
@@ -96,6 +98,7 @@ function renderSurvey(index){
 	for(var i=1; i<=surveyQuestions.length;i++) {
 		var question=surveyQuestions[i-1];
 		var surveyThing= '<tr>\
+						<input type="hidden" name="question'+index+'" value='+getQuestion(index)+'>\
 						<td id ="domainQ'+i+'">'+i+". "+question+'</td>\
 						<td><input class="form-control surveyIn" type="number" name="q'+i+'STR" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
 						<td><input class="form-control surveyIn" type="number" name="q'+i+'SAT" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
