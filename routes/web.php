@@ -71,3 +71,7 @@ Route::get('/graph/{id}', "FetchData@graph");
 Route::get('/loadData',"FetchData@load");
 
 Route::get('/updateDomains',"dataUpdater@updateDomains");
+
+Route::get('/generateReport', 'ReportGenerator@generateRecent');
+
+Route::get('/generateReport/{span}','ReportGenerator@generateReport')
