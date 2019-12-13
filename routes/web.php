@@ -74,4 +74,4 @@ Route::get('/updateDomains',"dataUpdater@updateDomains");
 
 Route::get('/generateReport', 'ReportGenerator@generateRecent');
 
-Route::get('/generateReport/{span}','ReportGenerator@generateReport')
+Route::get('/generateReport/{span}','ReportGenerator@generateReport');
