@@ -46,7 +46,7 @@
 		console.log("renderTeacherNav()");
 		var renderNav ="";
 		var surveyTitles = getSurveyTitles();
-		console.log(surveyTitles);
+		//console.log(surveyTitles);
 		for(var i=0; i<surveyTitles.length;i++) {
 			var className=surveyTitles[i];
 			var teacherThing= '<li class="nav-item">\
@@ -58,7 +58,7 @@
 
 			renderNav+=teacherThing;
 		}
-		console.log('renderNav='+renderNav);
+		//console.log('renderNav='+renderNav);
 		$('#teacherNav').html(renderNav);
 
 	}
@@ -80,7 +80,7 @@
 	}
 
   function displayTeacherName() {
-    console.log("displayTeacherName()"+'{{$teacherName}}');
+	console.log("displayTeacherName()"+'{{$teacherName}}');
     $('#teacherName').html('{{$teacherName}}');
   }
 
@@ -94,20 +94,20 @@
 			//console.log("ithSumMatched="+ithSumMatched);
 			matched=matched&&ithSumMatched;
 		}
-		console.log("returning matched="+matched);
+		//console.log("returning matched="+matched);
 		return matched;
 	}
 
 	function refreshAll() {
 		console.log("refreshAll()");
 		setTitle(formattedTitle);
-    displayTeacherName();
+		displayTeacherName();
 		for(i=0;i<totalOutcomes;i++)
 			refreshRow(i);
 	}
 
 	function refreshRow(num) {
-		console.log("refreshRow("+num+")");
+		//console.log("refreshRow("+num+")");
 		var sum=getSumOf(num);
 		$("#q"+num+"SUM").val(sum+"/"+totalStudents);
 	}
