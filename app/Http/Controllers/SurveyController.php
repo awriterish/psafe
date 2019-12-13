@@ -8,10 +8,7 @@ use Illuminate\Support\Facades\DB;
 class SurveyController extends Controller
 {
 	public function submit () {
-		//Parsing Question Results
-		
-
-		//Parsing Desc. Evidence Section
+		//Making Submission Entry
 		if(request('usedGrades')=='on') $grades= 1;
 		else $grades=0;
 		
@@ -28,8 +25,16 @@ class SurveyController extends Controller
 		
 		DB::table('Submissions')->insert(
 			['Teacher_ID' => request('teacherID')."", 'Class_ID' => request('classID')."", 'Timestamp'=> date("Y-m-d H:i:s"), 
-			'IP' => $ip, 'Grades' => $grades, 'Papers' => $papers, 'Presentations' => $presentations, 'Exams' => $exams, 'Other' => request('usedOther').""]
+			'IP' => DB::raw("inet_aton('$ip')"), 'Grades' => $grades, 'Papers' => $papers, 'Presentations' => $presentations, 'Exams' => $exams, 'Other' => request('usedOther').""]
 		);
+
+		
+
+		//Parsing Question Results
+		for($i=0; $i<=request('surveyLength'); $i++){
+			
+		}
+		
 		return request()->all();
 	}
 	
