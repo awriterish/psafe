@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class SurveyController extends Controller
 {
@@ -11,19 +12,15 @@ class SurveyController extends Controller
 		//Making Submission Entry
 		if(request('usedGrades')=='on') $grades= 1;
 		else $grades=0;
-		
 		if(request('usedPapers')=='on') $papers= 1;
 		else $papers=0;
-		
 		if(request('usedPresentations')=='on') $presentations= 1;
 		else $presentations=0;
-		
 		if(request('usedExams')=='on') $exams= 1;
 		else $exams=0;
-		
 		$ip= \Request::ip();
 		
-		$submission= new Submissions;
+		$submission= new \App\Models\Submission();
 		
 		$submission->Teacher_ID = request('teacherID');
 		$submission->Class_ID = request('classID');
@@ -39,10 +36,11 @@ class SurveyController extends Controller
 
 		//Parsing Question Results
 		for($i=0; $i<=request('surveyLength'); $i++){
-			
+			$response=new \App\Models\Response();
+			$response->SubmissionID = $submission->Submission_ID;
 		}
 		
-		return request()->all();
+		return $submission->Submission_ID;
 	}
 	
 	
