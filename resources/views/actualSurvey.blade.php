@@ -33,7 +33,7 @@
 		</button>
 	</div>
 	<div class="toast-body" id="errorMsg">
-		Please select at least two measures of performace.
+		Placeholder error message.
 	</div>
 </div>
 

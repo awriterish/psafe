@@ -123,21 +123,8 @@ function renderSubmitButton() {
 	console.log('renderSubmitButton()');
 	var submitButton=	'<div id="submitDiv" class="float-right">\
 							<a>\
-							<button class="btn btn-lg btn-outline-secondary mt-auto" style="margin-bottom: 10px;" onClick="verifySubmission()">Submit</button>\
+							<button class="btn btn-lg btn-outline-secondary mt-auto" style="margin-bottom: 10px;">Submit</button>\
 							</a>\
 						</div>';
 	$('#surveyForm').append(submitButton);
 	}
-	function verifySubmission() {
-	if(false){
-		console.log("yay you did it :) redirecting...");
-	}
-	else{
-		createToast();
-		$('.toast').toast('show');
-	}
-
-	function createToast(){
-
-	}
-}
