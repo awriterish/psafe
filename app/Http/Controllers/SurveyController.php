@@ -38,12 +38,12 @@ class SurveyController extends Controller
 		for($i=1; $i<=request('surveyLength'); $i++){
 			$response=new \App\Models\Response();
 			$response->Submission_ID = $submission->Submission_ID;
-			$response->Question_ID=request('question'.$i);
-			$response->STR=request('q'.$i.'STR');
-			$response->SAT=request('q'.$i.'SAT');
-			$response->NG=request('q'.$i.'NG');
-			$response->UNSAT=request('q'.$i.'UNSAT');
-			$response->NA=request('q'.$i.'NA');
+			$response->Question_ID=request('question'.$i)+0;
+			$response->STR=request('q'.$i.'STR')+0;
+			$response->SAT=request('q'.$i.'SAT')+0;
+			$response->NG=request('q'.$i.'NG')+0;
+			$response->UNSAT=request('q'.$i.'UNSAT')+0;
+			$response->NA=request('q'.$i.'NA')+0;
 			$response->save();
 		}
 		
