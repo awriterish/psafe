@@ -11,5 +11,22 @@ Test Page
 	<h5> Header 5</h5>
 	<h6> Header 6</h6>
 	<p> This is text in a paragraph tag. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum, lorem at lobortis tempor, elit ligula venenatis eros, at tincidunt est ante ac tellus. Etiam blandit magna id leo sodales scelerisque. Duis ultrices vestibulum sapien, in ultricies felis congue id. Integer sed libero ullamcorper, dignissim ex ut, efficitur ante. Nunc lorem est, egestas eu posuere id, pellentesque in elit. Praesent id velit ullamcorper massa consectetur vehicula varius nec eros. Proin at quam nisi. Suspendisse potenti. Phasellus dictum ligula sed dapibus viverra. Vivamus sollicitudin nulla eu iaculis venenatis. Integer sit amet purus diam. Aenean suscipit consectetur lacus, a ultrices eros tempus et. Quisque vel venenatis augue, eget aliquam felis. Donec fringilla eu ipsum vitae accumsan. Integer sed neque orci. </p>
-	<button> Default Button </button>
+	<button class="btn btn-danger" onclick="$('.toast').toast('show');"> Default Button </button>
+	<div class="alert alert-danger" role="alert">
+	  This is a primary alert—check it out!
+	</div>
+
+	<div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-autohide="false">
+	  <div class="toast-header">
+	    <strong class="mr-auto">Warning</strong>
+	    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+	      <span aria-hidden="true">&times;</span>
+	    </button>
+	  </div>
+	  <div class="toast-body">
+	    Please select at least two measures of performace.
+	  </div>
+	</div>
+
+
 @endsection

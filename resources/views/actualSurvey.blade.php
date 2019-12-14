@@ -25,6 +25,17 @@
 	{{csrf_field()}}
 </form>
 
+<div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-autohide="false">
+	<div class="toast-header">
+		<strong class="mr-auto">Warning</strong>
+		<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="toast-body" id="errorMsg">
+		Please select at least two measures of performace.
+	</div>
+</div>
 
 	@include('parserSetup')
 	<script src= '/js/surveyRenderer.js'></script>
