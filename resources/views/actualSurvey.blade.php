@@ -5,7 +5,7 @@
 @endsection
 
 @section('teacherName')
-<p id='teacherName'></p>
+<p id='teacherName' style="display:inline"></p>
 
 @endsection
 
