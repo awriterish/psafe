@@ -42,6 +42,7 @@
 	<script>
 	var totalOutcomes=-1;
 	var totalStudents=-1;
+	var validToSubmit=false;
 	var formattedTitle = "";
 
 	function readyPage() {
@@ -78,7 +79,7 @@
 		console.log("refreshHandlers()");
 		$('.surveyOut').off();
 		$('.surveyIn').keyup(function () {
-		refreshAll();
+			refreshAll();
 		});
 		$('.surveyIn').on("change", function () {
 			refreshAll();
@@ -90,59 +91,63 @@
 		$('#surveyTitle').html(title);
 	}
 
-  function displayTeacherName() {
-	console.log("displayTeacherName()"+'{{$teacherName}}');
-    $('#teacherName').html('{{$teacherName}}');
-  }
-
-	function allSumsMatched() {
-		console.log("allSumsMatched()");
-		var i;
-		var matched=true;
-		for (i = 0; i < totalOutcomes; i++) {
-			//console.log("i="+i);
-			var ithSumMatched=getSumOf(i)==totalStudents;
-			//console.log("ithSumMatched="+ithSumMatched);
-			matched=matched&&ithSumMatched;
-		}
-		//console.log("returning matched="+matched);
-		return matched;
+	function displayTeacherName() {
+		console.log("displayTeacherName()"+'{{$teacherName}}');
+		$('#teacherName').html('{{$teacherName}}');
 	}
 
 	function refreshAll() {
 		console.log("refreshAll()");
 		setTitle(formattedTitle);
 		displayTeacherName();
+		validToSubmit=true;
 		for(i=1;i<=totalOutcomes;i++)
 			refreshRow(i);
+		refreshSubmitButton(validToSubmit);
 	}
 
 	function refreshRow(num) {
 		//console.log("refreshRow("+num+")");
 		var sum=getSumOf(num);
 		$("#q"+num+"SUM").val(sum+"/"+totalStudents);
+		console.log("sum==totalStudents="+sum==totalStudents);
+		validToSubmit= validToSubmit && (sum==totalStudents);
 	}
 
 	function getSumOf(num) {
-	//	console.log("getSumOf("+num+")");
+		console.log("getSumOf("+num+")");
 		var str=Number($("input[name='q"+i+"STR']").val());
-	//	console.log("str"+num+"="+str);
+		console.log("str"+num+"="+str);
 		var sat=Number($("input[name='q"+i+"SAT']").val());
-	//	console.log("sat"+num+"="+sat);
+		console.log("sat"+num+"="+sat);
 		var ng=Number($("input[name='q"+i+"NG']").val());
-	//	console.log("ng"+num+"="+ng);
+		console.log("ng"+num+"="+ng);
 		var unsat=Number($("input[name='q"+i+"UNSAT']").val());
-	//	console.log("unsat"+num+"="+unsat);
+		console.log("unsat"+num+"="+unsat);
 		var na=Number($("input[name='q"+i+"NA']").val());
-	//	console.log("na"+num+"="+na);
+		console.log("na"+num+"="+na);
 		var sum=Number(str+sat+ng+unsat+na);
 		return sum;
 	}
 
+	function refreshSubmitButton(canSubmit) {
+		console.log("refreshButton("+canSubmit+")");
+		if(canSubmit) {
+			$("#submit-button").attr("type", "submit");
+			//$("#submit-button").css({"background-color": goodColor});
+		} else {
+			$("#submit-button").attr("type", "button");
+			//$("#submit-button").css({"background-color": badColor});
+		}
+	}
 
+	function handleSubmitClick() {
+		console.log("handleSubmitClick()");
+		if(!true) {
+			alert("Oh No!");
+		}
+	}
     $(document).ready(readyPage());
-
-
 
   </script>
 @endsection

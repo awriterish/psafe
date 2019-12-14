@@ -54,7 +54,7 @@ function renderSurveyFrame(index) {
 					<div id="descPick">\
 						<p>\
 							<h6>Descriptive Evidence of Performance:</h6>\
-							Please check all data used to complete this form. Feel free to add to the list. Multiple measures must be used.\
+							Please check all data used to complete this form. Feel free to add to the list. <strong>At least 2 measures must be used</strong>.\
 						</p>\
 						<div class="custom-control custom-checkbox mb-3">\
 							<input type="checkbox" class="custom-control-input" name="usedGrades" id="usedGrades">\
@@ -100,11 +100,11 @@ function renderSurvey(index){
 		var surveyThing= '<tr>\
 						<input type="hidden" name="question'+i+'" value='+getQuestionIDs(index)[i-1]+'>\
 						<td id ="domainQ'+i+'">'+i+". "+question+'</td>\
-						<td><input class="form-control surveyIn" type="number" name="q'+i+'STR" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
-						<td><input class="form-control surveyIn" type="number" name="q'+i+'SAT" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
-						<td><input class="form-control surveyIn" type="number" name="q'+i+'NG" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
-						<td><input class="form-control surveyIn" type="number" name="q'+i+'UNSAT" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
-						<td><input class="form-control surveyIn" type="number" name="q'+i+'NA" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
+						<td><input class="form-control surveyIn" type="number" name="q'+i+'STR" min="0" data-bind="value:replyNumber" placeholder=0/></td>\
+						<td><input class="form-control surveyIn" type="number" name="q'+i+'SAT" min="0" data-bind="value:replyNumber" placeholder=0/></td>\
+						<td><input class="form-control surveyIn" type="number" name="q'+i+'NG" min="0" data-bind="value:replyNumber" placeholder=0/></td>\
+						<td><input class="form-control surveyIn" type="number" name="q'+i+'UNSAT" min="0" data-bind="value:replyNumber" placeholder=0/></td>\
+						<td><input class="form-control surveyIn" type="number" name="q'+i+'NA" min="0" data-bind="value:replyNumber" placeholder=0/></td>\
 						<td><input class="form-control surveyOut" type="text" name="q'+i+'SUM" id="q'+i+'SUM" placeholder="0/'+totalStudents+'" readonly></td>\
 						</tr>';
 
@@ -121,9 +121,9 @@ function renderSurvey(index){
 
 function renderSubmitButton() {
 	console.log('renderSubmitButton()');
-	var submitButton=	'<div id="submitDiv" class="float-right">\
+	var submitButton=	'<div id="submitDiv" class="float-right" onClick="handleSubmitClick()">\
 							<a>\
-							<button class="btn btn-lg btn-outline-secondary mt-auto" style="margin-bottom: 10px;">Submit</button>\
+							<button type="button" class="btn btn-lg btn-outline-secondary mt-auto" style="margin-bottom: 10px;" >Submit</button>\
 							</a>\
 						</div>';
 	$('#surveyForm').append(submitButton);
