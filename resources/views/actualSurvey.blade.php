@@ -110,8 +110,10 @@
 		//console.log("refreshRow("+num+")");
 		var sum=getSumOf(num);
 		$("#q"+num+"SUM").val(sum+"/"+totalStudents);
-		console.log("sum==totalStudents="+sum==totalStudents);
-		validToSubmit= validToSubmit && (sum==totalStudents);
+		console.log("sum="+	sum + "totalStudents=" + totalStudents);
+		var isMatched = sum==totalStudents;
+		console.log("isMatched="+isMatched);
+		validToSubmit = validToSubmit && (sum==totalStudents);
 	}
 
 	function getSumOf(num) {
