@@ -102,7 +102,7 @@
 		console.log("refreshAll()");
 		setTitle(formattedTitle);
 		displayTeacherName();
-		for(i=0;i<totalOutcomes;i++)
+		for(i=1;i<=totalOutcomes;i++)
 			refreshRow(i);
 	}
 

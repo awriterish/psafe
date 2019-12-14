@@ -90,7 +90,7 @@ function renderSurvey(index){
 
 	var survey ="";
 	var surveyQuestions = getSurveyQuestions(index);
-
+	console.log("surveyQuestions="+surveyQuestions);
 	totalOutcomes=surveyQuestions.length;
 	//console.log("totalOutcomes="+totalOutcomes);
 	totalStudents=getStudentsIn(index);
@@ -98,7 +98,7 @@ function renderSurvey(index){
 	for(var i=1; i<=surveyQuestions.length;i++) {
 		var question=surveyQuestions[i-1];
 		var surveyThing= '<tr>\
-						<input type="hidden" name="question'+i+'" value='+getQuestion(i)+'>\
+						<input type="hidden" name="question'+i+'" value='+getQuestionIDs(index)[i-1]+'>\
 						<td id ="domainQ'+i+'">'+i+". "+question+'</td>\
 						<td><input class="form-control surveyIn" type="number" name="q'+i+'STR" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\
 						<td><input class="form-control surveyIn" type="number" name="q'+i+'SAT" min="0" data-bind="value:replyNumber" placeholder="0"/></td>\

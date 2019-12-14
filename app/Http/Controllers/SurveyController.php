@@ -35,17 +35,19 @@ class SurveyController extends Controller
 		$submission->save();
 
 		//Parsing Question Results
-		for($i=0; $i<=request('surveyLength'); $i++){
+		for($i=1; $i<=request('surveyLength'); $i++){
 			$response=new \App\Models\Response();
-			return request('question'+i);
-			$response->SubmissionID = $submission->Submission_ID;
-
-			
-			
+			$response->Submission_ID = $submission->Submission_ID;
+			$response->Question_ID=request('question'.$i);
+			$response->STR=request('q'.$i.'STR');
+			$response->SAT=request('q'.$i.'SAT');
+			$response->NG=request('q'.$i.'NG');
+			$response->UNSAT=request('q'.$i.'UNSAT');
+			$response->NA=request('q'.$i.'NA');
 			$response->save();
 		}
 		
-		return $submission->Submission_ID;
+		//return $submission->Submission_ID;
 	}
 	
 	

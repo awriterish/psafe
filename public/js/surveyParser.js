@@ -33,10 +33,18 @@ function getClassAtIndex(index) {
 	return surveys[index][1];
 }
 
-function getQuestion(index) {
-	console.log("getQuestion("+index+")");
-	console.log("questions["+index+"]="+questions[index]);
-	return questions[index][1];
+function getQuestionIDs(index) {
+	console.log('getQuestionIDs('+index+')');
+	var domainToRender=surveys[index][3];
+	//console.log('domainToRender='+domainToRender);
+	var questionIDs=[];
+	for(i=0;i<questions.length;i++) {
+		//console.log('questions['+i+'][0]='+questions[i][0]);
+		if(questions[i][0]==domainToRender) {
+			questionIDs.push(questions[i][1]);
+		}
+	}
+	return questionIDs;
 }
 
 //ISAAC'S METHODS
@@ -60,9 +68,6 @@ Returns all the questions of a survey at {index} in the following format:
 */
 function getSurveyQuestions(index) {
 	console.log('getSurveyQuestions('+index+')');
-	
-	var surveyToRender=surveys[index];
-	//console.log('surveyToRender='+surveyToRender);
 	var domainToRender=surveys[index][3];
 	//console.log('domainToRender='+domainToRender);
 	var surveyQuestions=[];
