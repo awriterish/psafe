@@ -56,19 +56,19 @@ function renderSurveyFrame(index) {
 							<h6>Descriptive Evidence of Performance:</h6>\
 							Please check all data used to complete this form. Feel free to add to the list. <strong>At least 2 measures must be used</strong>.\
 						</p>\
-						<div class="custom-control custom-checkbox mb-3">\
+						<div class="custom-control custom-checkbox mb-3 surveyIn">\
 							<input type="checkbox" class="custom-control-input" name="usedGrades" id="usedGrades">\
 							<label class="custom-control-label" for="usedGrades">Grades</label>\
 						</div>\
-						<div class="custom-control custom-checkbox mb-3">\
+						<div class="custom-control custom-checkbox mb-3 surveyIn">\
 							<input type="checkbox" class="custom-control-input" name="usedPapers" id="usedPapers">\
 							<label class="custom-control-label" for="usedPapers">Papers</label>\
 						</div>\
-						<div class="custom-control custom-checkbox mb-3">\
+						<div class="custom-control custom-checkbox mb-3 surveyIn">\
 							<input type="checkbox" class="custom-control-input" name="usedPresentations" id="usedPresentations">\
 							<label class="custom-control-label" for="usedPresentations">Presentations</label>\
 						</div>\
-						<div class="custom-control custom-checkbox mb-3">\
+						<div class="custom-control custom-checkbox mb-3 surveyIn">\
 							<input type="checkbox" class="custom-control-input" name="usedExams" id="usedExams">\
 							<label class="custom-control-label" for="usedExams">Exams</label>\
 						</div>\
@@ -76,7 +76,7 @@ function renderSurveyFrame(index) {
 							<label for="usedOther">\
 								Other(please list:)\
 							</label>\
-							<input type="text" class="form-control form-control-sm col-md-2" name="usedOther" id="usedOther" placeholder="Example input">\
+							<input type="text" class="form-control form-control-sm col-md-2 surveyIn" name="usedOther" id="usedOther" placeholder="Example input">\
 						</div>\
 					</div>';
 	$('#surveyHelp').remove();

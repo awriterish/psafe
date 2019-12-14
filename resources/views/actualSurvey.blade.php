@@ -103,7 +103,26 @@
 		validToSubmit=true;
 		for(i=1;i<=totalOutcomes;i++)
 			refreshRow(i);
+		if(validToSubmit)
+			validToSubmit = validToSubmit && getUsedMeasures();
 		refreshSubmitButton(validToSubmit);
+	}
+
+	function getUsedMeasures() {
+		console.log("getUsedMeasures()");
+		var usedMeasures=0;
+		if ($("input[name=usedGrades]").is(":checked")) usedMeasures++;
+		console.log("usedMeasures="+usedMeasures);
+		if ($("input[name=usedPapers]").is(":checked")) usedMeasures++;
+		console.log("usedMeasures="+usedMeasures);
+		if ($("input[name=usedPresentation]").is(":checked")) usedMeasures++;
+		console.log("usedMeasures="+usedMeasures);
+		if ($("input[name=usedExams]").is(":checked")) usedMeasures++;
+		console.log("usedMeasures="+usedMeasures);
+		if (($("input[name=usedOther]").val()+"").length>0) usedMeasures++;
+		console.log("usedMeasures="+usedMeasures);
+		console.log("usedMeasures="+usedMeasures);
+		return usedMeasures>=2;
 	}
 
 	function refreshRow(num) {
@@ -145,8 +164,8 @@
 
 	function handleSubmitClick() {
 		console.log("handleSubmitClick()");
-		if(!true) {
-			alert("Oh No!");
+		if(!validToSubmit) {
+			alert("Please make each row includes all students and include at least 2 measures!");
 		}
 	}
     $(document).ready(readyPage());
