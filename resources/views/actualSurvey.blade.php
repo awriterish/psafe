@@ -15,6 +15,7 @@
 
 
 @section('content')
+
 <div id="surveyHelp">
 	<p>
 		Welcome, please select a class survey on the left.

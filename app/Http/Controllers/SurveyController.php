@@ -50,9 +50,21 @@ class SurveyController extends Controller
 		//return $submission->Submission_ID;
 	}
 	
+	public function setCookie($id) {
+		$cookie_name = "teacherID";
+		$cookie_value = $id;
+		setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+		
+		if(!isset($_COOKIE[$cookie_name])) {
+			return( "Cookie named '" . $cookie_name . "' is not set!");
+		} else {
+			return("Cookie '" . $cookie_name . "' is set!<br>Value is: " . $_COOKIE[$cookie_name]);
+		}
+	}
 	
     public function survey($id) {
 		$ClassesToSurvey =[];
+		
 
 		//Class Queries
 		$idMatch1 = DB::table('Classes')
