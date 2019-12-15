@@ -87,16 +87,29 @@ class SurveyController extends Controller
 		$match3Encoded=json_encode($idMatch3);
 		$Merge1and2 = json_encode(array_merge(json_decode($match1Encoded, true),json_decode($match2Encoded, true)));
 		$ClassesToSurvey = array_merge(json_decode($Merge1and2, true),json_decode($match3Encoded, true));
-
+		//dd($ClassesToSurvey);
+		$surveysCompleted=[];
+		forEach($ClassesToSurvey as $result) {
+			$resultClassID=$result['Class_ID'];
+			$surveyEntries = DB::table('Submissions')
+						->select('Submissions.Submission_ID')
+						->where('Class_ID', $resultClassID)
+						->where('Teacher_ID', $id)
+						->get();
+			if($surveyEntries->count()>0) {
+				array_push($surveysCompleted, 1);
+			}
+			else {
+				array_push($surveysCompleted, 0);
+			}
+		}
+		
 		//Possible Question Query [code, text, domain ID]
 		$questionIDs = [];
 		forEach($ClassesToSurvey as $result) {
 			$domainID=$result['Domain_ID'];
-			if(in_array($domainID, $questionIDs)) {
-
-			} else {
+			if(!in_array($domainID, $questionIDs))
 				array_push($questionIDs, $domainID);
-			}
 		}
 
 		//
@@ -120,11 +133,13 @@ class SurveyController extends Controller
 		
 		//dd($ClassesToSurvey);
 		//dd($questions);
+		//dd($surveysCompleted);
 
 		$data=array('id'=>$id,
 					'ClassesToSurvey'=>$ClassesToSurvey,
 					'questions'=>$questions,
-					'teacherName'=>$teacherName);
+					'teacherName'=>$teacherName,
+					'surveysCompleted'=>$surveysCompleted);
 		return view('actualSurvey')->with($data);
 	}
 }

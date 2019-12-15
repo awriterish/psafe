@@ -2,7 +2,7 @@
 var surveys = new Array();
 function addNewSurvey(className, classID, domainName, domainID, students) {
 	//console.log('addNewSurvey('+className+', '+classID+', '+domainName+', '+domainID+', '+students+')');
-	var newSurvey = [className, parseInt(classID), domainName, parseInt(domainID), parseInt(students)];
+	var newSurvey = [className, parseInt(classID), domainName, parseInt(domainID), parseInt(students),0];
 	surveys.push(newSurvey);
 }
 function finishSurveyFormatting() {
