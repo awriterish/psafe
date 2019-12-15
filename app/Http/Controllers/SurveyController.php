@@ -46,7 +46,7 @@ class SurveyController extends Controller
 			$response->NA=request('q'.$i.'NA')+0;
 			$response->save();
 		}
-		return view('survey');
+		return redirect('/survey');
 		//return $submission->Submission_ID;
 	}
 	
