@@ -45,6 +45,7 @@
 	var validToSubmit=false;
 	var formattedTitle = "";
 
+
 	function readyPage() {
 		console.log("readyPage()");
 		setSurveyBase($('#surveyForm').html());
@@ -153,12 +154,14 @@
 
 	function refreshSubmitButton(canSubmit) {
 		console.log("refreshButton("+canSubmit+")");
+
+		$("#submit-button").css("color","rgb(255, 255, 255)");
 		if(canSubmit) {
 			$("#submit-button").attr("type", "submit");
-			//$("#submit-button").css({"background-color": goodColor});
+			$("#submit-button").css("background-color","rgb(40,167,69)");
 		} else {
 			$("#submit-button").attr("type", "button");
-			//$("#submit-button").css({"background-color": badColor});
+			$("#submit-button").css("background-color","rgb(220,53,69)");
 		}
 	}
 
