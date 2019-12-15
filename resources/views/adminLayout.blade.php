@@ -63,6 +63,12 @@ admin
                   View All Reports
                 </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/generateReport">
+                  <span data-feather="file-text"></span>
+                  Generate CSV
+                </a>
+              </li>
             </ul>
           </div>
         </nav>
@@ -70,7 +76,7 @@ admin
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2">@yield('contentTitle','CONTENTTITLE GOES HERE c:')</h1>
-            
+
           </div>
           @yield('content','CONTENT GOES HERE c:')
         </main>
