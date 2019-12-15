@@ -57,7 +57,12 @@
 
 	function renderTeacherNav() {
 		console.log("renderTeacherNav()");
+		var surveysCompleted=[];
+		@foreach ($surveysCompleted as $surveyInfo)
+			surveysCompleted.push({{$surveyInfo}});
+		@endforeach
 		var renderNav ="";
+		var completedNav="";
 		var surveyTitles = getSurveyTitles();
 		//console.log(surveyTitles);
 		for(var i=0; i<surveyTitles.length;i++) {
@@ -68,11 +73,14 @@
 								'+className+' <span class="sr-only"></span>\
 								</a>\
 								</li>';
-
-			renderNav+=teacherThing;
+			if(surveysCompleted[i]==1)
+				completedNav+=teacherThing;
+			else 
+				renderNav+=teacherThing;
 		}
 		//console.log('renderNav='+renderNav);
 		$('#teacherNav').html(renderNav);
+		$('#teacherNavCompleted').html(completedNav);
 
 	}
 

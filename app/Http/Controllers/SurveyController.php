@@ -96,12 +96,21 @@ class SurveyController extends Controller
 						->where('Class_ID', $resultClassID)
 						->where('Teacher_ID', $id)
 						->get();
-			if($surveyEntries->count()>0) {
-				array_push($surveysCompleted, 1);
+			
+			$surveyDomainTable = DB::table('Responses')
+						->select('Responses.Submission_ID', 'Questions.Domain_ID')
+						->join('Questions', 'Responses.Question_ID', '=', 'Questions.Question_ID')
+						->get();
+			if($surveyDomainTable->count()>0) {
+				$surveyDomain=$surveyDomainTable['0'];
+				if($surveyEntries->count()>0&&$result['Domain_ID']==$surveyDomain->Domain_ID) {
+					array_push($surveysCompleted, 1);
+				}
+				else {
+					array_push($surveysCompleted, 0);
+				}
 			}
-			else {
-				array_push($surveysCompleted, 0);
-			}
+			
 		}
 		
 		//Possible Question Query [code, text, domain ID]
