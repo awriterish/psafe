@@ -62,6 +62,7 @@
 		@foreach ($surveysCompleted as $surveyInfo)
 			surveysCompleted.push({{$surveyInfo}});
 		@endforeach
+		console.log("surveysCompleted="+surveysCompleted);
 		var renderNav ="";
 		var completedNav="";
 		var surveyTitles = getSurveyTitles();

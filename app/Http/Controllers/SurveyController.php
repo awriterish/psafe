@@ -105,29 +105,28 @@ class SurveyController extends Controller
 			$Merge1and2 = json_encode(array_merge(json_decode($match1Encoded, true),json_decode($match2Encoded, true)));
 			$ClassesToSurvey = array_merge(json_decode($Merge1and2, true),json_decode($match3Encoded, true));
 			//dd($ClassesToSurvey);
+			
+			//Checking for completed surveys
 			$surveysCompleted=[];
 			forEach($ClassesToSurvey as $result) {
 				$resultClassID=$result['Class_ID'];
 				$surveyEntries = DB::table('Submissions')
-							->select('Submissions.Submission_ID')
+							->select('Submissions.Submission_ID', 'Class_ID')
 							->where('Class_ID', $resultClassID)
 							->where('Teacher_ID', $id)
 							->get();
-				
-				$surveyDomainTable = DB::table('Responses')
+				if($surveyEntries->count()>0)
+				{
+					$firstSurvey=$surveyEntries['0'];
+					$surveyDomainTable = DB::table('Responses')
 							->select('Responses.Submission_ID', 'Questions.Domain_ID')
 							->join('Questions', 'Responses.Question_ID', '=', 'Questions.Question_ID')
+							->where('Submission_ID', $firstSurvey->Submission_ID)
+							->where('Domain_ID', $result['Domain_ID'])
 							->get();
-				if($surveyDomainTable->count()>0) {
-					$surveyDomain=$surveyDomainTable['0'];
-					if($surveyEntries->count()>0&&$result['Domain_ID']==$surveyDomain->Domain_ID) {
-						array_push($surveysCompleted, 1);
-					}
-					else {
-						array_push($surveysCompleted, 0);
-					}
+					if($resultClassID==26680)
+						dd($surveyDomainTable);
 				}
-				
 			}
 			
 			//Possible Question Query [code, text, domain ID]
