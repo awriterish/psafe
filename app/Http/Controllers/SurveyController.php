@@ -124,10 +124,15 @@ class SurveyController extends Controller
 							->where('Submission_ID', $firstSurvey->Submission_ID)
 							->where('Domain_ID', $result['Domain_ID'])
 							->get();
-					if($resultClassID==26680)
-						dd($surveyDomainTable);
+					if($surveyDomainTable->count()>0)
+						array_push($surveysCompleted, 1);
+					else
+						array_push($surveysCompleted, 0);
+				} else {
+					array_push($surveysCompleted, 0);
 				}
-			}
+			} 
+			//return $surveysCompleted;
 			
 			//Possible Question Query [code, text, domain ID]
 			$questionIDs = [];
