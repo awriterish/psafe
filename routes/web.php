@@ -23,8 +23,6 @@ Route::get('/testPage', function () {
     return view('testPage');
 });
 
-Route::get('/survey/{id}', 'SurveyController@survey');
-
 Route::get('/survey', 'SurveyController@survey');
 
 Route::get('/teacher/{id}', 'SurveyController@setTeacherID');
