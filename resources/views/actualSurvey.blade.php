@@ -115,7 +115,7 @@
 		console.log("usedMeasures="+usedMeasures);
 		if ($("input[name=usedPapers]").is(":checked")) usedMeasures++;
 		console.log("usedMeasures="+usedMeasures);
-		if ($("input[name=usedPresentation]").is(":checked")) usedMeasures++;
+		if ($("input[name=usedPresentations]").is(":checked")) usedMeasures++;
 		console.log("usedMeasures="+usedMeasures);
 		if ($("input[name=usedExams]").is(":checked")) usedMeasures++;
 		console.log("usedMeasures="+usedMeasures);
