@@ -25,6 +25,10 @@ Route::get('/testPage', function () {
 
 Route::get('/survey/{id}', 'SurveyController@survey');
 
+Route::get('/survey', 'SurveyController@survey');
+
+Route::get('/teacher/{id}', 'SurveyController@setTeacherID');
+
 Route::post('survey', 'SurveyController@submit');
 
 Route::get('/dataLoader', function(){
@@ -44,10 +48,6 @@ Route::get('/teacherLayout', function(){
 });
 
 Route::get('/editQuestions', "FetchData@editQuestions");
-
-Route::get('/survey', function(){
-  return view("fancySurvey");
-});
 
 Route::get('/actualSurvey', function(){
   return view("actualSurvey");
