@@ -64,15 +64,16 @@ $(':button').on('click', function () {
         myXhr.upload.addEventListener('progress', function (e) {
           if (e.lengthComputable) {
             $('#progress').css("width",((e.loaded/e.total)*100)+"%");
-            if((e.loaded/e.total)==1){
-                console.log("test");
-              $("#uploadForn").text("File uploaded!")
-            }
-            console.log(e.loaded/e.total);
           }
         }, false);
       }
       return myXhr;
+    },
+    success: function(){
+      $("#uploadForm").html("File uploaded!")
+    },
+    error: function(xhr, error){
+      $("#uploadForm").html("Error uploading file.  Please reload the page and try again");
     }
   });
 });
