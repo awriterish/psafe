@@ -5,6 +5,7 @@ admin
 @endsection
 
 @section('navbarPermission')
+
     <div class="container-fluid">
       <div class="row">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
@@ -91,7 +92,7 @@ admin
 
     <script>
       $(document).ready(function(){
-        $("#icon").attr("href", "/");
+        $("#icon").attr("href", "/admin");
       });
     </script>
 @endsection

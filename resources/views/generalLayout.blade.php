@@ -38,13 +38,13 @@
 <ul class="navbar-nav px-3 ml-auto mr-3 float-right">
   <li class="nav-item text-nowrap">
 
-    <a class="nav-link">Welcome, @yield('teacherName')</a>
+    <a class="nav-link" id="showTeacherName">Welcome, @yield('teacherName')</a>
   </li>
 </ul>
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-
-          <a class="nav-link" href="#">Sign out</a>
+          <!--TODO this will remove cookies-->
+          <a class="nav-link" href="/" id="signOut">Sign out</a>
         </li>
       </ul>
     </nav>

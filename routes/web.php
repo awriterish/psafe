@@ -12,11 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('notSignedIn');
+});
+Route::get('/admin', function () {
+    return view('Welcome');
 });
 
 Route::get('/help', function () {
     return view('help');
+});
+Route::get('/placeholderLogin', function () {
+    return view('placeholderLoginRedirection');
 });
 
 Route::get('/testPage', function () {
