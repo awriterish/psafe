@@ -20,7 +20,7 @@
 	<p>
 		Welcome, please select a class survey on the left.
 	</p>
-		Have questions? <a href="/teacherHelp">Click here.</a>
+		Have questions? <a href="#FAQ" data-toggle="modal" data-target="#FAQ">Click here.</a>
 </div>
 <form id='surveyForm' method="post" action="/survey">
 	{{csrf_field()}}
@@ -77,7 +77,7 @@
 								</li>';
 			if(surveysCompleted[i]==1)
 				completedNav+=teacherThing;
-			else 
+			else
 				renderNav+=teacherThing;
 		}
 		//console.log('renderNav='+renderNav);

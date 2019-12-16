@@ -26,7 +26,7 @@
                 <span data-feather="help-circle"></span>
               </button>
             </h6>
-            <ul class="nav flex-column mb-2"id="teacherNavCompleted">
+            <ul class="nav flex-column mb-2"id="teacherNavCompleted" style="cursor: pointer">
             <!-- COMPLETED SURVEY NAMES GO HERE !! :D -->
             </ul>
 
@@ -49,8 +49,7 @@
 
     <script>
       $(document).ready(function(){
-        //TODO This should return them to the "select a survey" page, right now it is hardcoded to a specific teacher as an example
-        $("#icon").attr("href", "/survey/85");
+        $("#icon").attr("href", "/survey");
       });
     </script>
 
