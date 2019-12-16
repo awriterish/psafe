@@ -58,7 +58,7 @@ class SurveyController extends Controller
 		if(!isset($_COOKIE[$cookie_name])) {
 			return( "Cookie named '" . $cookie_name . "' is not set!");
 		} else {
-			return("Cookie '" . $cookie_name . "' is set!<br>Value is: " . $_COOKIE[$cookie_name]);
+			return redirect('/survey');
 		}
 	}
 	
