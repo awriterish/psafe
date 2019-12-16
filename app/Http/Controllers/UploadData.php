@@ -17,5 +17,14 @@ class UploadData extends Controller
       $file = $request->file('file');
       $location = $file->store("","storage");
       Storage::disk("storage")->move($location, "Course Data/data.json");
+      $catalog = Storage::disk("storage")->get("Course Data/data.json");
+      $catalog = json_decode($catalog);
+      if(count($catalog->value)>0){
+        Storage::disk("storage")->delete("Course Data/newData.json");
+        Storage::disk("storage")->move("Course Data/data.json", "Course Data/newData.json");
+      } else {
+        Storage::disk("storage")->delete("Course Data/data.json");
+        echo "Invalid data set!";
+      }
     }
 }
