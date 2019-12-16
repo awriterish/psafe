@@ -85,3 +85,5 @@ Route::get('/updateDatabase', function(){
 });
 
 Route::post('/uploadData','UploadData@data');
+
+Route::get('/uploadData','UploadData@index');

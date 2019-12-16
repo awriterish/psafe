@@ -20,7 +20,7 @@
     <h5>Step 3: Upload the data</h5>
     <p>Click the button below to upload ths file.</p>
     <div id="uploadForm">
-      <form enctype="multipart/form-data">
+      <form enctype="multipart/form-data" method="post" action="/UploadData">
         {{ csrf_field() }}
         <input name="file" type="file" class="btn btn-primary"/><br><br>
         <input type="button" value="Upload" class="btn btn-primary"/><br><br>
@@ -69,8 +69,8 @@ $(':button').on('click', function () {
       }
       return myXhr;
     },
-    success: function(){
-      $("#uploadForm").html("File uploaded!")
+    success: function(data){
+      $("#uploadForm").html("File uploaded!<br>" + data);
     },
     error: function(xhr, error){
       $("#uploadForm").html("Error uploading file.  Please reload the page and try again");
