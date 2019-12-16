@@ -83,3 +83,5 @@ Route::get('/generateReport/{span}','ReportGenerator@generateReport');
 Route::get('/updateDatabase', function(){
   return view("updateDatabase");
 });
+
+Route::post('/uploadData','UploadData@data');
