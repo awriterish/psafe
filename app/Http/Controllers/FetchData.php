@@ -61,7 +61,7 @@ GROUP BY R.Question_ID"));
                           get();
           if($exists->isEmpty()){
             $add = DB::table("Teachers")->
-                    insertOrIgnore(array("Name"=>$fullName));
+                    insertOrIgnore(array("Name"=>$fullName,"Teacher_ID"=>hash('sha256',$fullName)));
             $exists = DB::table("Teachers")->
                             select("Teacher_ID")->
                             where("Name",$fullName)->
@@ -105,6 +105,8 @@ GROUP BY R.Question_ID"));
         $domainID2 = !empty($domainIDs[1])?$domainIDs[1]:null;
         $domainID3 = !empty($domainIDs[2])?$domainIDs[2]:null;
         $students = $course->CurrentEnrollment;
+        $year = $course->YearCode;
+        $semester = $course->TermCode;
         $exists = DB::table("Classes")
           ->select("*")
           ->where("Class_ID",$classID)
@@ -116,6 +118,8 @@ GROUP BY R.Question_ID"));
           ->where("Domain_ID2",$domainID2)
           ->where("Domain_ID3",$domainID3)
           ->where("Num_Students",$students)
+          ->where("Year",$year)
+          ->where("Semester",$semester)
           ->get();
         $unupdated = DB::table("Classes")
           ->select("Class_ID")
@@ -133,7 +137,9 @@ GROUP BY R.Question_ID"));
                   "Domain_ID"=>$domainID,
                   "Domain_ID2"=>$domainID2,
                   "Domain_ID3"=>$domainID3,
-                  "Num_Students"=>$students
+                  "Num_Students"=>$students,
+                  "Year"=>$year,
+                  "Semester"=>$semester
                 ));
               $added++;
             } else {
@@ -147,7 +153,9 @@ GROUP BY R.Question_ID"));
                   "Domain_ID"=>$domainID,
                   "Domain_ID2"=>$domainID2,
                   "Domain_ID3"=>$domainID3,
-                  "Num_Students"=>$students
+                  "Num_Students"=>$students,
+                  "Year"=>$year,
+                  "Semester"=>$semester
                 ));
               $modified++;
             }
