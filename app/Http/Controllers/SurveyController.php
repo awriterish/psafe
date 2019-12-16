@@ -9,45 +9,49 @@ use Illuminate\Support\Facades\Storage;
 class SurveyController extends Controller
 {
 	public function submit () {
-		//Making Submission Entry
-		if(request('usedGrades')=='on') $grades= 1;
-		else $grades=0;
-		if(request('usedPapers')=='on') $papers= 1;
-		else $papers=0;
-		if(request('usedPresentations')=='on') $presentations= 1;
-		else $presentations=0;
-		if(request('usedExams')=='on') $exams= 1;
-		else $exams=0;
-		$ip= \Request::ip();
-		
-		$submission= new \App\Models\Submission();
-		
-		$submission->Teacher_ID = request('teacherID');
-		$submission->Class_ID = request('classID');
-		$submission->Timestamp = date("Y-m-d H:i:s");
-		$submission->IP = DB::raw("inet_aton('$ip')");
-		$submission->Grades = $grades;
-		$submission->Papers = $papers;
-		$submission->Presentations = $presentations;
-		$submission->Exams = $exams;
-		$submission->Other = request('usedOther')."";
-		
-		$submission->save();
+		if(!isset($_COOKIE["teacherID"])) {
+			return( "TeacherID is not set!");
+		} else {
+			//Making Submission Entry
+			if(request('usedGrades')=='on') $grades= 1;
+			else $grades=0;
+			if(request('usedPapers')=='on') $papers= 1;
+			else $papers=0;
+			if(request('usedPresentations')=='on') $presentations= 1;
+			else $presentations=0;
+			if(request('usedExams')=='on') $exams= 1;
+			else $exams=0;
+			$ip= \Request::ip();
+			
+			$submission= new \App\Models\Submission();
+			
+			$submission->Teacher_ID = $_COOKIE["teacherID"];
+			$submission->Class_ID = request('classID');
+			$submission->Timestamp = date("Y-m-d H:i:s");
+			$submission->IP = DB::raw("inet_aton('$ip')");
+			$submission->Grades = $grades;
+			$submission->Papers = $papers;
+			$submission->Presentations = $presentations;
+			$submission->Exams = $exams;
+			$submission->Other = request('usedOther')."";
+			
+			$submission->save();
 
-		//Parsing Question Results
-		for($i=1; $i<=request('surveyLength'); $i++){
-			$response=new \App\Models\Response();
-			$response->Submission_ID = $submission->Submission_ID;
-			$response->Question_ID=request('question'.$i)+0;
-			$response->STR=request('q'.$i.'STR')+0;
-			$response->SAT=request('q'.$i.'SAT')+0;
-			$response->NG=request('q'.$i.'NG')+0;
-			$response->UNSAT=request('q'.$i.'UNSAT')+0;
-			$response->NA=request('q'.$i.'NA')+0;
-			$response->save();
+			//Parsing Question Results
+			for($i=1; $i<=request('surveyLength'); $i++){
+				$response=new \App\Models\Response();
+				$response->Submission_ID = $submission->Submission_ID;
+				$response->Question_ID=request('question'.$i)+0;
+				$response->STR=request('q'.$i.'STR')+0;
+				$response->SAT=request('q'.$i.'SAT')+0;
+				$response->NG=request('q'.$i.'NG')+0;
+				$response->UNSAT=request('q'.$i.'UNSAT')+0;
+				$response->NA=request('q'.$i.'NA')+0;
+				$response->save();
+			}
+			return redirect('/survey');
+			//return $submission->Submission_ID;
 		}
-		return redirect('/survey');
-		//return $submission->Submission_ID;
 	}
 	
 	public function setTeacherID($id) {

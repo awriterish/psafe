@@ -48,7 +48,7 @@
 
 
 	function readyPage() {
-		console.log("readyPage()");
+		//console.log("readyPage()");
 		setSurveyBase($('#surveyForm').html());
 		formattedTitle = "Hello " + '{{$teacherName}}' +", please Select a Class";
 		renderTeacherNav();
@@ -57,12 +57,12 @@
 
 
 	function renderTeacherNav() {
-		console.log("renderTeacherNav()");
+		//console.log("renderTeacherNav()");
 		var surveysCompleted=[];
 		@foreach ($surveysCompleted as $surveyInfo)
 			surveysCompleted.push({{$surveyInfo}});
 		@endforeach
-		console.log("surveysCompleted="+surveysCompleted);
+		//console.log("surveysCompleted="+surveysCompleted);
 		var renderNav ="";
 		var completedNav="";
 		var surveyTitles = getSurveyTitles();
@@ -87,7 +87,7 @@
 	}
 
 	function makeHandlers() {
-		console.log("refreshHandlers()");
+		//console.log("refreshHandlers()");
 		$('.surveyOut').off();
 		$('.surveyIn').keyup(function () {
 			refreshAll();
@@ -98,17 +98,17 @@
 	}
 
 	function setTitle(title) {
-		console.log("setTitle("+title+")");
+		//console.log("setTitle("+title+")");
 		$('#surveyTitle').html(title);
 	}
 
 	function displayTeacherName() {
-		console.log("displayTeacherName()"+'{{$teacherName}}');
+		//console.log("displayTeacherName()"+'{{$teacherName}}');
 		$('#teacherName').html('{{$teacherName}}');
 	}
 
 	function refreshAll() {
-		console.log("refreshAll()");
+		//console.log("refreshAll()");
 		setTitle(formattedTitle);
 		displayTeacherName();
 		validToSubmit=true;
@@ -120,19 +120,18 @@
 	}
 
 	function getUsedMeasures() {
-		console.log("getUsedMeasures()");
+		//console.log("getUsedMeasures()");
 		var usedMeasures=0;
 		if ($("input[name=usedGrades]").is(":checked")) usedMeasures++;
-		console.log("usedMeasures="+usedMeasures);
+		//console.log("usedMeasures="+usedMeasures);
 		if ($("input[name=usedPapers]").is(":checked")) usedMeasures++;
-		console.log("usedMeasures="+usedMeasures);
+		//console.log("usedMeasures="+usedMeasures);
 		if ($("input[name=usedPresentations]").is(":checked")) usedMeasures++;
-		console.log("usedMeasures="+usedMeasures);
+		//console.log("usedMeasures="+usedMeasures);
 		if ($("input[name=usedExams]").is(":checked")) usedMeasures++;
-		console.log("usedMeasures="+usedMeasures);
+		//console.log("usedMeasures="+usedMeasures);
 		if (($("input[name=usedOther]").val()+"").length>0) usedMeasures++;
-		console.log("usedMeasures="+usedMeasures);
-		console.log("usedMeasures="+usedMeasures);
+		//console.log("usedMeasures="+usedMeasures);
 		return usedMeasures>=2;
 	}
 
@@ -140,31 +139,30 @@
 		//console.log("refreshRow("+num+")");
 		var sum=getSumOf(num);
 		$("#q"+num+"SUM").val(sum+"/"+totalStudents);
-		console.log("sum="+	sum + "totalStudents=" + totalStudents);
+		//console.log("sum="+	sum + "totalStudents=" + totalStudents);
 		var isMatched = sum==totalStudents;
-		console.log("isMatched="+isMatched);
+		//console.log("isMatched="+isMatched);
 		validToSubmit = validToSubmit && (sum==totalStudents);
 	}
 
 	function getSumOf(num) {
-		console.log("getSumOf("+num+")");
+		//console.log("getSumOf("+num+")");
 		var str=Number($("input[name='q"+i+"STR']").val());
-		console.log("str"+num+"="+str);
+		//console.log("str"+num+"="+str);
 		var sat=Number($("input[name='q"+i+"SAT']").val());
-		console.log("sat"+num+"="+sat);
+		//console.log("sat"+num+"="+sat);
 		var ng=Number($("input[name='q"+i+"NG']").val());
-		console.log("ng"+num+"="+ng);
+		//console.log("ng"+num+"="+ng);
 		var unsat=Number($("input[name='q"+i+"UNSAT']").val());
-		console.log("unsat"+num+"="+unsat);
+		//console.log("unsat"+num+"="+unsat);
 		var na=Number($("input[name='q"+i+"NA']").val());
-		console.log("na"+num+"="+na);
+		//console.log("na"+num+"="+na);
 		var sum=Number(str+sat+ng+unsat+na);
 		return sum;
 	}
 
 	function refreshSubmitButton(canSubmit) {
-		console.log("refreshButton("+canSubmit+")");
-
+		//console.log("refreshButton("+canSubmit+")");
 		$("#submit-button").css("color","rgb(255, 255, 255)");
 		if(canSubmit) {
 			$("#submit-button").attr("type", "submit");
@@ -176,7 +174,7 @@
 	}
 
 	function handleSubmitClick() {
-		console.log("handleSubmitClick()");
+		//console.log("handleSubmitClick()");
 		if(!validToSubmit) {
 			alert("Please make each row includes all students and include at least 2 measures!");
 		}

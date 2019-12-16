@@ -10,6 +10,5 @@
 	@endforeach
 			
 	setTeacherID('{{$id}}');
-	finishSurveyFormatting();
 	//$(document).ready(setUpForID({{$id}}));
 </script>

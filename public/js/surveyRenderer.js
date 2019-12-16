@@ -7,9 +7,8 @@ function setSurveyBase(newBase) {
 }
 
 function renderSurveyFrame(index) {
-	console.log("renderSurveyFrame()");
-	var surveyForm='<input type="hidden" name="teacherID" value='+getTeacherID() +'>\
-					<input type="hidden" name="classID" value='+getClassAtIndex(index)+'>\
+	//console.log("renderSurveyFrame()");
+	var surveyForm='<input type="hidden" name="classID" value='+getClassAtIndex(index)+'>\
 					<input type="hidden" name="surveyLength" value='+getSurveyQuestions(index).length+'>\
 					<p id="rubric">\
 						<div id="surveyExplain">\
@@ -84,9 +83,10 @@ function renderSurveyFrame(index) {
 }
 
 function renderSurvey(index){
+	//console.log('renderSurvey('+index+')');
 	renderSurveyFrame(index);
 	renderSubmitButton();
-	console.log('renderSurvey('+index+')');
+	
 
 	var survey ="";
 	var surveyQuestions = getSurveyQuestions(index);
@@ -120,7 +120,7 @@ function renderSurvey(index){
 }
 
 function renderSubmitButton() {
-	console.log('renderSubmitButton()');
+	//console.log('renderSubmitButton()');
 	var submitButton=	'<div id="submitDiv" class="float-right" onClick="handleSubmitClick()">\
 							<a>\
 							<button id="submit-button", type="button" class="btn btn-lg btn-outline-secondary mt-auto" style="margin-bottom: 10px;" >Submit</button>\

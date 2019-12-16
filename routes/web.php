@@ -33,7 +33,7 @@ Route::get('/survey', 'SurveyController@survey');
 
 Route::get('/teacher/{id}', 'SurveyController@setTeacherID');
 
-Route::post('survey', 'SurveyController@submit');
+Route::post('/survey', 'SurveyController@submit');
 
 Route::get('/dataLoader', function(){
   return view("dataLoader");
