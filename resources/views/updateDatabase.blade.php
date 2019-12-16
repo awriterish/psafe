@@ -23,14 +23,27 @@
       <form enctype="multipart/form-data" method="post" action="/UploadData">
         {{ csrf_field() }}
         <input name="file" type="file" class="btn btn-primary"/><br><br>
-        <input type="button" value="Upload" class="btn btn-primary"/><br><br>
+        <input type="button" value="Upload" class="btn btn-primary" id="uploadData"/><br><br>
       </form>
       <div class="progress">
         <div class="progress-bar progress-bar-striped progress-bar-animated" id="progress" width="10%"></div>
       </div>
     </div>
   </div>
+  <div class="container p-3 my-3 bg-dark text-white">
+    <h5>Step 4: Load the data into the database</h5>
+    <p>By clicking below you will update your database</p>
+    <button type="button" name="button" id="loader" class="btn btn-primary" onclick="loadData()">Load Data</button>
+    <br>
+    <p id="output"></p>
+  </div>
+  <div class="container p-3 my-3 bg-dark text-white">
+    <h5>Step 5: Completed!</h5>
+    <p>If you did not get any errors, your database has been updated! We recommend doing this process once every semester.</p>
+  </div>
 </div>
+<br>
+<script src="/js/loadData.js"></script>
 <script type="text/javascript">
 $(':file').on('change', function () {
 var file = this.files[0];
@@ -40,7 +53,7 @@ var file = this.files[0];
 // Also see .name, .type
 });
 
-$(':button').on('click', function () {
+$('#uploadData').on('click', function () {
   $('#progress').css("width","0%");
   $.ajax({
     // Your server script to process the upload
