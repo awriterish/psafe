@@ -18,7 +18,15 @@ class Login extends Controller
         ->where("Teacher_ID",$hash)
         ->get();
       if($teacher->isEmpty()){
-        return view('noAccount');
+        return redirect('/noAccount');
+      } else {
+        setcookie("teacherID",$hash,time()+3600,"/");
+        setcookie("name",$name,time()+3600,"/");
+        if($teacher[0]->Admin==1){
+          return redirect('/admin');
+        } else {
+          return redirect('/survey');
+        }
       }
     }
 }

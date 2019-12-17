@@ -89,3 +89,9 @@ Route::post('/uploadData','UploadData@data');
 Route::get('/uploadData','UploadData@index');
 
 Route::get('/login','Login@user');
+
+Route::get('/sha256',function(){return view("sha");});
+
+Route::get('/noAccount',function(){return view("noAccount");});
+
+Route::get('/adminAccess',function(){return view("adminAccess");});

@@ -1,3 +1,27 @@
+<?php
+
+use Illuminate\Support\Facades\DB;
+
+if(!empty($_COOKIE['teacherID'])&&!empty($_COOKIE['name'])){
+  $teacher = DB::table('Teachers')
+    ->select("*")
+    ->where("Teacher_ID",$_COOKIE['teacherID'])
+    ->get();
+  if($teacher->isEmpty()){
+    return redirect('/noAccount');
+  } else {
+    if($teacher[0]->Admin!=1){
+      echo "Account is not an admin account";
+      header("Location: adminAccess/");
+    }
+  }
+} else {
+  header('Location: noAccount/');
+}
+
+?>
+
+
 @extends('generalLayout')
 
 @section('teacherName')
