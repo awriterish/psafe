@@ -39,43 +39,43 @@
   }
 
   .str{
-    background-color:#fd81eb;
+    background-color:#00dFeF	;
   }
 
   .str:hover{
-    background-color:#ff91db;
+    background-color:#10cFfF;
   }
 
   .sat{
-    background-color:#8fb8ff;
-  }
-
-  .sat:hover{
-    background-color:#7fc8ff;
-  }
-
-  .ng{
     background-color:#bdffa3;
   }
 
-  .ng:hover{
+  .sat:hover{
     background-color:#adff93;
   }
 
-  .unsat{
+  .ng{
     background-color:#feff97;
   }
 
-  .unsat:hover{
+  .ng:hover{
     background-color:#ffff77;
   }
 
+  .unsat{
+    background-color:#ffa5a5;
+  }
+
+  .unsat:hover{
+    background-color:#ff9595;
+  }
+
   .na{
-    background-color:#ffb5b5;
+    background-color:#aaaaaa;
   }
 
   .na:hover{
-    background-color:#ffa5a5;
+    background-color: #bbbbbb;
   }
 
   .square{

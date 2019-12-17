@@ -65,13 +65,6 @@ admin
                   Graph Overview
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/help">
-                  <span data-feather="file"></span>
-                  Help
-                </a>
-              </li>
-
             </ul>
 <!--This part could be populated with the years of reports
 
