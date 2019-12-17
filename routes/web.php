@@ -18,9 +18,6 @@ Route::get('/admin', function () {
     return view('Welcome');
 });
 
-Route::get('/help', function () {
-    return view('help');
-});
 Route::get('/placeholderLogin', function () {
     return view('placeholderLoginRedirection');
 });
@@ -61,12 +58,7 @@ Route::get('/viewReport', function(){
   return view("viewReport");
 });
 
-Route::get('/editDomains',"FetchData@activeDomains"
-);
-
-Route::get('/teacherHelp', function(){
-  return view("teacherHelp");
-});
+Route::get('/editDomains',"FetchData@activeDomains");
 
 Route::get('/graph', "FetchData@domains");
 

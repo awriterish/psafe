@@ -81,16 +81,25 @@ if(!empty($_COOKIE['teacherID'])&&!empty($_COOKIE['name'])){
                   Graph Overview
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file"></span>
-                  ETC
-                </a>
-              </li>
             </ul>
 
             @endif
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Help</span>
+              <button type="button" class="d-flex align-items-center text-muted btn btn-link" data-toggle="modal" data-target="#FAQ">
+                <span data-feather="help-circle"></span>
+              </button>
+            </h6>
+            <ul class="nav flex-column mb-2"id="helpTab" style="cursor: pointer">
+              <li class="nav-item">
+                <a class="nav-link" href="/help">
+                  <span data-feather="file"></span>
+                  Help
+                </a>
+              </li>
+            </ul>
           </div>
+
         </nav>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
@@ -125,31 +134,31 @@ if(!empty($_COOKIE['teacherID'])&&!empty($_COOKIE['name'])){
       </div>
       <div class="modal-body">
         <h6>Q: How do I make sure I have successfully submitted my surveys?</h6>
-        A: iunno
+        A: On the right hand side of your hompage a list of surveys will appear.  If your survey appears under the completed surveys section, you have!
         <p><!--whitespace--></p>
         <h6>Q: What if I submitted incorrect/incomplete information?</h6>
-        A: iunno
+        A: Click the survey under completed surveys that you submitted incorrectly.  Simply refill the information and the data will be updated!
         <p><!--whitespace--></p>
         <h6>Q: Why is it not letting me submit my class survey?</h6>
-        A: iunno
+        A: Every year a different set of learning domains are active.  If your survey doesn't appear, you don't have to do it!
         <p><!--whitespace--></p>
         <h6>Q: What if I have multiple classes?</h6>
-        A: iunno
+        A: There will be multiple surveys under the current surveys section.
         <p><!--whitespace--></p>
         <h6>Q: What if my class has multiple professors?</h6>
-        A: iunno
+        A: Both professors will be able to fill out the survey.
         <p><!--whitespace--></p>
         <h6>Q: What if my class has multiple learning domains?</h6>
-        A: iunno
+        A: If both learning domains are active, then you will have to fill out the survey twice, once for each learning domain.
         <p><!--whitespace--></p>
         <h6>Q: What if I need to edit one of my surveys?</h6>
-        A: iunno
+        A: Click the survey under completed surveys that you submitted incorrectly.  Simply refill the information and the data will be updated!
         <p><!--whitespace--></p>
         <h6>Q: Are there any helpful tools for professors?</h6>
-        A: iunno
+        A: Yes! This tool is the primary one, but if you need additional assistance, contact the owners of this site.
         <p><!--whitespace--></p>
         <h6>Q: What do I do if this help page does not solve my problem?</h6>
-        A: iunno
+        A: Contact the ownsers of this site.
         <p><!--whitespace--></p>
       </div>
       <div class="modal-footer">
