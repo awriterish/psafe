@@ -22,9 +22,9 @@ class SurveyController extends Controller
 			if(request('usedExams')=='on') $exams= 1;
 			else $exams=0;
 			$ip= \Request::ip();
-			
+
 			$submission= new \App\Models\Submission();
-			
+
 			$submission->Teacher_ID = $_COOKIE["teacherID"];
 			$submission->Class_ID = request('classID');
 			$submission->Timestamp = date("Y-m-d H:i:s");
@@ -34,7 +34,7 @@ class SurveyController extends Controller
 			$submission->Presentations = $presentations;
 			$submission->Exams = $exams;
 			$submission->Other = request('usedOther')."";
-			
+
 			$submission->save();
 
 			//Parsing Question Results
@@ -53,19 +53,19 @@ class SurveyController extends Controller
 			//return $submission->Submission_ID;
 		}
 	}
-	
+
 	public function setTeacherID($id) {
 		$cookie_name = "teacherID";
 		$cookie_value = $id;
 		setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
-		
+
 		if(!isset($_COOKIE[$cookie_name])) {
 			return( "Cookie named '" . $cookie_name . "' is not set!");
 		} else {
 			return redirect('/survey');
 		}
 	}
-	
+
     public function survey() {
 		if(!isset($_COOKIE["teacherID"])) {
 			return( "TeacherID is not set!");
@@ -73,7 +73,7 @@ class SurveyController extends Controller
 			//return("teacherID found	!<br>Value is: " . $_COOKIE["teacherID"]);
 			$id=$_COOKIE["teacherID"];
 			$ClassesToSurvey =[];
-			
+
 
 			//Class Queries
 			$idMatch1 = DB::table('Classes')
@@ -109,7 +109,7 @@ class SurveyController extends Controller
 			$Merge1and2 = json_encode(array_merge(json_decode($match1Encoded, true),json_decode($match2Encoded, true)));
 			$ClassesToSurvey = array_merge(json_decode($Merge1and2, true),json_decode($match3Encoded, true));
 			//dd($ClassesToSurvey);
-			
+
 			//Checking for completed surveys
 			$surveysCompleted=[];
 			forEach($ClassesToSurvey as $result) {
@@ -135,9 +135,9 @@ class SurveyController extends Controller
 				} else {
 					array_push($surveysCompleted, 0);
 				}
-			} 
+			}
 			//return $surveysCompleted;
-			
+
 			//Possible Question Query [code, text, domain ID]
 			$questionIDs = [];
 			forEach($ClassesToSurvey as $result) {
@@ -162,9 +162,9 @@ class SurveyController extends Controller
 							->select('Teachers.Name')
 							->where('Teacher_ID', $id)
 							->get()[0]->Name;
-			
-			
-			
+
+
+
 			//dd($ClassesToSurvey);
 			//dd($questions);
 			//dd($surveysCompleted);

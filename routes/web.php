@@ -96,4 +96,4 @@ Route::get('/noAccount',function(){return view("noAccount");});
 
 Route::get('/adminAccess',function(){return view("adminAccess");});
 
-Route::get('/signOut',function(){return redirect('/');});
+Route::get('/signOut',function(){return redirect("https://login.microsoftonline.com/common/oauth2/logout?");});
