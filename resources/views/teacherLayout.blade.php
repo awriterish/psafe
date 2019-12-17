@@ -1,3 +1,27 @@
+<?php
+
+use Illuminate\Support\Facades\DB;
+
+$admin = false;
+
+if(!empty($_COOKIE['teacherID'])&&!empty($_COOKIE['name'])){
+  $teacher = DB::table('Teachers')
+    ->select("*")
+    ->where("Teacher_ID",$_COOKIE['teacherID'])
+    ->get();
+  if($teacher->isEmpty()){
+    return redirect('/noAccount');
+  } else {
+    if($teacher[0]->Admin==1){
+      $admin = true;
+    }
+  }
+} else {
+  header('Location: noAccount/');
+}
+
+?>
+
 @extends('generalLayout')
 
 @section('navbarPermission')
@@ -6,8 +30,32 @@
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
             <ul id= "navbar" class="nav flex-column">
-<!--              @yield('navbar','NAVBAR GOES HERE')  -->
-
+              @if($admin)
+              <li class="nav-item">
+                <a class="nav-link" href="/editQuestions">
+                  <span data-feather="pen-tool"></span>
+                  Edit Questions
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/editDomains">
+                  <span data-feather="pen-tool"></span>
+                  Edit Domains
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/updateDatabase">
+                  <span data-feather="pen-tool"></span>
+                  Update Database
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file"></span>
+                  ETC
+                </a>
+              </li>
+              @endif
             </ul>
 
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
