@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Storage;
+use Illuminate\Http\Response;
 
 class ReportGenerator extends Controller
 {
@@ -55,7 +56,7 @@ ORDER BY c.Class_ID"));
     }
 
     $filename = "Reports/" . date('m_d_Y H_i_s') . ".csv";
-    echo $csv;
-    echo Storage::disk("storage")->put($filename, $csv);
+    Storage::disk("storage")->put($filename, $csv);
+    return response()->download(storage_path($filename), "report.csv", ["Location: admin/"]);
 }
 }
