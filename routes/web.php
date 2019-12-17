@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('notSignedIn');
+    return Socialite::with('azure')->redirect();
 });
 Route::get('/admin', function () {
     return view('Welcome');
@@ -87,3 +87,5 @@ Route::get('/updateDatabase', function(){
 Route::post('/uploadData','UploadData@data');
 
 Route::get('/uploadData','UploadData@index');
+
+Route::get('/login','Login@user');
