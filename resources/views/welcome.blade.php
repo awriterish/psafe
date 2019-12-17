@@ -1,13 +1,11 @@
 @extends('adminLayout')
 
 @section('contentTitle')
-Home Page
+Admin Home Page
 @endsection
 
 @section('content')
-      <div class="links">
-          <a href="/survey">Survey</a>
-          <a href="/help">Help</a>
-          <a href="/testPage">Test Page</a>
-      </div>
+<div class="links">
+  Click<a href="/survey"> here</a> to return to your teacher survey.
+</div>
 @endsection
