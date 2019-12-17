@@ -60,6 +60,12 @@ admin
                 </a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="/graph">
+                  <span data-feather="pen-tool"></span>
+                  Graph Overview
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="#">
                   <span data-feather="file"></span>
                   ETC

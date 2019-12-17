@@ -95,3 +95,5 @@ Route::get('/sha256',function(){return view("sha");});
 Route::get('/noAccount',function(){return view("noAccount");});
 
 Route::get('/adminAccess',function(){return view("adminAccess");});
+
+Route::get('/signOut',function(){return redirect('/');});

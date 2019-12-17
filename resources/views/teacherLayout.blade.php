@@ -29,34 +29,6 @@ if(!empty($_COOKIE['teacherID'])&&!empty($_COOKIE['name'])){
       <div class="row">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
-            <ul id= "navbar" class="nav flex-column">
-              @if($admin)
-              <li class="nav-item">
-                <a class="nav-link" href="/editQuestions">
-                  <span data-feather="pen-tool"></span>
-                  Edit Questions
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/editDomains">
-                  <span data-feather="pen-tool"></span>
-                  Edit Domains
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/updateDatabase">
-                  <span data-feather="pen-tool"></span>
-                  Update Database
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file"></span>
-                  ETC
-                </a>
-              </li>
-              @endif
-            </ul>
 
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
               <span>Current Surveys</span>
@@ -77,7 +49,47 @@ if(!empty($_COOKIE['teacherID'])&&!empty($_COOKIE['name'])){
             <ul class="nav flex-column mb-2"id="teacherNavCompleted" style="cursor: pointer">
             <!-- COMPLETED SURVEY NAMES GO HERE !! :D -->
             </ul>
+            @if($admin)
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Admin Tools</span>
+              <button type="button" class="d-flex align-items-center text-muted btn btn-link" data-toggle="modal" data-target="#FAQ">
+                <span data-feather="help-circle"></span>
+              </button>
+            </h6>
+            <ul class="nav flex-column mb-2"id="adminNavBar" style="cursor: pointer">
+              <li class="nav-item">
+                <a class="nav-link" href="/editQuestions">
+                  <span data-feather="pen-tool"></span>
+                  Edit Questions
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/editDomains">
+                  <span data-feather="pen-tool"></span>
+                  Edit Domains
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/updateDatabase">
+                  <span data-feather="pen-tool"></span>
+                  Update Database
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/graph">
+                  <span data-feather="pen-tool"></span>
+                  Graph Overview
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file"></span>
+                  ETC
+                </a>
+              </li>
+            </ul>
 
+            @endif
           </div>
         </nav>
 

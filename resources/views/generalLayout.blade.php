@@ -41,7 +41,7 @@
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
           <!--TODO this will remove cookies-->
-          <a class="nav-link" href="/" id="signOut">Sign out</a>
+          <a class="nav-link" href="/signOut" id="signOut">Sign out</a>
         </li>
       </ul>
     </nav>
