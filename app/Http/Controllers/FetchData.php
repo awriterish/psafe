@@ -117,7 +117,6 @@ GROUP BY R.Question_ID"));
           ->where("Domain_ID",$domainID)
           ->where("Domain_ID2",$domainID2)
           ->where("Domain_ID3",$domainID3)
-          ->where("Num_Students",$students)
           ->where("Year",$year)
           ->where("Semester",$semester)
           ->get();
